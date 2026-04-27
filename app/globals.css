@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --green: #0f6e56;
+  --green-soft: #d9f0e8;
+  --sage: #e8f7f2;
+  --sand: #f6f1e8;
+  --sand-2: #ece4d7;
+  --ink: #1c1c1a;
+  --ink-60: rgba(28, 28, 26, 0.6);
+  --ink-70: rgba(28, 28, 26, 0.7);
+  --ink-80: rgba(28, 28, 26, 0.8);
+  --terracotta: #c4763a;
+  --border: #dfd5c6;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-dm-serif);
+
+  --color-background: var(--sand);
+  --color-foreground: var(--ink);
+
+  --color-card: var(--sand);
+  --color-card-foreground: var(--ink);
+
+  --color-popover: var(--sand);
+  --color-popover-foreground: var(--ink);
+
+  --color-primary: var(--green);
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: var(--sage);
+  --color-secondary-foreground: var(--ink);
+
+  --color-muted: var(--sand);
+  --color-muted-foreground: var(--ink-60);
+
+  --color-accent: var(--sage);
+  --color-accent-foreground: var(--green);
+
+  --color-destructive: var(--terracotta);
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: var(--border);
+  --color-input: var(--sand-2);
+  --color-ring: var(--green);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), sans-serif;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.font-serif {
+  font-family: var(--font-dm-serif), serif;
+}
