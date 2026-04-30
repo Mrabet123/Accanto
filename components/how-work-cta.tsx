@@ -51,25 +51,11 @@ export default function HowWorkCta() {
               })}
             </div>
           </div>
-
-          <div className="mt-6 rounded-[16px] bg-[#f2ece3] px-5 py-5 md:px-6">
-            <p className="text-[17px] leading-8 text-[#3f3a35]">
-              <span className="font-semibold text-[#2f2b27]">
-                Phase 2 — Request Evaluation (default status active)
-              </span>
-              <br />
-              Each request is analyzed individually: location, client profile, availability,
-              and compatibility. Only qualified requests receive a response within 48 business
-              hours.
-            </p>
-          </div>
         </div>
       </section>
 
       <section className="bg-white px-4 py-6 md:px-8 md:py-8">
         <div className="mx-auto max-w-[1060px]">
-
-
           <div className="rounded-[18px] bg-[#f4efe7] px-6 py-14 md:px-10 md:py-16">
             <div className="text-center">
               <p className="text-[13px] uppercase tracking-[0.22em] text-[#8d8176]">

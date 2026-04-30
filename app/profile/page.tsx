@@ -3,7 +3,7 @@ import React from "react";
 
 const educationCards = [
   {
-    title: "8 years old",
+    title: "8 years",
     subtitle: "Social and health sector",
     description:
       "Elderly, disabled, patients recovering in public and sheltered facilities.",
@@ -27,31 +27,27 @@ const languages = [
     badgeBg: "bg-[#dff3ec]",
     badgeText: "text-[#1a8a68]",
     line: "bg-[#1a8a68]",
-    description: "North African families · cultural mediation",
   },
   {
     language: "Italian",
-    badge: "Flowing",
+    badge: "Fluent",
     badgeBg: "bg-[#e6eefc]",
     badgeText: "text-[#4b79d8]",
     line: "bg-[#4b79d8]",
-    description: "Main working language",
   },
   {
     language: "French",
-    badge: "Flowing",
+    badge: "Fluent",
     badgeBg: "bg-[#e6eefc]",
     badgeText: "text-[#4b79d8]",
     line: "bg-[#4b79d8]",
-    description: "Hospitality · French-speaking clientele",
   },
   {
     language: "English",
-    badge: "Flowing",
+    badge: "Fluent",
     badgeBg: "bg-[#e6eefc]",
     badgeText: "text-[#4b79d8]",
     line: "bg-[#4b79d8]",
-    description: "Expat · SaaS · Travel",
   },
   {
     language: "German",
@@ -59,7 +55,6 @@ const languages = [
     badgeBg: "bg-[#ece7fb]",
     badgeText: "text-[#7b68c8]",
     line: "bg-[#c4b2ff]",
-    description: "Alpine Corridor · Como–Lecco–Sondrio",
   },
 ];
 
@@ -87,7 +82,6 @@ const methodologyCards = [
 ];
 
 const philosophyParagraphs = [
-  "We work in a wide variety of settings — luxury hospitality, clinics, and healthcare. In every setting, I've learned the same thing: people don't remember the service you provided. They remember how you made them feel.",
   "A professional caregiver protects tools. A conscious caregiver respects the person they're caring for — with structure, method, and the ability to understand what's truly needed, even before it is said.",
   "My measure of success is not the current duration of an intervention. It is the moment the person I care for stops asking me as a passing professional and starts considering me part of their daily life. That is the real progress in every care journey.",
   "The world values empathy, structure, and clear boundaries. In every field, the longer you serve, the more people remember how you made them feel. A professional caregiver offers both. A conscious caregiver recognizes that the value of care lives in calm, continuity, and trust.",
@@ -96,15 +90,15 @@ const philosophyParagraphs = [
 const discoveryCards = [
   {
     title: "Operational base",
-    text: "Dervio · Lake Como",
-    subtext: "Starting point for every intervention: Province of Lecco.",
+    text: "Dervio-Lecco",
+    subtext: "Starting point for every intervention.",
     accent: "border-t-[#1fb57a]",
     pill: "bg-[#eef8f3] text-[#1a8a68]",
   },
   {
     title: "Main area",
-    text: "Lecco · Como · Sondrio",
-    subtext: "Primary intervention area. Complete coverage of the three provinces.",
+    text: "LECCO-COMO LAKE / Valtellina",
+    subtext: "Primary intervention area.",
     accent: "border-t-[#3f72d8]",
     pill: "bg-[#eef4ff] text-[#4b79d8]",
   },
@@ -127,7 +121,7 @@ const discoveryCards = [
 const discoverySteps = [
   "Fill out the evaluation request",
   "Individual analysis within 48 working hours",
-  "If compatible: Calendly link with availability",
+  "If compatible: a calendar link will be shared with you",
   "Choose date and time · 20–30 min · phone or video",
 ];
 
@@ -135,7 +129,7 @@ export default function ProfilePage() {
   return (
     <main className="min-h-screen bg-[#fcfbf8] px-3 py-3 text-[#2b2723] md:px-4 md:py-4">
       <div className="mx-auto max-w-[1060px] space-y-4">
-        <SectionBlock title="Professional identity" badge="S1">
+        <SectionBlock title="Professional identity">
           <div className="p-4 md:p-5">
             <div className="flex gap-4">
               <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full border border-[#d8d1c4] bg-[#f5efe4] font-serif text-[22px] text-[#6c5b45] md:h-[58px] md:w-[58px]">
@@ -148,7 +142,7 @@ export default function ProfilePage() {
                 </h1>
 
                 <p className="mt-1 text-[11px] text-[#7f7367] md:text-[12px]">
-                  Freelance OSS · Dervio, Lake Como · Lecco / Como / Sondrio / Milan
+                  Self employed caregiver · COMO LAKE-Lecco / Valtellina
                 </p>
 
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -169,7 +163,7 @@ export default function ProfilePage() {
           </div>
         </SectionBlock>
 
-        <SectionBlock title="Education and professional path" badge="S2">
+        <SectionBlock title="Profesisonal path">
           <div className="p-4 md:p-5">
             <div className="grid gap-3 md:grid-cols-2">
               {educationCards.map((card) => (
@@ -205,7 +199,7 @@ export default function ProfilePage() {
           </div>
         </SectionBlock>
 
-        <SectionBlock title="Linguistic profile" badge="S3">
+        <SectionBlock title="Linguistic capacity">
           <div className="p-4 md:p-5">
             <div className="grid gap-3 md:grid-cols-5">
               {languages.map((item) => (
@@ -225,14 +219,18 @@ export default function ProfilePage() {
 
                   <div className={`mt-3 h-[2px] w-full ${item.line}`} />
 
-                  <p className="mt-3 text-[12px] leading-6 text-[#8a7d70]">{item.description}</p>
+                  <ul className="mt-3 list-disc space-y-1 pl-4 text-[12px] leading-5 text-[#8a7d70]">
+                    <li>Writing</li>
+                    <li>Reading</li>
+                    <li>Speaking</li>
+                  </ul>
                 </article>
               ))}
             </div>
           </div>
         </SectionBlock>
 
-        <SectionBlock title="Working methodology" badge="S4">
+        <SectionBlock title="Working methodology">
           <div className="p-4 md:p-5">
             <div className="grid gap-3">
               {methodologyCards.map((item, index) => (
@@ -255,7 +253,7 @@ export default function ProfilePage() {
           </div>
         </SectionBlock>
 
-        <SectionBlock title="Philosophy and values" badge="S5">
+        <SectionBlock title="Philosophy and values">
           <div className="p-4 md:p-5">
             <div className="rounded-[10px] bg-[#f4f1eb] px-4 py-4">
               <p className="text-[13px] leading-7 italic text-[#5f5549]">
@@ -269,10 +267,6 @@ export default function ProfilePage() {
               <p className="text-[13px] leading-7 italic text-[#5f5549]">
                 “{philosophyParagraphs[2]}”
               </p>
-              <div className="my-4 h-px bg-[#e2dbcf]" />
-              <p className="text-[13px] leading-7 italic text-[#5f5549]">
-                “{philosophyParagraphs[3]}”
-              </p>
             </div>
 
             <p className="mt-4 text-center font-serif text-[16px] italic text-[#2d2a27] md:text-[18px]">
@@ -281,7 +275,7 @@ export default function ProfilePage() {
           </div>
         </SectionBlock>
 
-        <SectionBlock title="Intervention area and discovery session" badge="S6">
+        <SectionBlock title="Intervention area">
           <div className="p-4 md:p-5">
             <div className="grid gap-3 md:grid-cols-2 md:gap-4">
               {discoveryCards.map((card) => (
@@ -309,11 +303,6 @@ export default function ProfilePage() {
                 How the discovery session works
               </p>
 
-              <p className="mt-3 text-[13px] leading-6 text-[#5f5549]">
-                The calendar is not public. The Calendly link is shared exclusively with qualified
-                applicants after their application has been evaluated.
-              </p>
-
               <ol className="mt-4 space-y-2">
                 {discoverySteps.map((step, index) => (
                   <li
@@ -335,39 +324,39 @@ export default function ProfilePage() {
           </div>
         </SectionBlock>
 
-        <SectionBlock title="Final CTA" badge="S7">
-  <div className="p-4 md:p-5">
-    <div className="rounded-[14px] bg-[#f4f1eb] px-6 py-14 md:px-10 md:py-16">
-      <div className="text-center">
-        <p className="text-[12px] uppercase tracking-[0.18em] text-[#8d8176] md:text-[13px]">
-          YOU&apos;VE READ ENOUGH
-        </p>
+        <section className="overflow-hidden rounded-[14px] border border-[#d8d1c4] bg-white">
+          <div className="p-4 md:p-5">
+            <div className="rounded-[14px] bg-[#f4f1eb] px-6 py-14 md:px-10 md:py-16">
+              <div className="text-center">
+                <p className="text-[12px] uppercase tracking-[0.18em] text-[#8d8176] md:text-[13px]">
+                  YOU&apos;VE READ ENOUGH
+                </p>
 
-        <h2 className="mt-6 font-serif text-[28px] font-bold leading-tight text-[#111] md:text-[32px]">
-          Submit your request. I&apos;ll evaluate it personally.
-        </h2>
+                <h2 className="mt-6 font-serif text-[28px] font-bold leading-tight text-[#111] md:text-[32px]">
+                  Submit your request. I&apos;ll evaluate it personally.
+                </h2>
 
-        <p className="mx-auto mt-5 max-w-[860px] text-[15px] leading-7 text-[#3f3a35] md:text-[16px]">
-          Every case is different. I review each request individually. If there&apos;s a fit,
-          I&apos;ll contact you in your language.
-        </p>
+                <p className="mx-auto mt-5 max-w-[860px] text-[15px] leading-7 text-[#3f3a35] md:text-[16px]">
+                  Every case is different. I review each request individually. If there&apos;s a fit,
+                  I&apos;ll contact you in your language.
+                </p>
 
-        <div className="mt-8">
-          <Link
-            href="/request"
-            className="inline-flex items-center justify-center rounded-[12px] border border-[#2a2a2a] bg-transparent px-10 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-white"
-          >
-            Submit your evaluation request →
-          </Link>
-        </div>
+                <div className="mt-8">
+                  <Link
+                    href="/request"
+                    className="inline-flex items-center justify-center rounded-[12px] border border-[#2a2a2a] bg-transparent px-10 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-white"
+                  >
+                    Submit your evaluation request →
+                  </Link>
+                </div>
 
-        <p className="mt-8 text-[14px] text-[#8d8176]">
-          No obligation. No automatic responses. Just a professional assessment.
-        </p>
-      </div>
-    </div>
-  </div>
-</SectionBlock>
+                <p className="mt-8 text-[14px] text-[#8d8176]">
+                  No obligation. No automatic responses. Just a professional assessment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );
@@ -375,19 +364,14 @@ export default function ProfilePage() {
 
 function SectionBlock({
   title,
-  badge,
   children,
 }: {
   title: string;
-  badge: string;
   children: React.ReactNode;
 }) {
   return (
     <section className="overflow-hidden rounded-[14px] border border-[#d8d1c4] bg-white">
-      <div className="flex items-center gap-3 border-b border-[#d8d1c4] bg-[#f5f0e8] px-3 py-2.5">
-        <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#111] px-1.5 text-[10px] font-semibold leading-none text-white">
-          {badge}
-        </span>
+      <div className="border-b border-[#d8d1c4] bg-[#f5f0e8] px-3 py-2.5">
         <h2 className="text-[13px] font-medium text-[#2f2a26]">{title}</h2>
       </div>
       {children}

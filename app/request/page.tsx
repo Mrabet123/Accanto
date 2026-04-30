@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 export default function RequestPage() {
-  const [urgency, setUrgency] = useState<"normal" | "priority" | "urgent">("priority");
   const [consent1, setConsent1] = useState(true);
   const [consent2, setConsent2] = useState(true);
 
@@ -22,49 +21,17 @@ export default function RequestPage() {
 
         <div className="mb-6 h-px w-full bg-[#d9d3c8]" />
 
-        <SectionFrame badge="FRAMING" title="Framing text">
+        <SectionFrame title="Applicant's data">
           <div className="p-4 md:p-5">
-            <div className="rounded-[8px] bg-[#f4f1eb] px-4 py-4">
-              <p className="text-[13px] leading-7 text-[#5f5549] md:text-[14px]">
-                <span className="font-semibold text-[#3f3a35]">Preliminary assessment required.</span>{" "}
-                I don’t respond to all requests. I evaluate those that are compatible with my
-                professional profile, my area of expertise, and the specific needs of the person
-                being treated. Please fill out each field carefully.
-              </p>
-            </div>
-          </div>
-        </SectionFrame>
-
-        <SectionFrame
-          badge="PRE"
-          title="Urgency pre-selector"
-          note="Before the form · mental commitment · immediate segmentation"
-        >
-          <div className="p-4 md:p-5">
-            <p className="mb-3 text-[13px] text-[#2b2723] md:text-[14px]">
-              Urgency level of the request <span className="text-[#c4763a]">*</span>
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <ChoiceButton active={urgency === "normal"} onClick={() => setUrgency("normal")}>
-                Normal (within 1 week)
-              </ChoiceButton>
-              <ChoiceButton active={urgency === "priority"} onClick={() => setUrgency("priority")}>
-                Priority (within 2–3 days)
-              </ChoiceButton>
-              <ChoiceButton active={urgency === "urgent"} onClick={() => setUrgency("urgent")}>
-                Urgent (within 24–48 hours)
-              </ChoiceButton>
+            <div className="mb-5 grid gap-4 md:grid-cols-2">
+              <SelectField
+                label="Who are you?"
+                required
+                options={["Italian", "Expat"]}
+                placeholder="Italian"
+              />
             </div>
 
-            <p className="mt-3 text-[12px] text-[#8d8176] md:text-[13px]">
-              Mandatory selection before accessing the form. Generates contextual information.
-            </p>
-          </div>
-        </SectionFrame>
-
-        <SectionFrame badge="Section 1" title="Applicant's data">
-          <div className="p-4 md:p-5">
             <div className="mb-5">
               <p className="mb-3 text-[13px] text-[#2b2723] md:text-[14px]">
                 Applicant&apos;s role <span className="text-[#c4763a]">*</span>
@@ -81,7 +48,7 @@ export default function RequestPage() {
 
             <div className="grid gap-4 md:grid-cols-2">
               <Field label="Name and surname" required placeholder="Mario Rossi" />
-              <Field label="Telephone" required placeholder="+39 340 ..." type="number" />
+              <Field label="Telephone" required placeholder="+39 340 ..." type="tel" />
               <Field label="Email" required placeholder="mario@email.it" type="email" />
               <SelectField
                 label="Preferred language"
@@ -95,7 +62,7 @@ export default function RequestPage() {
           </div>
         </SectionFrame>
 
-        <SectionFrame badge="Section 2" title="Profile of the person assisted">
+        <SectionFrame title="Profile of the person assisted">
           <div className="p-4 md:p-5">
             <div className="grid gap-4 md:grid-cols-2">
               <SelectField
@@ -107,7 +74,14 @@ export default function RequestPage() {
               <SelectField
                 label="Age range"
                 required
-                options={["0–10 years", "11–17 years", "18–35 years", "36–65 years", "66–80 years", "80+ years"]}
+                options={[
+                  "0–10 years",
+                  "11–17 years",
+                  "18–35 years",
+                  "36–50 years",
+                  "51–75 years",
+                  "76+ years",
+                ]}
                 placeholder="66–80 years"
               />
             </div>
@@ -156,7 +130,7 @@ export default function RequestPage() {
           </div>
         </SectionFrame>
 
-        <SectionFrame badge="Section 3" title="Logistics and planning">
+        <SectionFrame title="Logistics and planning">
           <div className="p-4 md:p-5">
             <div className="grid gap-4 md:grid-cols-2">
               <SelectField
@@ -166,15 +140,16 @@ export default function RequestPage() {
                 placeholder="5 days (Mon–Fri)"
               />
               <SelectField
-                label="Hours per intervention per day * (min. 5h)"
-                options={["5–6 hours", "5–9 hours", "6–8 hours", "8+ hours"]}
-                placeholder="5–9 hours"
+                label="Hours per intervention"
+                required
+                options={["5 hours", "5–10 hours", "10+ hours"]}
+                placeholder="5–10 hours"
               />
               <SelectField
                 label="Time slot"
                 required
-                options={["Morning (6:00–13:00)", "Afternoon (13:00–20:00)", "Evening", "Night"]}
-                placeholder="Morning (6:00–13:00)"
+                options={["Morning (7:00–13:00)", "Evening (13:00–20:00)", "Night"]}
+                placeholder="Morning (7:00–13:00)"
               />
               <Field label="Start date" required placeholder="DD/MM/YYYY" type="date" />
             </div>
@@ -185,12 +160,11 @@ export default function RequestPage() {
 
             <div className="mt-3 space-y-2 text-[13px] leading-5 text-[#2b2723] md:text-[14px]">
               <Radio name="special-awareness" label="Yes, I understand" defaultChecked />
-              <Radio name="special-awareness" label="To be clarified" />
             </div>
           </div>
         </SectionFrame>
 
-        <SectionFrame badge="Section 4" title="Duration and qualification">
+        <SectionFrame title="Duration and qualification">
           <div className="p-4 md:p-5">
             <div className="mb-5">
               <p className="mb-3 text-[13px] text-[#2b2723] md:text-[14px]">
@@ -244,7 +218,7 @@ export default function RequestPage() {
           </div>
         </SectionFrame>
 
-        <SectionFrame badge="CONSENT" title="Privacy and conditions">
+        <SectionFrame title="Privacy and conditions">
           <div className="p-4 md:p-5">
             <div className="space-y-3 text-[13px] leading-5 text-[#2b2723] md:text-[14px]">
               <Check
@@ -278,65 +252,19 @@ export default function RequestPage() {
 }
 
 function SectionFrame({
-  badge,
   title,
-  note,
   children,
 }: {
-  badge: string;
   title: string;
-  note?: string;
   children: React.ReactNode;
 }) {
   return (
     <section className="mb-5 overflow-hidden rounded-[12px] border border-[#d8d1c4] bg-white">
-      <div className="flex items-center justify-between gap-3 border-b border-[#d8d1c4] bg-[#f5f0e8] px-3 py-2.5 md:px-4">
-        <div className="flex items-center gap-3">
-          <span
-            className={`inline-flex h-5 min-w-5 items-center justify-center rounded-full px-2 text-[10px] font-semibold leading-none ${
-              badge === "Section 1" ||
-              badge === "Section 2" ||
-              badge === "Section 3" ||
-              badge === "Section 4" ||
-              badge === "CONSENT"
-                ? "bg-[#e9f2ff] text-[#4b79d8]"
-                : "bg-[#111] text-white"
-            }`}
-          >
-            {badge}
-          </span>
-          <h2 className="text-[13px] font-medium text-[#2f2a26]">{title}</h2>
-        </div>
-
-        {note ? <p className="hidden text-[11px] italic text-[#8d8176] md:block">{note}</p> : <span />}
+      <div className="border-b border-[#d8d1c4] bg-[#f5f0e8] px-3 py-2.5 md:px-4">
+        <h2 className="text-[13px] font-medium text-[#2f2a26]">{title}</h2>
       </div>
       {children}
     </section>
-  );
-}
-
-function ChoiceButton({
-  children,
-  active,
-  onClick,
-}: {
-  children: React.ReactNode;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={[
-        "rounded-[8px] border px-4 py-2 text-[12px] md:text-[13px]",
-        active
-          ? "border-[#1fb57a] bg-[#eef8f3] text-[#1a8a68]"
-          : "border-[#d8d1c4] bg-white text-[#6e6256]",
-      ].join(" ")}
-    >
-      {children}
-    </button>
   );
 }
 
@@ -378,6 +306,8 @@ function SelectField({
   options: string[];
   hideLabel?: boolean;
 }) {
+  const shouldShowPlaceholderOption = placeholder !== options[0];
+
   return (
     <label className="block">
       {!hideLabel ? (
@@ -385,8 +315,15 @@ function SelectField({
           {label} {required ? <span className="text-[#c4763a]">*</span> : null}
         </span>
       ) : null}
-      <select className="h-[40px] w-full rounded-[8px] border border-[#d8d1c4] bg-[#fcfbf8] px-3 text-[13px] text-[#2b2723] outline-none focus:border-[#111]">
-        <option>{placeholder}</option>
+      <select
+        className="h-[40px] w-full rounded-[8px] border border-[#d8d1c4] bg-[#fcfbf8] px-3 text-[13px] text-[#2b2723] outline-none focus:border-[#111]"
+        defaultValue={shouldShowPlaceholderOption ? "" : options[0]}
+      >
+        {shouldShowPlaceholderOption ? (
+          <option value="" disabled>
+            {placeholder}
+          </option>
+        ) : null}
         {options.map((option) => (
           <option key={option} value={option}>
             {option}

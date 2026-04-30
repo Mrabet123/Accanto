@@ -86,8 +86,8 @@ export default function AudienceSection() {
 
         <div className="grid gap-4 md:grid-cols-2">
           <AudienceCard
-            badge="Local Families — Lecco / Sondrio"
-            title="Home care for your family"
+            badge="Local Families — Como Lake / Lecco / Valtellina"
+            title="Local Italian families — Como Lake, Lecco / Valtellina"
             description="For Italian families seeking a dedicated professional to assist the elderly, disabled, or minors with their daily lives."
             tags={leftTags}
             linkText="Discover the services →"
@@ -97,7 +97,7 @@ export default function AudienceSection() {
           <AudienceCard
             badge="International clients — Expat & temporary stay"
             title="Structured care with no language barrier"
-            description="For expat families seeking a culturally aware, multilingual professional for a parent, child, or relative in the Lecco / Sondrio area."
+            description="For expat families seeking a culturally aware, multilingual professional for a parent, child, or relative on Como Lake - Lecco / Milano."
             tags={rightTags}
             linkText="View services →"
             accentClassName="border-t-[3px] border-t-[#2f78d6]"

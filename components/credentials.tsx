@@ -1,6 +1,6 @@
 const credentialsCards = [
   {
-    title: "8 years old",
+    title: "8 years experience",
     subtitle: "Social-healthcare",
     details: "Hospital · RSA · RSD · Sheltered housing",
   },
@@ -16,7 +16,7 @@ const credentialsCards = [
   },
   {
     title: "3",
-    subtitle: "Certifications",
+    subtitle: "Healthcare certifications",
     details: "OSS · BLSD · HACCP",
   },
 ];

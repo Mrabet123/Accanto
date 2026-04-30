@@ -27,7 +27,7 @@ export default function CompetitiveAdvantage() {
               10 years in environments with high international relational standards.
             </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
-              Cruise · Luxury · SaaS · Travel
+              Cruise lines · Luxury brand shops · Travel &amp; Leisure
             </p>
           </article>
 

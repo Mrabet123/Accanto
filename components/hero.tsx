@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const badges = [
-  { label: "Certified OSS", className: "bg-[#e3f5f0] text-[#0b5d50]" },
+  { label: "Certified caregiver/OSS", className: "bg-[#e3f5f0] text-[#0b5d50]" },
   { label: "5 languages", className: "bg-[#eaf0fb] text-[#1f4f9c]" },
   { label: "18 years exp.", className: "bg-[#f7e9cf] text-[#8a5a14]" },
   { label: "Freelancer", className: "bg-[#f2ede4] text-[#4b4b4b]" },
@@ -15,7 +15,7 @@ export default function Hero() {
           <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
             <div className="max-w-[680px] flex-1">
               <p className="text-[13px] uppercase tracking-[0.24em] text-[#8d8176]">
-                OSS · Dervio · Lecco / Como / Sondrio / Milan
+                CAREGIVER COMO LAKE / VALTELLINA / MILANO
               </p>
 
               <h1 className="mt-5 max-w-[720px] font-serif text-[34px] leading-[1.1] text-[#141414] md:text-[44px]">
