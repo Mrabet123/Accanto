@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -10,18 +11,17 @@ const navItems = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[rgba(246,241,232,0.92)] backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 bg-[rgba(246,241,232,0.92)] backdrop-blur-md shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--green)] text-sm font-bold text-white shadow-sm">
-            A
-          </div>
-          <div>
-            <p className="font-serif text-lg leading-none text-[var(--ink)]">Accanto</p>
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--ink-60)]">
-              Care & Hospitality
-            </p>
-          </div>
+          <Image
+            src="/Images/logo.svg"
+            alt="Accanto logo"
+            width={170}
+            height={110}
+            className="h-[95px] w-[95px] object-contain"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
