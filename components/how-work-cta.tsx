@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const steps = [
   { n: "1", title: "Request", subtitle: "Online form", active: "green" },
-  { n: "2", title: "Assessment", subtitle: "Analyses", active: "blue" },
+  { n: "2", title: "Assessment", subtitle: "Evaluation", active: "blue" },
   { n: "3", title: "Interview", subtitle: "Discovery call" },
   { n: "4", title: "Contract", subtitle: "Signature" },
   { n: "5", title: "Onboarding", subtitle: "First week" },
@@ -70,6 +70,7 @@ export default function HowWorkCta() {
                 Please fill out the application carefully. I evaluate each case individually—
                 distance, profile, needs, and compatibility.
               </p>
+
 
               <div className="mt-8">
                 <Link

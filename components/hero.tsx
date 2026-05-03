@@ -4,7 +4,7 @@ const badges = [
   { label: "Certified caregiver/OSS", className: "bg-[#e3f5f0] text-[#0b5d50]" },
   { label: "5 languages", className: "bg-[#eaf0fb] text-[#1f4f9c]" },
   { label: "18 years exp.", className: "bg-[#f7e9cf] text-[#8a5a14]" },
-  { label: "Freelancer", className: "bg-[#f2ede4] text-[#4b4b4b]" },
+  { label: "Individual care", className: "bg-[#f2ede4] text-[#4b4b4b]" },
 ];
 
 export default function Hero() {

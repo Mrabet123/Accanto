@@ -16,7 +16,6 @@ export default function Home() {
       <CompetitiveAdvantage />
       <Testimonials />
       <HowWorkCta />
-      <Footer />
     </main>
   );
 }
