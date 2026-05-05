@@ -1134,39 +1134,21 @@ export default function RequestPage() {
                     <label htmlFor="source-google" className="radio-label">
                       Google Search
                     </label>
-
                     <input
                       type="radio"
                       name="sourceRadio"
-                      id="source-insta"
-                      value="Instagram"
+                      id="source-sm"
+                      value="Social Media"
                       className="radio-option"
-                      checked={selectedSource === "Instagram"}
+                      checked={selectedSource === "Social Media"}
                       onChange={() => {
-                        setSelectedSource("Instagram");
-                        clearFieldError("source");
-                        setSourceOther("");
-                      }}
-                    />
-                    <label htmlFor="source-insta" className="radio-label">
-                      Instagram
-                    </label>
-
-                    <input
-                      type="radio"
-                      name="sourceRadio"
-                      id="source-fb"
-                      value="Facebook"
-                      className="radio-option"
-                      checked={selectedSource === "Facebook"}
-                      onChange={() => {
-                        setSelectedSource("Facebook");
+                        setSelectedSource("Social Media");
                         clearFieldError("source");
                         setSourceOther("");
                       }}
                     />
                     <label htmlFor="source-fb" className="radio-label">
-                      Facebook
+                      Social Media
                     </label>
 
                     <input
@@ -1318,7 +1300,7 @@ export default function RequestPage() {
                   ← Back
                 </button>
                 <button type="button" className="btn-submit" onClick={submitForm}>
-                  Submit my evaluation request →
+                  Submit my request →
                 </button>
               </div>
 
@@ -1334,7 +1316,7 @@ export default function RequestPage() {
             <div className="success-icon">✓</div>
             <div className="success-title">Request received.</div>
             <p className="success-sub">
-              Thank you for submitting your evaluation request.
+              Thank you for submitting your request.
               <br />
               I will review it personally and contact you within 48 business hours — in your preferred
               language.
@@ -1348,7 +1330,7 @@ export default function RequestPage() {
 
         <div className="wa-alt">
           <div className="wa-alt-text">
-            <strong>Prefer WhatsApp? </strong> Write to me directly and I&apos;ll get back to you
+            <strong>Have an urgent need? </strong> Write to me directly and I&apos;ll get back to you
             personally.
           </div>
           <a

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 const leftTags = [
@@ -98,11 +99,33 @@ export default function AudienceSection() {
           <AudienceCard
             badge="International clients — Expat & temporary stay"
             title="Structured care with no language barrier"
-            description="For expat families seeking a culturally aware, multilingual professional for a parent, child, or relative on Como Lake - Lecco / Milano."
+            description="For expat families seeking a culturally aware, multilingual professional, for care assistance on Como Lake - Lecco / Milano."
             tags={rightTags}
             linkText="View services →"
             accentClassName="border-t-[3px] border-t-[#2f78d6]"
           />
+        </div>
+
+        {/* Images - larger and closer together */}
+        <div className="mt-10 flex flex-wrap justify-center gap-3 md:gap-4">
+          <div className="w-[380px] h-[260px] rounded-2xl overflow-hidden shadow-md border border-[#d9d3c8]">
+            <Image
+              src="/Images/1.jpg"
+              alt="Care professional assisting elderly person"
+              width={380}
+              height={260}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-[380px] h-[260px] rounded-2xl overflow-hidden shadow-md border border-[#d9d3c8]">
+            <Image
+              src="/Images/3.jpg"
+              alt="Supportive care environment"
+              width={380}
+              height={260}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

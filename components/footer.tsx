@@ -23,17 +23,16 @@ export default function Footer() {
           <div>
             <Link href="/" className="footer-logo-link" style={{ display: "inline-block", marginBottom: "25px" }}>
               <Image
-                src="/Images/logo.svg"
+                src="/Images/logo.png"
                 alt="Accanto logo"
                 width={140}
                 height={140}
-                style={{ width: "160px",  objectFit: "contain" }}
+                style={{ width: "200px",  objectFit: "contain" }}
                 priority={false}
               />
             </Link>
             <p className="footer-brand-desc">
-              Professionista OSS indipendente — assistenza domiciliare, Lago di
-              Como · Lecco · Milano.
+              Certified OSS · Independent Healthcare Support Professional · Como Lake – Lecco / Valtellina / Milan
             </p>
           </div>
 
@@ -52,9 +51,6 @@ export default function Footer() {
           {/* Contact column */}
           <div>
             <div className="footer-col-title">Contact</div>
-            <div className="footer-contact-item">
-              <a href="mailto:hello@accanto.care">hello@accanto.care</a>
-            </div>
             <div className="footer-contact-item">
               <a href="mailto:ghassenmansouri@mail.com">
                 ghassenmansouri@mail.com

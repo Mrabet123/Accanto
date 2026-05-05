@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const WHATSAPP_NUMBER = "39XXXXXXXXXX"; // replace with your real WhatsApp number
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -12,16 +13,16 @@ const badges = [
 
 export default function Hero() {
   return (
-    <section className="bg-[#f7f3ee] px-4 py-6 md:px-8 md:py-8">
+    <section className="bg-[#f7f3ee] px-4 py-6 md:px-8 md:py-10">
       <div className="p-4 md:p-6">
-        <div className="rounded-[18px] border border-[#d9d3c8] bg-white px-6 py-7 md:px-10 md:py-10">
-          <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
+        <div className="rounded-[24px] border border-[#d9d3c8] bg-white px-6 py-7 md:px-12 md:py-12">
+          <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-12">
             <div className="max-w-[680px] flex-1">
               <p className="text-[13px] uppercase tracking-[0.24em] text-[#8d8176]">
                 CAREGIVER COMO LAKE / VALTELLINA / MILANO
               </p>
 
-              <h1 className="mt-5 max-w-[720px] font-serif text-[34px] leading-[1.1] text-[#141414] md:text-[44px]">
+              <h1 className="mt-5 max-w-[720px] font-serif text-[34px] leading-[1.1] text-[#141414] md:text-[48px]">
                 You&apos;re looking for a reliable healthcare professional support you can trust?
                 <br />
                 Not someone who&apos;s just available.
@@ -43,28 +44,28 @@ export default function Hero() {
                 ))}
               </div>
 
-              <div className="mt-7">
+              <div className="mt-8">
                 <Link
-                  href={WHATSAPP_URL}
-                  target="_blank"
+                  href="/request"
+                  
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-[12px] border border-[#2a2a2a] bg-white px-7 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-[#f6f1ea]"
+                  className="inline-flex items-center justify-center rounded-[14px] border border-[#2a2a2a] bg-white px-7 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-[#f6f1ea]"
                 >
-                  Book via WhatsApp →
+                  Book a request
                 </Link>
               </div>
             </div>
 
-            <div className="ml-auto flex w-full justify-end md:w-[280px]">
-              <div className="flex h-[300px] w-full max-w-[260px] items-center justify-center rounded-[18px] border border-[#d9d3c8] bg-[#f4efe7]">
-                <div className="text-center">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#e9e4db] text-[26px] text-[#7f7367]">
-                    G
-                  </div>
-                  <p className="mt-4 text-[16px] text-[#7a7168]">
-                    Professional photo
-                  </p>
-                </div>
+            <div className="ml-auto flex w-full justify-center md:justify-end md:w-[360px]">
+              <div className="relative h-[400px] w-full max-w-[340px] rounded-[24px] border border-[#d9d3c8] bg-[#f4efe7] overflow-hidden shadow-md">
+                <Image
+                  src="/Images/4.jpg"
+                  alt="Professional caregiver portrait"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 340px"
+                />
               </div>
             </div>
           </div>

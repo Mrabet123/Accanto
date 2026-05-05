@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import RequestClient from "./requestClient";
 
 export const metadata: Metadata = {
-  title: "Submit an Evaluation Request — Accanto Home Care",
+  title: "Submit a Request — Accanto Home Care",
   description:
-    "Submit your home care evaluation request to Ghassen Mansouri, certified OSS professional. I review every request personally within 48 hours. Como Lake · Lecco · Sondrio · Milan.",
+    "Submit your home care request to Ghassen Mansouri, certified OSS professional. I review every request personally within 48 hours. Como Lake · Lecco · Sondrio · Milan.",
   keywords: [
     "richiedere assistenza domiciliare Lecco",
     "contattare caregiver Como",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://accanto.care/request",
-    title: "Submit an Evaluation Request — Accanto Home Care",
+    title: "Submit a Request — Accanto Home Care",
     description:
-      "Submit your home care evaluation request. I review every request personally within 48 hours. Not all requests are accepted.",
+      "Submit your home care request. I review every request personally within 48 hours. Not all requests are accepted.",
     images: [
       {
         url: "/Images/og-image.jpg",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Submit an Evaluation Request — Accanto Home Care",
+    title: "Submit an Request — Accanto Home Care",
     description:
       "I review every request personally within 48 hours. Como Lake · Lecco · Milan.",
     images: ["/Images/og-image.jpg"],
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Evaluation Request — Accanto Home Care",
+  name: "Request — Accanto Home Care",
   description:
-    "Submit a home care evaluation request to Ghassen Mansouri, certified OSS independent professional.",
+    "Submit a home care request to Ghassen Mansouri, certified OSS independent professional.",
   url: "https://accanto.care/request",
   mainEntity: {
     "@id": "https://accanto.care/#business",

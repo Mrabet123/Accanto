@@ -78,7 +78,7 @@ best support you.
                   href="/request"
                   className="inline-flex items-center justify-center rounded-[12px] border border-[#2a2a2a] bg-transparent px-8 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-white"
                 >
-                  Submit your evaluation request →
+                  Submit your request →
                 </Link>
               </div>
 

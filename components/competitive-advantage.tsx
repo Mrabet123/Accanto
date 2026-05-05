@@ -17,7 +17,7 @@ export default function CompetitiveAdvantage() {
               Certified professional Healthcare Support
             </p>
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              Certified technical expertise in personal care activities.
+              On-call services in personal care activities.
             </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
               Hospital · RSA · RSD · Sheltered housing
@@ -30,6 +30,9 @@ export default function CompetitiveAdvantage() {
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
               Over a decade in environments with high international relational standards.
             </p>
+            <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
+              Customer-oriented services.
+            </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
               Cruise lines · Luxury brand shops · Travel &amp; Leisure
             </p>
@@ -39,7 +42,10 @@ export default function CompetitiveAdvantage() {
             <h2 className="font-serif text-[32px] leading-tight text-[#111]">×5</h2>
             <p className="mt-4 text-[18px] text-[#111]">Multilingual communication</p>
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              IT · EN · FR · AR · DE. No language barrier.
+              IT · EN · FR · AR · DE. 
+            </p>
+            <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
+              No language barrier.
             </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
               18 years in multicultural environments

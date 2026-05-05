@@ -45,11 +45,11 @@ export default function Header() {
           {/* Logo - now larger and properly contained */}
           <Link href="/" className="flex shrink-0 items-center" onClick={closeMenu}>
             <Image
-  src="/Images/logo.svg"
+  src="/Images/logo.png"
   alt="Accanto logo"
   width={110}   // increase this proportionally
   height={110}  // increase this proportionally
-  className="h-[140px] w-[140px] object-contain md:h-[170px] md:w-[170px]"
+  className="h-[160px] w-[160px] object-contain md:h-[90px] md:w-[200px]"
   priority
 />
           </Link>
@@ -69,10 +69,10 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <Link
-            href="/request"
+            href="https://wa.me/393792306809"
             className="hidden items-center justify-center rounded-full border border-transparent bg-[var(--green)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[var(--green)] hover:bg-[var(--sand)] hover:text-[var(--green)] md:inline-flex"
           >
-            Book a Request
+            WhatsApp →
           </Link>
 
           {/* Mobile Hamburger Button */}

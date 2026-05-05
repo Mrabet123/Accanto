@@ -568,8 +568,8 @@ export default function ProfilePage() {
     <>
       <Head>
         <title>
-          Certified OSS · Independent Healthcare Support Professional · Como Lake – Lecco /
-          Valtellina
+          Certified OSS · Independent Healthcare Support Professional · Como Lake –
+                Lecco / Valtellina / Milan
         </title>
         <meta
           name="description"
@@ -598,7 +598,7 @@ export default function ProfilePage() {
               <h1 className="profile-name">Ghassen Mansouri</h1>
               <div className="profile-role">
                 Certified OSS · Independent Healthcare Support Professional · Como Lake –
-                Lecco / Valtellina
+                Lecco / Valtellina / Milan
               </div>
               <div className="profile-chips">
                 <span className="chip chip-accent">OSS · Independent professional</span>
@@ -609,7 +609,7 @@ export default function ProfilePage() {
               </div>
               <p className="profile-bio">
                 Certified OSS with 8+ years in the healthcare and social care field with over
-                than a decade in customer experience and international hospitality. Professional
+                a decade in customer experience and international hospitality. Professional
                 communication in Italian, English, French, Arabic, and German. Human approach,
                 field proven structure, no compromises.
               </p>
@@ -791,7 +791,7 @@ export default function ProfilePage() {
                 <div className="method-body">
                   <div className="method-title">Clarity of professional boundaries</div>
                   <div className="method-desc">
-                    Operations performed exclusively within the OSS perimeter. Clinical situations are
+                    Operations performed exclusively within the OSS / Healthcare support perimeter. Clinical situations are
                     reported and directed to the appropriate professional.
                   </div>
                   <div className="method-benefit">
@@ -810,13 +810,16 @@ export default function ProfilePage() {
             <div className="philosophy-block">
               <div className="philosophy-item">
                 <div className="philosophy-quote">Structured care. Human approach.</div>
-                <p className="philosophy-text" style={{ marginTop: 14 }}>
-                  Professional support means more than completing tasks—it means understanding
-                  needs, often before they are expressed.
+              </div>
+              <div className="philosophy-item">
+                <div className="philosophy-quote">
+                  “Professional support means more than completing tasks—it means understanding
+                  needs, often before they are expressed.”
                   <br />
-                  My approach combines method, consistency, and genuine respect for each
-                  individual’s rhythm, habits, and wellbeing.
-                </p>
+                  “My approach combines method, consistency, and genuine respect for each
+                  individual’s rhythm, habits, and wellbeing.”
+                  
+                </div>
               </div>
               <div className="philosophy-item">
                 <div className="philosophy-quote">
@@ -874,7 +877,7 @@ export default function ProfilePage() {
             <div className="discovery-steps">
               <div className="discovery-step">
                 <div className="discovery-num">1</div>
-                <div className="discovery-text">Fill out the evaluation request online.</div>
+                <div className="discovery-text">Fill out the request online.</div>
               </div>
               <div className="discovery-step">
                 <div className="discovery-num">2</div>
@@ -907,7 +910,7 @@ export default function ProfilePage() {
                 If there&apos;s a fit, I&apos;ll contact you in your language.
               </p>
               <a href="/request" className="btn-terra">
-                Submit your evaluation request →
+                Submit your  request →
               </a>
               <p className="cta-note">
                 No obligation. No automatic responses. Just a professional assessment.

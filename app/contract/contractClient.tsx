@@ -414,7 +414,7 @@ export default function ContractPage() {
     transition: "all 0.2s ease",
   }}
 >
-  Submit your evaluation request →
+  Submit your request →
 </Link>
             <p className="cta-note">No obligation. No automatic responses. Just a professional assessment.</p>
           </div>

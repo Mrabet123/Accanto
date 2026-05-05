@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type TabType = "local" | "intl";
 
@@ -28,26 +29,26 @@ export default function ServicesPage() {
       <section className="section">
         <div className="section-inner">
           <div className="tab-wrapper">
-  <div className="tab-toggle">
-    <button
-      type="button"
-      className={`tab-btn ${activeTab === "local" ? "active" : ""}`}
-      onClick={() => setActiveTab("local")}
-      aria-pressed={activeTab === "local"}
-    >
-      Local Families — Como Lake · Lecco · Valtellina
-    </button>
+            <div className="tab-toggle">
+              <button
+                type="button"
+                className={`tab-btn ${activeTab === "local" ? "active" : ""}`}
+                onClick={() => setActiveTab("local")}
+                aria-pressed={activeTab === "local"}
+              >
+                Local Families — Como Lake · Lecco · Valtellina
+              </button>
 
-    <button
-      type="button"
-      className={`tab-btn ${activeTab === "intl" ? "active" : ""}`}
-      onClick={() => setActiveTab("intl")}
-      aria-pressed={activeTab === "intl"}
-    >
-      International Clients — Expat & Temporary Stay
-    </button>
-  </div>
-</div>
+              <button
+                type="button"
+                className={`tab-btn ${activeTab === "intl" ? "active" : ""}`}
+                onClick={() => setActiveTab("intl")}
+                aria-pressed={activeTab === "intl"}
+              >
+                International Clients — Expat & Temporary Stay
+              </button>
+            </div>
+          </div>
 
           {activeTab === "local" ? (
             <div className="tab-content active">
@@ -159,7 +160,37 @@ export default function ServicesPage() {
                   </ul>
                 </div>
               </div>
-
+              
+{/* Images inserted between "What is not included" and pricing section */}
+              <div className="image-gallery">
+                <div className="gallery-item">
+                  <Image
+                    src="/Images/2.jpg"
+                    alt="Care professional assisting with daily activities"
+                    width={400}
+                    height={300}
+                    className="gallery-image"
+                  />
+                </div>
+                <div className="gallery-item">
+                  <Image
+                    src="/Images/5.jpg"
+                    alt="Elderly person receiving companionship and support"
+                    width={400}
+                    height={300}
+                    className="gallery-image"
+                  />
+                </div>
+                <div className="gallery-item">
+                  <Image
+                    src="/Images/6.jpg"
+                    alt="Warm care environment and professional support"
+                    width={400}
+                    height={300}
+                    className="gallery-image"
+                  />
+                </div>
+              </div>
               <div className="oss-boundary">
                 <div className="oss-boundary-title">
                   What is not included — professional boundaries
@@ -187,6 +218,8 @@ export default function ServicesPage() {
                   appropriate medical professional immediately.
                 </p>
               </div>
+
+              
             </div>
           ) : (
             <div className="tab-content active">
@@ -376,6 +409,37 @@ export default function ServicesPage() {
                   appropriate medical professional immediately.
                 </p>
               </div>
+
+              {/* Images inserted between "What is not included" and pricing section */}
+              <div className="image-gallery">
+                <div className="gallery-item">
+                  <Image
+                    src="/Images/2.jpg"
+                    alt="Care professional assisting with daily activities"
+                    width={400}
+                    height={300}
+                    className="gallery-image"
+                  />
+                </div>
+                <div className="gallery-item">
+                  <Image
+                    src="/Images/5.jpg"
+                    alt="Elderly person receiving companionship and support"
+                    width={400}
+                    height={300}
+                    className="gallery-image"
+                  />
+                </div>
+                <div className="gallery-item">
+                  <Image
+                    src="/Images/6.jpg"
+                    alt="Warm care environment and professional support"
+                    width={400}
+                    height={300}
+                    className="gallery-image"
+                  />
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -479,7 +543,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="cta-strip">
-            <div className="cta-strip-text">Ready to evaluate your request.</div>
+            <div className="cta-strip-text">Ready to reach out ?</div>
             <Link
               href="/request"
               style={{
@@ -502,7 +566,7 @@ export default function ServicesPage() {
                 textDecoration: "none",
               }}
             >
-              <span>Submit your evaluation request →</span>
+              <span>Submit your request →</span>
             </Link>
           </div>
         </div>
@@ -614,41 +678,41 @@ export default function ServicesPage() {
         }
 
         .tab-toggle {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
 
-.tab-btn {
-  padding: 12px 18px;
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  cursor: pointer;
-  border: 1px solid #1c1c1a;
-  background: var(--white);
-  transition: all 0.2s ease;
-  font-family: var(--font-body);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
+        .tab-btn {
+          padding: 12px 18px;
+          border-radius: 14px;
+          font-size: 13px;
+          font-weight: 500;
+          color: var(--ink);
+          cursor: pointer;
+          border: 1px solid #1c1c1a;
+          background: var(--white);
+          transition: all 0.2s ease;
+          font-family: var(--font-body);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
 
         .tab-btn:hover {
-  background: #f7f7f7;
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-}
+          background: #f7f7f7;
+          transform: translateY(-1px);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
 
-.tab-btn.active {
-  background: var(--ink);
-  color: var(--white);
-  border-color: var(--ink);
-  box-shadow: 0 4px 14px rgba(28, 28, 26, 0.18);
-}
-.tab-btn:focus-visible {
-  outline: 2px solid var(--green);
-  outline-offset: 2px;
-}
+        .tab-btn.active {
+          background: var(--ink);
+          color: var(--white);
+          border-color: var(--ink);
+          box-shadow: 0 4px 14px rgba(28, 28, 26, 0.18);
+        }
+        .tab-btn:focus-visible {
+          outline: 2px solid var(--green);
+          outline-offset: 2px;
+        }
         .tab-content {
           display: block;
         }
@@ -796,6 +860,39 @@ export default function ServicesPage() {
           line-height: 1.6;
           padding-top: 12px;
           border-top: 1px solid var(--border);
+        }
+
+        /* Image gallery styles */
+        .image-gallery {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 24px;
+          justify-content: center;
+          margin-top: 32px;
+          padding-top: 16px;
+          border-top: 1px solid var(--border);
+        }
+
+        .gallery-item {
+          flex: 1;
+          min-width: 220px;
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          box-shadow: var(--shadow);
+          transition: transform 0.2s, box-shadow 0.2s;
+          background: var(--white);
+        }
+
+        .gallery-item:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-image {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: cover;
         }
 
         .intl-additions {
@@ -1011,8 +1108,18 @@ export default function ServicesPage() {
 
           .services-grid,
           .intl-additions,
-          .oss-list {
+          .oss-list,
+          .image-gallery {
             grid-template-columns: 1fr;
+          }
+
+          .image-gallery {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .gallery-item {
+            max-width: 100%;
           }
 
           .tab-toggle {

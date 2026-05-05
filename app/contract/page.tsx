@@ -4,7 +4,7 @@ import ContractClient from "./contractClient";
 export const metadata: Metadata = {
   title: "Collaboration Terms & Contract — Accanto Home Care OSS",
   description:
-    "My professional collaboration terms — advance payment, 7-day cancellation policy, OSS scope boundaries, GDPR compliance. Read before submitting your evaluation request.",
+    "My professional collaboration terms — advance payment, 7-day cancellation policy, OSS scope boundaries, GDPR compliance. Read before submitting your request.",
   keywords: [
     "termini collaborazione OSS",
     "contratto assistenza domiciliare",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/Images/logo.svg",
+    icon: "/Images/logo.png",
     apple: "/Images/apple-touch-icon.png",
   },
 };
