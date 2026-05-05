@@ -1,9 +1,12 @@
 import Link from "next/link";
 
+const WHATSAPP_NUMBER = "39XXXXXXXXXX"; // replace with your real WhatsApp number
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+
 const badges = [
-  { label: "Certified caregiver/OSS", className: "bg-[#e3f5f0] text-[#0b5d50]" },
+  { label: "Personal Care professional/OSS", className: "bg-[#e3f5f0] text-[#0b5d50]" },
   { label: "5 languages", className: "bg-[#eaf0fb] text-[#1f4f9c]" },
-  { label: "18 years exp.", className: "bg-[#f7e9cf] text-[#8a5a14]" },
+  { label: "Over 18 years experience", className: "bg-[#f7e9cf] text-[#8a5a14]" },
   { label: "Individual care", className: "bg-[#f2ede4] text-[#4b4b4b]" },
 ];
 
@@ -19,7 +22,7 @@ export default function Hero() {
               </p>
 
               <h1 className="mt-5 max-w-[720px] font-serif text-[34px] leading-[1.1] text-[#141414] md:text-[44px]">
-                You&apos;re looking for someone trustworthy.
+                You&apos;re looking for a reliable healthcare professional support you can trust?
                 <br />
                 Not someone who&apos;s just available.
               </h1>
@@ -42,10 +45,12 @@ export default function Hero() {
 
               <div className="mt-7">
                 <Link
-                  href="/request"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-[12px] border border-[#2a2a2a] bg-white px-7 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-[#f6f1ea]"
                 >
-                  Submit your evaluation request →
+                  Book via WhatsApp →
                 </Link>
               </div>
             </div>

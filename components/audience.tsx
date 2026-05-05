@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 const leftTags = [
   "Elderly people",
@@ -19,7 +20,7 @@ const rightTags = [
   "EN · FR · AR · DE",
 ];
 
-function Tag({ children }: { children: React.ReactNode }) {
+function Tag({ children }: { children: ReactNode }) {
   return (
     <span className="inline-flex rounded-[10px] border border-[#dfd7ca] bg-[#f3efe7] px-3 py-2 text-[14px] text-[#4a4239]">
       {children}
@@ -88,7 +89,7 @@ export default function AudienceSection() {
           <AudienceCard
             badge="Local Families — Como Lake / Lecco / Valtellina"
             title="Local Italian families — Como Lake, Lecco / Valtellina"
-            description="For Italian families seeking a dedicated professional to assist the elderly, disabled, or minors with their daily lives."
+            description="For Italian families seeking a dedicated professional to assist the elderly, disabled, or minors with special needs with their daily needs."
             tags={leftTags}
             linkText="Discover the services →"
             accentClassName="border-t-[3px] border-t-[#15a16b]"

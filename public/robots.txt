@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /Images/og-image.jpg
+
+Sitemap: https://accanto.care/sitemap.xml

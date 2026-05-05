@@ -1,11 +1,11 @@
 const credentialsCards = [
   {
-    title: "8 years experience",
+    title: "Over 8 years experience",
     subtitle: "Social-healthcare",
     details: "Hospital · RSA · RSD · Sheltered housing",
   },
   {
-    title: "10 years",
+    title: "Over a decade",
     subtitle: "Hospitality & CX",
     details: "Cruise · Luxury · SaaS · Travel",
   },

@@ -63,7 +63,8 @@ export default function HowWorkCta() {
               </p>
 
               <h2 className="mt-5 font-serif text-[30px] leading-[1.15] text-[#111] md:text-[42px]">
-                I don&apos;t answer everyone. I answer the right ones.
+                Tell me your needs, I’ll carefully assess how I can 
+best support you.
               </h2>
 
               <p className="mx-auto mt-5 max-w-[900px] text-[17px] leading-8 text-[#3f3a35]">

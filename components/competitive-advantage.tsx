@@ -10,8 +10,12 @@ export default function CompetitiveAdvantage() {
 
         <div className="grid gap-4 md:grid-cols-3">
           <article className="rounded-[20px] border border-[#d9d3c8] bg-white p-6">
-            <h2 className="font-serif text-[32px] leading-tight text-[#111]">OSS</h2>
-            <p className="mt-4 text-[18px] text-[#111]">Social and health training</p>
+            <h2 className="font-serif text-[32px] leading-tight text-[#111]">
+              Social and healthcare assistance
+            </h2>
+            <p className="mt-4 text-[18px] text-[#111]">
+              Certified professional Healthcare Support
+            </p>
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
               Certified technical expertise in personal care activities.
             </p>
@@ -24,7 +28,7 @@ export default function CompetitiveAdvantage() {
             <h2 className="font-serif text-[32px] leading-tight text-[#111]">CX</h2>
             <p className="mt-4 text-[18px] text-[#111]">Customer experience</p>
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              10 years in environments with high international relational standards.
+              Over a decade in environments with high international relational standards.
             </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
               Cruise lines · Luxury brand shops · Travel &amp; Leisure

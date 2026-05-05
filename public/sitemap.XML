@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://accanto.care/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accanto.care/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://accanto.care/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://accanto.care/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accanto.care/"/>
+  </url>
+
+  <url>
+    <loc>https://accanto.care/services</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accanto.care/services"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://accanto.care/it/services"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://accanto.care/fr/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accanto.care/services"/>
+  </url>
+
+  <url>
+    <loc>https://accanto.care/profile</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accanto.care/profile"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://accanto.care/it/profile"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://accanto.care/fr/profile"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accanto.care/profile"/>
+  </url>
+
+  <url>
+    <loc>https://accanto.care/request</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accanto.care/request"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://accanto.care/it/request"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://accanto.care/fr/request"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accanto.care/request"/>
+  </url>
+
+  <url>
+    <loc>https://accanto.care/contract</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accanto.care/contract"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://accanto.care/it/contract"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://accanto.care/fr/contract"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accanto.care/contract"/>
+  </url>
+
+</urlset>
