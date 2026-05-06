@@ -51,7 +51,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-[14px] border border-[#2a2a2a] bg-white px-7 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-[#f6f1ea]"
                 >
-                  Book a request
+                  Send me a request
                 </Link>
               </div>
             </div>
