@@ -122,11 +122,11 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/request"
+            href="https://wa.me/393792306809"
             onClick={closeMenu}
             className="mt-6 inline-flex items-center justify-center rounded-full bg-[var(--green)] px-6 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-[var(--sand)] hover:text-[var(--green)]"
           >
-            Book a Request
+            WhatsApp →
           </Link>
         </nav>
       </div>
