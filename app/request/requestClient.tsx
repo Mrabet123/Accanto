@@ -23,6 +23,9 @@ const countryCodes = [
 export default function RequestPage() {
   const formRef = useRef<HTMLFormElement | null>(null);
   const phoneHiddenRef = useRef<HTMLInputElement | null>(null);
+  const modalBodyRef = useRef<HTMLDivElement | null>(null);
+  const progressFillRef = useRef<HTMLDivElement | null>(null);
+  const scrollHintRef = useRef<HTMLDivElement | null>(null);
 
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -30,6 +33,7 @@ export default function RequestPage() {
   const [errors, setErrors] = useState<ErrorState>({});
   const [selectedCountryCode, setSelectedCountryCode] = useState("+216");
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
 
   // "Other" text values and selection states
   const [roleOther, setRoleOther] = useState("");
@@ -281,6 +285,68 @@ export default function RequestPage() {
   };
 
   const selectedCountry = countryCodes.find((c) => c.code === selectedCountryCode);
+
+  // --- Terms modal logic ---
+  const openTermsModal = () => {
+    setIsTermsModalOpen(true);
+    document.body.style.overflow = "hidden";
+    // Reset scroll position and progress when opening
+    setTimeout(() => {
+      if (modalBodyRef.current) {
+        modalBodyRef.current.scrollTop = 0;
+        updateProgressBar(modalBodyRef.current);
+      }
+    }, 0);
+  };
+
+  const closeTermsModal = () => {
+    setIsTermsModalOpen(false);
+    document.body.style.overflow = "";
+  };
+
+  const updateProgressBar = (scrollable: HTMLElement) => {
+    const scrollHeight = scrollable.scrollHeight - scrollable.clientHeight;
+    const scrollTop = scrollable.scrollTop;
+    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 100;
+    if (progressFillRef.current) {
+      progressFillRef.current.style.width = `${pct}%`;
+    }
+    // Hide scroll hint after scrolling a bit
+    if (scrollHintRef.current) {
+      if (scrollTop > scrollable.scrollHeight * 0.1) {
+        scrollHintRef.current.classList.add("hidden");
+      } else {
+        scrollHintRef.current.classList.remove("hidden");
+      }
+    }
+  };
+
+  const handleModalScroll = () => {
+    if (modalBodyRef.current) {
+      updateProgressBar(modalBodyRef.current);
+    }
+  };
+
+  // Handle Escape key and click outside
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isTermsModalOpen) {
+        closeTermsModal();
+      }
+    };
+    const handleClickOutside = (e: MouseEvent) => {
+      const overlay = document.querySelector(".terms-overlay");
+      if (overlay && e.target === overlay && isTermsModalOpen) {
+        closeTermsModal();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isTermsModalOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -1287,7 +1353,16 @@ export default function RequestPage() {
                       />
                       <span>
                         I declare that I have read and understood the{" "}
-                        <Link href="/contract">terms of collaboration</Link>.
+                        <span
+                          className="terms-trigger-link"
+                          onClick={openTermsModal}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => { if (e.key === 'Enter') openTermsModal(); }}
+                        >
+                          terms of collaboration
+                        </span>
+                        .
                       </span>
                     </label>
                     <FieldError message={errors["terms-consent"]} />
@@ -1341,6 +1416,197 @@ export default function RequestPage() {
           >
             WhatsApp →
           </a>
+        </div>
+      </div>
+
+      {/* TERMS OF COLLABORATION MODAL */}
+      <div
+        className={`terms-overlay ${isTermsModalOpen ? "open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="terms-title"
+      >
+        <div className="terms-modal">
+          <div className="terms-header">
+            <div className="terms-header-left">
+              <div className="terms-header-eyebrow">Accanto · accanto.care</div>
+              <h2 className="terms-header-title" id="terms-title">Collaboration terms</h2>
+              <div className="terms-header-sub">Read before ticking the box — this is what you are agreeing to.</div>
+            </div>
+            <button className="terms-close" onClick={closeTermsModal} aria-label="Close terms">✕</button>
+          </div>
+
+          <div className="terms-progress-bar">
+            <div className="terms-progress-fill" ref={progressFillRef}></div>
+          </div>
+
+          <div className="terms-body" ref={modalBodyRef} onScroll={handleModalScroll}>
+            <div className="terms-intro">
+              <strong>These are the collaboration terms between you (the client) and Ghassen Mansouri, OSS independent professional (P.IVA 01103920144).</strong><br />
+              By ticking the checkbox on the evaluation request form, you confirm that you have read and understood all of the conditions described here. The full signed contract is transmitted separately via email in PDF format, after your request has been evaluated and approved.
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 1</div>
+              <h3 className="terms-section-title">Who I am and how I work</h3>
+              <div className="terms-section-body">
+                <p>I am <strong>Ghassen Mansouri</strong>, an independent certified OSS (Operatore Socio-Sanitario) professional, operating under Italian law with P.IVA 01103920144, based in Dervio (LC). I work as a fully autonomous independent professional — not as an employee, not through an agency, and not as a subordinate worker.</p>
+                <p>I provide structured home care assistance exclusively within the certified OSS professional scope as defined by Legge 42/1999 and D.M. 520/2001. I operate across the provinces of Lecco, Como, Sondrio, and Milan.</p>
+                <p>I offer care in three categories: <strong>elderly care</strong>, <strong>disability support</strong>, and <strong>care for minors with special needs</strong> (disabled or semi-autonomous).</p>
+                <div className="terms-pill-row">
+                  <span className="terms-pill green">OSS certified</span>
+                  <span className="terms-pill green">P.IVA 01103920144</span>
+                  <span className="terms-pill">Lecco · Como · Sondrio · Milan</span>
+                  <span className="terms-pill">5 languages</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 2</div>
+              <h3 className="terms-section-title">How the collaboration works</h3>
+              <div className="terms-section-body">
+                <p>Submitting an evaluation request does not constitute a confirmed collaboration. Every request is reviewed personally. Not all requests are accepted.</p>
+                <p>The process is: <strong>1.</strong> You submit the evaluation form. <strong>2.</strong> I review it within 48 business hours. <strong>3.</strong> If compatible, I contact you to schedule a discovery call. <strong>4.</strong> If confirmed, a contract is sent by email for signature. <strong>5.</strong> Sessions begin after the contract is signed and advance payment is received.</p>
+                <p><strong>No sessions take place before a signed contract and advance payment.</strong> This protects both parties.</p>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 3</div>
+              <h3 className="terms-section-title">Rates and payment</h3>
+              <div className="terms-section-body">
+                <p>Rates are agreed in writing before any contract is signed. The base hourly rate starts from <strong>€28/hour</strong> for daytime sessions. Supplements apply for evening, night, active night, high-complexity profiles, or locations outside the primary zone. The exact rate applicable to your situation is defined during the evaluation.</p>
+                <p><strong>Payment is always made in advance</strong>, before the sessions of each agreed period begin — either weekly (by the Monday preceding the week) or monthly (by the first of the month). No advance payment means no confirmed collaboration for that period. I am then free to accept other clients.</p>
+                <p>I accept payment exclusively by <strong>bank transfer</strong> or <strong>cash</strong> (within legal limits). No other methods are accepted. All payments in Euro. International transfer fees are at the client's expense.</p>
+                <p>I issue an <strong>electronic invoice</strong> via the Italian SDI system (Aruba) within 12 days of receiving payment, in compliance with Art. 6 D.P.R. 633/1972. I operate in regime forfettario — no IVA applies. No ritenuta d'acconto applies to private individuals.</p>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 4</div>
+              <h3 className="terms-section-title">Minimum session and scheduling</h3>
+              <div className="terms-section-body">
+                <p>The minimum duration for any support session is <strong>5 consecutive hours</strong>. No session of shorter duration can be agreed, invoiced, or delivered. This applies to all session types — daytime, passive night, and active night — without exception.</p>
+                <p>The session calendar (days, time slots) is flexible and agreed between us. What is fixed contractually is: the duration in hours per session, the number of sessions per period, and the session type. Time slot changes require 48 hours notice and my explicit agreement. I cannot be required to accept a change of time slot.</p>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 5</div>
+              <h3 className="terms-section-title">Cancellation policy</h3>
+              <div className="terms-section-body">
+                <p>A single threshold applies. No exceptions — including medical emergencies, hospitalisation, or any other circumstance.</p>
+
+                <table className="terms-cancel-table">
+                  <thead>
+                    <tr>
+                      <th>Notice given by client</th>
+                      <th>What happens to the advance payment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>More than 7 days<br />before start of period</td>
+                      <td>
+                        Full reimbursement within 5 working days by bank transfer.
+                        <br /><span className="badge-green">Full refund</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Less than 7 days<br />before start of period</td>
+                      <td>
+                        The full advance payment is retained by me. No reimbursement.
+                        <br /><span className="badge-terra">No refund</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p style={{ marginTop: '14px' }}>Cancellation must be communicated <strong>in writing</strong> — by email or WhatsApp — to my contact addresses. Verbal notice has no legal validity. The date and time of the written communication determines the threshold calculation.</p>
+                <p>The same threshold applies to the cancellation of individual sessions within an already-paid period.</p>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 6</div>
+              <h3 className="terms-section-title">Withdrawal from the collaboration</h3>
+              <div className="terms-section-body">
+                <p><strong>Client withdrawal:</strong> You may withdraw from the collaboration at any time with a minimum of <strong>15 calendar days written notice</strong>. During the notice period, sessions covered by the advance payment of the current period continue normally. Already-paid sessions that are performed are retained by me. Future unpaid periods generate no obligation for either party.</p>
+                <p><strong>My withdrawal:</strong> I may withdraw only for serious cause — including non-payment, persistent requests outside my professional scope, behaviour that puts my safety at risk, or force majeure. In such cases, I complete all already-paid sessions first (unless the cause is immediate and serious), and reimburse undelivered sessions proportionally.</p>
+                <p>Future periods not yet paid are never activated and require no notice from either party.</p>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 7</div>
+              <h3 className="terms-section-title">What I do — OSS professional scope</h3>
+              <div className="terms-section-body">
+                <p>I operate exclusively within the certified OSS professional scope (Legge 42/1999, D.M. 520/2001). Activities I provide include:</p>
+                <p>Personal hygiene and daily care · Mobilisation and transfers · Meal preparation and feeding assistance · Cognitive stimulation and supervised activities · Home supervision · Accompaniment to medical visits · Family updates and care diary · ADL assistance for disabled individuals · Educational and routine support for minors with special needs.</p>
+                <p>The specific activities included in your collaboration are agreed in writing and documented in the Task Schedule (Allegato A) attached to the signed contract.</p>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 8</div>
+              <h3 className="terms-section-title">What I never do — hard exclusions</h3>
+              <div className="terms-section-body">
+                <p>The following activities are permanently excluded from my professional scope. They will always be declined, regardless of the situation, urgency, or request — and refusal does not constitute non-compliance with the contract:</p>
+                <ul className="terms-exclusion-list">
+                  <li>Medication administration, management, or supervision of any kind</li>
+                  <li>Medical or nursing procedures of any nature</li>
+                  <li>Clinical diagnosis or health assessment</li>
+                  <li>Wound care, dressing changes, or post-surgical treatment</li>
+                  <li>Psychological or therapeutic sessions</li>
+                  <li>24-hour live-in care — this service is not offered under any circumstances</li>
+                </ul>
+                <p style={{ marginTop: '12px' }}>If I identify a clinical situation during a session that requires medical intervention, I will notify the family immediately and redirect to the appropriate professional.</p>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 9</div>
+              <h3 className="terms-section-title">Confidentiality and personal data (GDPR)</h3>
+              <div className="terms-section-body">
+                <p>I maintain absolute professional confidentiality over all information relating to the assisted person, the family, health conditions, and any information acquired in the course of my work. This information will never be shared with third parties without explicit written consent, except where required by law.</p>
+                <p>Your personal data and the health data of the assisted person are processed by me as <strong>Data Controller</strong>, exclusively for the purposes of this collaboration, in compliance with EU Regulation 2016/679 (GDPR) and D.Lgs. 101/2018. Health data is treated as a special category under art. 9 GDPR and processed only with your explicit consent.</p>
+                <p>Data is retained for the duration of the collaboration, plus 10 years for fiscal obligations and 3 years for contractual disputes. You have the right to access, rectify, and request erasure of your data at any time by contacting me in writing.</p>
+                <div className="terms-pill-row">
+                  <span className="terms-pill green">GDPR compliant</span>
+                  <span className="terms-pill green">No third-party sharing</span>
+                  <span className="terms-pill">EU Reg. 2016/679</span>
+                  <span className="terms-pill">3-year confidentiality obligation</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="terms-section">
+              <div className="terms-section-num">Section 10</div>
+              <h3 className="terms-section-title">Applicable law and disputes</h3>
+              <div className="terms-section-body">
+                <p>This collaboration is governed exclusively by <strong>Italian law</strong> under artt. 2222–2237 of the Codice Civile (autonomous professional service contract). In the event of a dispute, both parties commit to an amicable resolution attempt within 15 days before resorting to legal action.</p>
+                <p>The competent court for any unresolved dispute is exclusively the <strong>Tribunale di Lecco</strong>.</p>
+                <div className="terms-law-note">
+                  The full signed contract — containing all 17 articles, specific approval of onerous clauses, and the Task Schedule (Allegato A) — is transmitted separately after your evaluation request has been approved. The document you are reading here is a summary of the key collaboration terms for the purposes of informed consent.
+                </div>
+              </div>
+            </div>
+
+            <div className="terms-scroll-hint" id="terms-scroll-hint" ref={scrollHintRef}>
+              ↓ Scroll to read all terms
+            </div>
+          </div>
+
+          <div className="terms-footer">
+            <div className="terms-footer-note">
+              <strong>Ghassen Mansouri</strong> · OSS Independent Professional · P.IVA 01103920144<br />
+              ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care
+            </div>
+            <button className="terms-btn-close" onClick={closeTermsModal}>
+              I have read them ✓
+            </button>
+          </div>
         </div>
       </div>
 
@@ -2073,6 +2339,369 @@ export default function RequestPage() {
           .other-input-container {
             margin-top: 8px;
           }
+        }
+
+        /* --- Terms Modal Styles --- */
+        .terms-trigger-link {
+          color: #2a7f6e;
+          text-decoration: underline;
+          text-decoration-color: rgba(42,127,110,0.35);
+          text-underline-offset: 2px;
+          cursor: pointer;
+          font-weight: 500;
+          transition: color 0.15s;
+        }
+        .terms-trigger-link:hover {
+          color: #1f6255;
+        }
+
+        .terms-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(28, 28, 26, 0.72);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          z-index: 9000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        .terms-overlay.open {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .terms-modal {
+          background: #FFFFFF;
+          border-radius: 32px;
+          width: min(820px, 100%);
+          max-height: min(88vh, 820px);
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 24px 64px rgba(28, 28, 26, 0.28);
+          transform: translateY(16px);
+          transition: transform 0.25s ease;
+          overflow: hidden;
+        }
+        .terms-overlay.open .terms-modal {
+          transform: translateY(0);
+        }
+
+        .terms-header {
+          flex-shrink: 0;
+          padding: 24px 28px 20px;
+          border-bottom: 1px solid #E2DDD6;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 16px;
+          background: #F5F2EC;
+        }
+        .terms-header-left {
+          flex: 1;
+        }
+        .terms-header-eyebrow {
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.13em;
+          text-transform: uppercase;
+          color: #c47a3a;
+          margin-bottom: 6px;
+        }
+        .terms-header-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 26px;
+          font-weight: 400;
+          color: #1C1C1A;
+          line-height: 1.2;
+          margin-bottom: 4px;
+        }
+        .terms-header-sub {
+          font-size: 12px;
+          color: #9B9895;
+          line-height: 1.5;
+        }
+        .terms-close {
+          flex-shrink: 0;
+          width: 36px;
+          height: 36px;
+          border: none;
+          background: none;
+          cursor: pointer;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #9B9895;
+          font-size: 18px;
+          transition: background 0.15s, color 0.15s;
+          margin-top: 2px;
+        }
+        .terms-close:hover {
+          background: #E2DDD6;
+          color: #1C1C1A;
+        }
+
+        .terms-progress-bar {
+          flex-shrink: 0;
+          height: 3px;
+          background: #E2DDD6;
+          position: relative;
+        }
+        .terms-progress-fill {
+          height: 100%;
+          background: #2a7f6e;
+          width: 0%;
+          transition: width 0.1s linear;
+          border-radius: 0 2px 2px 0;
+        }
+
+        .terms-body {
+          flex: 1;
+          overflow-y: auto;
+          padding: 28px 28px 0;
+          scroll-behavior: smooth;
+        }
+        .terms-body::-webkit-scrollbar { width: 5px; }
+        .terms-body::-webkit-scrollbar-track { background: transparent; }
+        .terms-body::-webkit-scrollbar-thumb { background: #CCC8C0; border-radius: 99px; }
+
+        .terms-intro {
+          background: #E8F7F2;
+          border: 1px solid #C5E8DF;
+          border-radius: 16px;
+          padding: 16px 18px;
+          margin-bottom: 28px;
+          font-size: 13px;
+          color: #1C1C1A;
+          line-height: 1.7;
+        }
+        .terms-intro strong {
+          color: #2a7f6e;
+          font-weight: 500;
+        }
+
+        .terms-section {
+          margin-bottom: 26px;
+          padding-bottom: 26px;
+          border-bottom: 1px solid #E2DDD6;
+        }
+        .terms-section:last-of-type {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+        .terms-section-num {
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #c47a3a;
+          margin-bottom: 6px;
+        }
+        .terms-section-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 19px;
+          font-weight: 500;
+          color: #1C1C1A;
+          margin-bottom: 10px;
+          line-height: 1.3;
+        }
+        .terms-section-body {
+          font-size: 13px;
+          color: #6B6865;
+          line-height: 1.75;
+        }
+        .terms-section-body p {
+          margin-bottom: 10px;
+        }
+        .terms-section-body p:last-child {
+          margin-bottom: 0;
+        }
+        .terms-section-body strong {
+          color: #1C1C1A;
+          font-weight: 500;
+        }
+
+        .terms-exclusion-list {
+          list-style: none;
+          margin: 10px 0 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .terms-exclusion-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          font-size: 13px;
+          color: #6B6865;
+          line-height: 1.55;
+        }
+        .terms-exclusion-list li::before {
+          content: '✕';
+          flex-shrink: 0;
+          font-size: 11px;
+          font-weight: 600;
+          color: #c47a3a;
+          margin-top: 2px;
+        }
+
+        .terms-pill-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 12px;
+        }
+        .terms-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 11px;
+          padding: 4px 10px;
+          border-radius: 99px;
+          border: 1px solid #E2DDD6;
+          background: #F5F2EC;
+          color: #6B6865;
+        }
+        .terms-pill.green {
+          background: #E8F7F2;
+          border-color: #C5E8DF;
+          color: #2a7f6e;
+        }
+        .terms-pill.terra {
+          background: #F7EDE3;
+          border-color: rgba(196, 118, 58, 0.25);
+          color: #c47a3a;
+        }
+
+        .terms-cancel-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 12px;
+          font-size: 13px;
+        }
+        .terms-cancel-table th {
+          text-align: left;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #9B9895;
+          padding: 8px 12px;
+          border-bottom: 1px solid #E2DDD6;
+        }
+        .terms-cancel-table td {
+          padding: 10px 12px;
+          border-bottom: 1px solid #E2DDD6;
+          vertical-align: top;
+          color: #6B6865;
+          line-height: 1.55;
+        }
+        .terms-cancel-table tr:last-child td {
+          border-bottom: none;
+        }
+        .terms-cancel-table td:first-child {
+          font-weight: 500;
+          color: #1C1C1A;
+          white-space: nowrap;
+        }
+        .badge-green {
+          display: inline-flex;
+          font-size: 11px;
+          padding: 2px 8px;
+          border-radius: 99px;
+          background: #E8F7F2;
+          color: #2a7f6e;
+          border: 1px solid #C5E8DF;
+          margin-top: 4px;
+        }
+        .badge-terra {
+          display: inline-flex;
+          font-size: 11px;
+          padding: 2px 8px;
+          border-radius: 99px;
+          background: #F7EDE3;
+          color: #c47a3a;
+          border: 1px solid rgba(196, 118, 58, 0.25);
+          margin-top: 4px;
+        }
+
+        .terms-law-note {
+          background: #F5F2EC;
+          border: 1px solid #E2DDD6;
+          border-radius: 12px;
+          padding: 12px 14px;
+          font-size: 12px;
+          color: #9B9895;
+          line-height: 1.65;
+          margin-top: 12px;
+        }
+
+        .terms-footer {
+          flex-shrink: 0;
+          padding: 20px 28px;
+          border-top: 1px solid #E2DDD6;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          background: #FAFAF8;
+        }
+        .terms-footer-note {
+          font-size: 12px;
+          color: #9B9895;
+          line-height: 1.5;
+          flex: 1;
+        }
+        .terms-footer-note strong {
+          color: #1C1C1A;
+          font-weight: 500;
+        }
+        .terms-btn-close {
+          flex-shrink: 0;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: #2a7f6e;
+          color: #FFFFFF;
+          border: none;
+          border-radius: 40px;
+          padding: 10px 24px;
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          font-family: inherit;
+          transition: background 0.15s;
+        }
+        .terms-btn-close:hover {
+          background: #1f6255;
+        }
+
+        .terms-scroll-hint {
+          text-align: center;
+          font-size: 11px;
+          color: #9B9895;
+          padding: 12px 0 20px;
+          letter-spacing: 0.04em;
+          opacity: 1;
+          transition: opacity 0.4s;
+        }
+        .terms-scroll-hint.hidden {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+          .terms-header { padding: 18px 20px 16px; }
+          .terms-body { padding: 20px 20px 0; }
+          .terms-footer { padding: 16px 20px; flex-direction: column; align-items: stretch; }
+          .terms-btn-close { justify-content: center; }
+          .terms-cancel-table td:first-child { white-space: normal; }
         }
       `}</style>
     </main>
