@@ -13,15 +13,15 @@ export default function ServicesPage() {
     <main className="services-page">
       <div className="page-hero">
         <div className="page-hero-inner">
-          <div className="page-eyebrow">Services</div>
+          <div className="page-eyebrow">Servizi</div>
           <h1 className="page-title">
-            What I offer.
+            Cosa offro.
             <br />
-            How I work. What is not included.
+            Come lavoro. Cosa non è incluso.
           </h1>
           <p className="page-subtitle">
-            Every support session is structured, documented, and delivered
-            within the certified OSS professional scope.
+            Ogni sessione di assistenza è strutturata, documentata e svolta
+            nel perimetro professionale certificato OSS.
           </p>
         </div>
       </div>
@@ -36,7 +36,7 @@ export default function ServicesPage() {
                 onClick={() => setActiveTab("local")}
                 aria-pressed={activeTab === "local"}
               >
-                Local Families — Como Lake · Lecco · Valtellina
+                Famiglie locali — Lago di Como · Lecco · Valtellina
               </button>
 
               <button
@@ -45,7 +45,7 @@ export default function ServicesPage() {
                 onClick={() => setActiveTab("intl")}
                 aria-pressed={activeTab === "intl"}
               >
-                International Clients — Expat & Temporary Stay
+                Clienti internazionali — expat e soggiorni temporanei
               </button>
             </div>
           </div>
@@ -55,49 +55,51 @@ export default function ServicesPage() {
               <div className="services-grid">
                 <div className="service-card">
                   <div className="service-card-icon">OSS</div>
-                  <div className="service-card-label">Elderly People</div>
+                  <div className="service-card-label">Anziani</div>
                   <h3 className="service-card-title">
-                    Elderly Care Services ( for Seniors)
+                    Servizi di assistenza agli anziani
                   </h3>
                   <ul className="service-list">
                     <li>
-                      Personal hygiene assistance for elderly (bathing,
-                      grooming, oral care)
+                      Assistenza all’igiene personale per anziani (bagno,
+                      cura della persona, igiene orale)
                     </li>
                     <li>
-                      Dressing and mobility support for seniors (transfers,
-                      walking assistance, fall prevention)
+                      Supporto nell’abbigliamento e nella mobilità per anziani
+                      (trasferimenti, accompagnamento nella deambulazione,
+                      prevenzione cadute)
                     </li>
                     <li>
-                      Medication reminders for elderly patients
-                      (non-administration)
+                      Promemoria per la terapia farmacologica negli anziani
+                      (senza somministrazione)
                     </li>
                     <li>
-                      Meal preparation for seniors (diet-compliant, assisted
-                      feeding if needed)
+                      Preparazione dei pasti per anziani (in linea con la dieta,
+                      alimentazione assistita se necessaria)
                     </li>
                     <li>
-                      Companionship for elderly (reducing loneliness, cognitive
-                      stimulation)
+                      Compagnia per anziani (riduzione della solitudine,
+                      stimolazione cognitiva)
                     </li>
                     <li>
-                      Monitoring vital signs (basic) (temperature, observation
-                      of general condition)
+                      Monitoraggio di base dei parametri vitali (temperatura,
+                      osservazione dello stato generale)
                     </li>
                     <li>
-                      Post-hospitalization support for seniors (recovery
-                      assistance at home)
+                      Supporto post-ricovero per anziani (assistenza alla
+                      ripresa a domicilio)
                     </li>
                     <li>
-                      Alzheimer’s and dementia care support (routine assistance,
-                      supervision)
+                      Supporto nell’assistenza ad Alzheimer e demenza
+                      (routine, supervisione)
                     </li>
                     <li>
-                      Light housekeeping for elderly care (clean environment,
-                      hygiene maintenance)
+                      Piccole attività domestiche per la cura dell’ambiente
+                      (pulizia leggera, mantenimento dell’igiene)
                     </li>
                     <li>
-                      Assistance with daily living activities (ADLs)
+                      Assistenza nelle attività quotidiane della vita
+                      giornaliera (ADL)
                     </li>
                   </ul>
                 </div>
@@ -105,68 +107,80 @@ export default function ServicesPage() {
                 <div className="service-card">
                   <div className="service-card-icon">OSS</div>
                   <div className="service-card-label">
-                    People with Disabilities
+                    Persone con disabilità
                   </div>
                   <h3 className="service-card-title">
-                    Disability Support Services ( Disabled Individuals)
+                    Servizi di supporto alla disabilità
                   </h3>
                   <ul className="service-list">
                     <li>
-                      Personal care assistance for disabled individuals
+                      Assistenza alla cura personale per persone con disabilità
                     </li>
                     <li>
-                      Mobility support for people with disabilities (wheelchair
-                      assistance, transfers)
+                      Supporto alla mobilità per persone con disabilità
+                      (sedia a rotelle, trasferimenti)
                     </li>
-                    <li>Daily living support (ADLs &amp; IADLs)</li>
-                    <li>Support for independent living at home</li>
-                    <li>Assistance with hygiene and continence care</li>
-                    <li>Meal preparation adapted to specific needs</li>
-                    <li>Emotional support and companionship</li>
+                    <li>Supporto alle attività quotidiane (ADL e IADL)</li>
+                    <li>Supporto alla vita autonoma a domicilio</li>
                     <li>
-                      Coordination with family and healthcare providers
+                      Assistenza all’igiene personale e alla gestione della
+                      continenza
+                    </li>
+                    <li>Preparazione dei pasti adattata alle esigenze specifiche</li>
+                    <li>Supporto emotivo e compagnia</li>
+                    <li>
+                      Coordinamento con la famiglia e con i professionisti
+                      sanitari
                     </li>
                     <li>
-                      Safe home environment maintenance (risk prevention)
+                      Mantenimento di un ambiente domestico sicuro
+                      (prevenzione dei rischi)
                     </li>
                     <li>
-                      Support for physical disability or reduced autonomy
+                      Supporto in caso di disabilità fisica o ridotta
+                      autonomia
                     </li>
                   </ul>
                 </div>
 
                 <div className="service-card">
                   <div className="service-card-icon">OSS</div>
-                  <div className="service-card-label">Minors</div>
+                  <div className="service-card-label">Minori</div>
                   <h3 className="service-card-title">
-                    Special Needs Care for Minors (Non-Clinical Support)
+                    Assistenza per minori con bisogni speciali
+                    (supporto non clinico)
                   </h3>
                   <ul className="service-list">
-                    <li>Daily routine support for children with special needs</li>
-                    <li>Personal hygiene assistance (age-appropriate)</li>
-                    <li>Supervision and safety monitoring</li>
                     <li>
-                      Support for developmental activities (non-therapeutic)
+                      Supporto alla routine quotidiana per bambini con bisogni
+                      speciali
                     </li>
-                    <li>Assistance with feeding and daily structure</li>
-                    <li>Collaboration with parents and therapists</li>
-                    <li>Emotional reassurance and structured companionship</li>
                     <li>
-                      Support for children with autism or cognitive disabilities
-                      (non-clinical)
+                      Assistenza all’igiene personale (adeguata all’età)
                     </li>
-                    <li>School preparation and routine assistance</li>
-                    <li>Safe environment management at home</li>
+                    <li>Supervisione e monitoraggio della sicurezza</li>
+                    <li>
+                      Supporto alle attività di sviluppo (non terapeutiche)
+                    </li>
+                    <li>Assistenza durante i pasti e nella routine quotidiana</li>
+                    <li>Collaborazione con i genitori e con i terapisti</li>
+                    <li>Rassicurazione emotiva e compagnia strutturata</li>
+                    <li>
+                      Supporto per bambini con autismo o disabilità cognitive
+                      (non clinico)
+                    </li>
+                    <li>Preparazione alla scuola e supporto alla routine</li>
+                    <li>Gestione di un ambiente domestico sicuro</li>
                   </ul>
                 </div>
               </div>
-              
-{/* Images inserted between "What is not included" and pricing section */}
+
+              {/* Images inserted between "What is not included" and pricing section */}
               <div className="image-gallery">
                 <div className="gallery-item">
                   <Image
                     src="/Images/2.jpg"
-                    alt="Care professional assisting with daily activities"
+                    alt="Operatore socio-sanitario che supporta una persona nelle attività quotidiane a domicilio"
                     width={400}
                     height={300}
                     className="gallery-image"
@@ -175,7 +189,7 @@ export default function ServicesPage() {
                 <div className="gallery-item">
                   <Image
                     src="/Images/5.jpg"
-                    alt="Elderly person receiving companionship and support"
+                    alt="Persona anziana che riceve compagnia e supporto durante un momento di assistenza"
                     width={400}
                     height={300}
                     className="gallery-image"
@@ -184,42 +198,41 @@ export default function ServicesPage() {
                 <div className="gallery-item">
                   <Image
                     src="/Images/6.jpg"
-                    alt="Warm care environment and professional support"
+                    alt="Ambiente domestico accogliente con assistenza socio-sanitaria professionale"
                     width={400}
                     height={300}
                     className="gallery-image"
                   />
                 </div>
               </div>
+
               <div className="oss-boundary">
                 <div className="oss-boundary-title">
-                  What is not included — professional boundaries
-                  <span className="oss-badge">OSS perimeter</span>
+                  Cosa non è incluso — confini professionali
+                  <span className="oss-badge">Perimetro OSS</span>
                 </div>
                 <p className="oss-intro">
-                  I operate exclusively within the certified OSS scope. The
-                  following are outside my perimeter and will always be
-                  declined:
+                  Lavoro esclusivamente entro il perimetro OSS certificato. Le
+                  attività seguenti sono fuori dal mio ambito e verranno sempre
+                  rifiutate:
                 </p>
                 <ul className="oss-list">
-                  <li>Medication administration or management</li>
-                  <li>Medical procedures of any kind</li>
-                  <li>Clinical diagnosis or health assessment</li>
-                  <li>Wound care or post-surgical treatment</li>
-                  <li>Psychological or therapeutic sessions</li>
+                  <li>Somministrazione o gestione dei farmaci</li>
+                  <li>Procedure mediche di qualsiasi tipo</li>
+                  <li>Diagnosi cliniche o valutazioni sanitarie</li>
+                  <li>Medicazioni o trattamenti post-operatori</li>
+                  <li>Colloqui psicologici o terapeutici</li>
                   <li>
-                    24h live-in care — this service falls outside my
-                    professional scope and is not offered
+                    Assistenza 24 ore con presenza continua — servizio fuori
+                    dal mio perimetro professionale e non offerto
                   </li>
                 </ul>
                 <p className="oss-note">
-                  Any situation requiring clinical intervention will be
-                  identified, reported to the family, and redirected to the
-                  appropriate medical professional immediately.
+                  Qualsiasi situazione che richieda un intervento clinico verrà
+                  identificata, segnalata alla famiglia e indirizzata
+                  immediatamente al professionista sanitario appropriato.
                 </p>
               </div>
-
-              
             </div>
           ) : (
             <div className="tab-content active">
@@ -227,48 +240,49 @@ export default function ServicesPage() {
                 <div className="intl-card">
                   <div className="intl-card-num">01</div>
                   <div className="intl-card-title">
-                    Communication in your language
+                    Comunicazione nella tua lingua
                   </div>
                   <div className="intl-card-desc">
-                    All family updates delivered in your preferred language —
-                    Italian, English, French, Arabic, or German. Written
-                    reports shared remotely or onsite according to your
-                    preference.
+                    Tutti gli aggiornamenti alla famiglia vengono forniti nella
+                    lingua preferita — italiano, inglese, francese, arabo o
+                    tedesco. I report scritti possono essere condivisi da
+                    remoto oppure in presenza, secondo preferenza.
                   </div>
                 </div>
 
                 <div className="intl-card">
                   <div className="intl-card-num">02</div>
                   <div className="intl-card-title">
-                    Remote family coordination
+                    Coordinamento remoto con la famiglia
                   </div>
                   <div className="intl-card-desc">
-                    Designed for families based abroad. You receive structured
-                    updates at agreed intervals — no need to be present in
-                    Italy to stay fully informed.
+                    Pensato per famiglie residenti all’estero. Ricevi
+                    aggiornamenti strutturati a intervalli concordati — non è
+                    necessario essere presenti in Italia per restare sempre
+                    informato.
                   </div>
                 </div>
 
                 <div className="intl-card">
                   <div className="intl-card-num">03</div>
-                  <div className="intl-card-title">Cultural awareness</div>
+                  <div className="intl-card-title">Sensibilità culturale</div>
                   <div className="intl-card-desc">
-                    18 years in international environments. I understand
-                    different cultural approaches to care, privacy, and family
-                    communication. No assumptions. No cultural friction.
+                    18 anni in contesti internazionali. Comprendo approcci
+                    diversi alla cura, alla privacy e alla comunicazione
+                    familiare. Nessuna supposizione. Nessun attrito culturale.
                   </div>
                 </div>
 
                 <div className="intl-card">
                   <div className="intl-card-num">04</div>
                   <div className="intl-card-title">
-                    Onboarding for non-resident families
+                    Inserimento per famiglie non residenti
                   </div>
                   <div className="intl-card-desc">
-                    If you are not present in Italy at the start of the
-                    collaboration, the onboarding process is adapted —
-                    discovery call remote, documentation digital, first session
-                    coordinated with a local contact if needed.
+                    Se non sei presente in Italia all’avvio della collaborazione,
+                    il percorso di inserimento viene adattato — colloquio
+                    conoscitivo da remoto, documentazione digitale, prima
+                    sessione coordinata con un contatto locale se necessario.
                   </div>
                 </div>
               </div>
@@ -276,49 +290,51 @@ export default function ServicesPage() {
               <div className="services-grid">
                 <div className="service-card">
                   <div className="service-card-icon">OSS</div>
-                  <div className="service-card-label">Elderly People</div>
+                  <div className="service-card-label">Anziani</div>
                   <h3 className="service-card-title">
-                    Elderly Care Services ( for Seniors)
+                    Servizi di assistenza agli anziani
                   </h3>
                   <ul className="service-list">
                     <li>
-                      Personal hygiene assistance for elderly (bathing,
-                      grooming, oral care)
+                      Assistenza all’igiene personale per anziani (bagno,
+                      cura della persona, igiene orale)
                     </li>
                     <li>
-                      Dressing and mobility support for seniors (transfers,
-                      walking assistance, fall prevention)
+                      Supporto nell’abbigliamento e nella mobilità per anziani
+                      (trasferimenti, accompagnamento nella deambulazione,
+                      prevenzione cadute)
                     </li>
                     <li>
-                      Medication reminders for elderly patients
-                      (non-administration)
+                      Promemoria per la terapia farmacologica negli anziani
+                      (senza somministrazione)
                     </li>
                     <li>
-                      Meal preparation for seniors (diet-compliant, assisted
-                      feeding if needed)
+                      Preparazione dei pasti per anziani (in linea con la dieta,
+                      alimentazione assistita se necessaria)
                     </li>
                     <li>
-                      Companionship for elderly (reducing loneliness, cognitive
-                      stimulation)
+                      Compagnia per anziani (riduzione della solitudine,
+                      stimolazione cognitiva)
                     </li>
                     <li>
-                      Monitoring vital signs (basic) (temperature, observation
-                      of general condition)
+                      Monitoraggio di base dei parametri vitali (temperatura,
+                      osservazione dello stato generale)
                     </li>
                     <li>
-                      Post-hospitalization support for seniors (recovery
-                      assistance at home)
+                      Supporto post-ricovero per anziani (assistenza alla
+                      ripresa a domicilio)
                     </li>
                     <li>
-                      Alzheimer’s and dementia care support (routine assistance,
-                      supervision)
+                      Supporto nell’assistenza ad Alzheimer e demenza
+                      (routine, supervisione)
                     </li>
                     <li>
-                      Light housekeeping for elderly care (clean environment,
-                      hygiene maintenance)
+                      Piccole attività domestiche per la cura dell’ambiente
+                      (pulizia leggera, mantenimento dell’igiene)
                     </li>
                     <li>
-                      Assistance with daily living activities (ADLs)
+                      Assistenza nelle attività quotidiane della vita
+                      giornaliera (ADL)
                     </li>
                   </ul>
                 </div>
@@ -326,87 +342,99 @@ export default function ServicesPage() {
                 <div className="service-card">
                   <div className="service-card-icon">OSS</div>
                   <div className="service-card-label">
-                    People with Disabilities
+                    Persone con disabilità
                   </div>
                   <h3 className="service-card-title">
-                    Disability Support Services ( Disabled Individuals)
+                    Servizi di supporto alla disabilità
                   </h3>
                   <ul className="service-list">
                     <li>
-                      Personal care assistance for disabled individuals
+                      Assistenza alla cura personale per persone con disabilità
                     </li>
                     <li>
-                      Mobility support for people with disabilities (wheelchair
-                      assistance, transfers)
+                      Supporto alla mobilità per persone con disabilità
+                      (sedia a rotelle, trasferimenti)
                     </li>
-                    <li>Daily living support (ADLs &amp; IADLs)</li>
-                    <li>Support for independent living at home</li>
-                    <li>Assistance with hygiene and continence care</li>
-                    <li>Meal preparation adapted to specific needs</li>
-                    <li>Emotional support and companionship</li>
+                    <li>Supporto alle attività quotidiane (ADL e IADL)</li>
+                    <li>Supporto alla vita autonoma a domicilio</li>
                     <li>
-                      Coordination with family and healthcare providers
+                      Assistenza all’igiene personale e alla gestione della
+                      continenza
+                    </li>
+                    <li>Preparazione dei pasti adattata alle esigenze specifiche</li>
+                    <li>Supporto emotivo e compagnia</li>
+                    <li>
+                      Coordinamento con la famiglia e con i professionisti
+                      sanitari
                     </li>
                     <li>
-                      Safe home environment maintenance (risk prevention)
+                      Mantenimento di un ambiente domestico sicuro
+                      (prevenzione dei rischi)
                     </li>
                     <li>
-                      Support for physical disability or reduced autonomy
+                      Supporto in caso di disabilità fisica o ridotta
+                      autonomia
                     </li>
                   </ul>
                 </div>
 
                 <div className="service-card">
                   <div className="service-card-icon">OSS</div>
-                  <div className="service-card-label">Minors</div>
+                  <div className="service-card-label">Minori</div>
                   <h3 className="service-card-title">
-                    Special Needs Care for Minors (Non-Clinical Support)
+                    Assistenza per minori con bisogni speciali
+                    (supporto non clinico)
                   </h3>
                   <ul className="service-list">
-                    <li>Daily routine support for children with special needs</li>
-                    <li>Personal hygiene assistance (age-appropriate)</li>
-                    <li>Supervision and safety monitoring</li>
                     <li>
-                      Support for developmental activities (non-therapeutic)
+                      Supporto alla routine quotidiana per bambini con bisogni
+                      speciali
                     </li>
-                    <li>Assistance with feeding and daily structure</li>
-                    <li>Collaboration with parents and therapists</li>
-                    <li>Emotional reassurance and structured companionship</li>
                     <li>
-                      Support for children with autism or cognitive disabilities
-                      (non-clinical)
+                      Assistenza all’igiene personale (adeguata all’età)
                     </li>
-                    <li>School preparation and routine assistance</li>
-                    <li>Safe environment management at home</li>
+                    <li>Supervisione e monitoraggio della sicurezza</li>
+                    <li>
+                      Supporto alle attività di sviluppo (non terapeutiche)
+                    </li>
+                    <li>Assistenza durante i pasti e nella routine quotidiana</li>
+                    <li>Collaborazione con i genitori e con i terapisti</li>
+                    <li>Rassicurazione emotiva e compagnia strutturata</li>
+                    <li>
+                      Supporto per bambini con autismo o disabilità cognitive
+                      (non clinico)
+                    </li>
+                    <li>Preparazione alla scuola e supporto alla routine</li>
+                    <li>Gestione di un ambiente domestico sicuro</li>
                   </ul>
                 </div>
               </div>
 
               <div className="oss-boundary">
                 <div className="oss-boundary-title">
-                  What is not included — professional boundaries
-                  <span className="oss-badge">OSS perimeter</span>
+                  Cosa non è incluso — confini professionali
+                  <span className="oss-badge">Perimetro OSS</span>
                 </div>
                 <p className="oss-intro">
-                  I operate exclusively within the certified OSS scope. The
-                  following are outside my perimeter and will always be
-                  declined:
+                  Lavoro esclusivamente entro il perimetro OSS certificato. Le
+                  attività seguenti sono fuori dal mio ambito e verranno sempre
+                  rifiutate:
                 </p>
                 <ul className="oss-list">
-                  <li>Medication administration or management</li>
-                  <li>Medical procedures of any kind</li>
-                  <li>Clinical diagnosis or health assessment</li>
-                  <li>Wound care or post-surgical treatment</li>
-                  <li>Psychological or therapeutic sessions</li>
+                  <li>Somministrazione o gestione dei farmaci</li>
+                  <li>Procedure mediche di qualsiasi tipo</li>
+                  <li>Diagnosi cliniche o valutazioni sanitarie</li>
+                  <li>Medicazioni o trattamenti post-operatori</li>
+                  <li>Colloqui psicologici o terapeutici</li>
                   <li>
-                    24h live-in care — this service falls outside my
-                    professional scope and is not offered
+                    Assistenza 24 ore con presenza continua — servizio fuori
+                    dal mio perimetro professionale e non offerto
                   </li>
                 </ul>
                 <p className="oss-note">
-                  Any situation requiring clinical intervention will be
-                  identified, reported to the family, and redirected to the
-                  appropriate medical professional immediately.
+                  Qualsiasi situazione che richieda un intervento clinico verrà
+                  identificata, segnalata alla famiglia e indirizzata
+                  immediatamente al professionista sanitario appropriato.
                 </p>
               </div>
 
@@ -415,7 +443,7 @@ export default function ServicesPage() {
                 <div className="gallery-item">
                   <Image
                     src="/Images/2.jpg"
-                    alt="Care professional assisting with daily activities"
+                    alt="Operatore socio-sanitario che supporta una persona nelle attività quotidiane a domicilio"
                     width={400}
                     height={300}
                     className="gallery-image"
@@ -424,7 +452,7 @@ export default function ServicesPage() {
                 <div className="gallery-item">
                   <Image
                     src="/Images/5.jpg"
-                    alt="Elderly person receiving companionship and support"
+                    alt="Persona anziana che riceve compagnia e supporto durante un momento di assistenza"
                     width={400}
                     height={300}
                     className="gallery-image"
@@ -433,7 +461,7 @@ export default function ServicesPage() {
                 <div className="gallery-item">
                   <Image
                     src="/Images/6.jpg"
-                    alt="Warm care environment and professional support"
+                    alt="Ambiente domestico accogliente con assistenza socio-sanitaria professionale"
                     width={400}
                     height={300}
                     className="gallery-image"
@@ -447,103 +475,104 @@ export default function ServicesPage() {
 
       <section className="section section-alt">
         <div className="section-inner">
-          <div className="section-eyebrow">Hourly rates</div>
-          <h2 className="section-title">Transparent pricing framework.</h2>
+          <div className="section-eyebrow">Tariffe orarie</div>
+          <h2 className="section-title">Struttura trasparente dei prezzi.</h2>
 
           <div className="pricing-grid">
             <div className="pricing-section">
-              <div className="pricing-title">Support session rates</div>
+              <div className="pricing-title">Tariffe delle sessioni di assistenza</div>
               <div className="pricing-sub">
-                Defined before contract signature. No surprises.
+                Definite prima della firma del contratto. Nessuna sorpresa.
               </div>
 
               <div className="pricing-row">
                 <div>
-                  <div className="pricing-label">Daytime support session</div>
+                  <div className="pricing-label">Sessione diurna di assistenza</div>
                   <div className="pricing-label-sub">07:00 – 22:00</div>
                 </div>
-                <div className="pricing-value">From €28/h</div>
+                <div className="pricing-value">Da €28/ora</div>
               </div>
 
               <div className="pricing-row">
                 <div>
-                  <div className="pricing-label">Night shift — passive</div>
+                  <div className="pricing-label">Turno notturno — passivo</div>
                   <div className="pricing-label-sub">
-                    22:00 – 07:00 · Person sleeps autonomously
+                    22:00 – 07:00 · La persona dorme autonomamente
                   </div>
                 </div>
-                <div className="pricing-value">€35/h</div>
+                <div className="pricing-value">€35/ora</div>
               </div>
 
               <div className="pricing-row">
                 <div>
-                  <div className="pricing-label">Night shift — active</div>
+                  <div className="pricing-label">Turno notturno — attivo</div>
                   <div className="pricing-label-sub">
-                    22:00 – 07:00 · Interventions required
+                    22:00 – 07:00 · Sono richiesti interventi
                   </div>
                 </div>
-                <div className="pricing-value">€40/h</div>
+                <div className="pricing-value">€40/ora</div>
               </div>
 
               <div className="pricing-row">
                 <div>
-                  <div className="pricing-label">Complexity supplement</div>
+                  <div className="pricing-label">Supplemento complessità</div>
                   <div className="pricing-label-sub">
-                    High-dependency or complex care profile
+                    Profilo con elevata dipendenza o cura complessa
                   </div>
                 </div>
-                <div className="pricing-value-eval">Defined at evaluation</div>
+                <div className="pricing-value-eval">Definito in fase di valutazione</div>
               </div>
 
               <div className="pricing-row">
                 <div>
-                  <div className="pricing-label">Distance supplement</div>
+                  <div className="pricing-label">Supplemento distanza</div>
                   <div className="pricing-label-sub">
-                    Outside primary zone (Dervio/Lecco)
+                    Fuori dalla zona principale (Dervio/Lecco)
                   </div>
                 </div>
                 <div className="pricing-value-eval">
-                  Evaluated on overall mission scope
+                  Valutato in base al perimetro complessivo dell’incarico
                 </div>
               </div>
 
               <p className="pricing-note">
-                Minimum 5 consecutive hours per support session. No exceptions.
-                Sundays and public holidays charged as regular days. All
-                supplements are communicated to the client before contract
-                signature.
+                Minimo 5 ore consecutive per sessione di assistenza. Nessuna
+                eccezione. Domeniche e festivi conteggiati come giorni
+                ordinari. Tutti i supplementi vengono comunicati al cliente
+                prima della firma del contratto.
               </p>
             </div>
 
             <div className="pricing-side">
               <div className="info-card">
-                <div className="info-card-title">Level of autonomy</div>
+                <div className="info-card-title">Livello di autonomia</div>
                 <p>
-                  Autonomous / Semi-autonomous / Non-autonomous — affects the
-                  base rate. Defined during the evaluation phase.
+                  Autonomo / Semi-autonomo / Non autonomo — incide sulla tariffa
+                  base. Definito durante la fase di valutazione.
                 </p>
               </div>
 
               <div className="info-card">
-                <div className="info-card-title">Required activities</div>
+                <div className="info-card-title">Attività richieste</div>
                 <p>
-                  Complexity and intensity of interventions required —
-                  evaluated case by case during the discovery call.
+                  Complessità e intensità degli interventi richiesti —
+                  valutate caso per caso durante il colloquio conoscitivo.
                 </p>
               </div>
 
               <div className="info-card">
-                <div className="info-card-title">Support duration</div>
+                <div className="info-card-title">Durata del supporto</div>
                 <p>
-                  Short / Medium / Long term — evaluated case by case.
-                  Long-term collaborations receive a structured continuity plan.
+                  Breve / Medio / Lungo termine — valutati caso per caso. Le
+                  collaborazioni di lungo periodo ricevono un piano di
+                  continuità strutturato.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="cta-strip">
-            <div className="cta-strip-text">Ready to reach out ?</div>
+            <div className="cta-strip-text">Pronto a contattarmi?</div>
             <Link
               href="/request"
               style={{
@@ -566,7 +595,7 @@ export default function ServicesPage() {
                 textDecoration: "none",
               }}
             >
-              <span>Submit your request →</span>
+              <span>Invia la richiesta →</span>
             </Link>
           </div>
         </div>

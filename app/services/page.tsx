@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import ServicesClient from "./servicesClient";
 
 export const metadata: Metadata = {
-  title: "Home Care Services — Elderly, Disability, Children · Accanto",
+  title: "Servizi di assistenza domiciliare OSS — Anziani, disabilità, minori · Accanto",
   description:
-    "My certified OSS home care services: elderly care, disability support, child care with special needs. From €28/h, minimum 5h per session. Como Lake · Lecco · Sondrio · Milan.",
+    "I miei servizi di assistenza domiciliare OSS: assistenza anziani, supporto disabilità, assistenza minori con bisogni speciali. Da €28/ora, minimo 5 ore per sessione. Lago di Como · Lecco · Sondrio · Milano.",
   keywords: [
     "assistenza anziani Lecco",
     "supporto disabilità Como",
-    "OSS servizi domiciliari",
+    "servizi OSS domiciliari",
     "assistenza minori bisogni speciali",
     "caregiver certificato Lecco",
     "servizi OSS Lago di Como",
-    "home care services Como Lake",
-    "disability care Lecco",
-    "elderly care Lake Como",
+    "assistenza domiciliare Como",
+    "supporto disabilità Lecco",
+    "assistenza anziani Lago di Como",
   ],
   alternates: {
     canonical: "/services",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://accanto.care/services",
-    title: "Home Care Services — Elderly, Disability, Children · Accanto",
+    title: "Servizi di assistenza domiciliare OSS — Anziani, disabilità, minori · Accanto",
     description:
-      "Certified OSS home care services. Elderly care, disability support, child care. From €28/h. Daytime and night sessions. Como · Lecco · Sondrio · Milan.",
+      "Servizi OSS certificati di assistenza domiciliare. Assistenza anziani, supporto disabilità, assistenza minori. Da €28/ora. Fasce diurne e notturne. Como · Lecco · Sondrio · Milano.",
     images: [
       {
         url: "/Images/og-image.jpg",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Home Care Services — Elderly, Disability, Children · Accanto",
+    title: "Servizi di assistenza domiciliare OSS — Anziani, disabilità, minori · Accanto",
     description:
-      "Certified OSS home care services. From €28/h. Como Lake · Lecco · Sondrio · Milan.",
+      "Servizi OSS certificati di assistenza domiciliare. Da €28/ora. Lago di Como · Lecco · Sondrio · Milano.",
     images: ["/Images/og-image.jpg"],
   },
 };
@@ -45,11 +45,11 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Home Care Services — Accanto",
+  name: "Servizi di assistenza domiciliare OSS — Accanto",
   provider: {
     "@id": "https://accanto.care/#business",
   },
-  serviceType: "Home Care — OSS",
+  serviceType: "Assistenza domiciliare OSS",
   areaServed: ["Lecco", "Como", "Sondrio", "Milano"],
   url: "https://accanto.care/services",
 };

@@ -3,22 +3,22 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 
 const leftTags = [
-  "Elderly people",
-  "Disabled",
-  "Minors",
-  "Hygiene",
-  "Mobilization",
-  "Company",
-  "Supervision",
+  "Anziani",
+  "Persone con disabilità",
+  "Minori",
+  "Igiene",
+  "Mobilizzazione",
+  "Compagnia",
+  "Sorveglianza",
 ];
 
 const rightTags = [
-  "Elderly parents",
-  "Disabilities",
-  "Children",
-  "Temporary stay",
-  "Family reporting",
-  "EN · FR · AR · DE",
+  "Genitori anziani",
+  "Disabilità",
+  "Bambini",
+  "Soggiorni temporanei",
+  "Report alla famiglia",
+  "Italiano",
 ];
 
 function Tag({ children }: { children: ReactNode }) {
@@ -82,48 +82,51 @@ export default function AudienceSection() {
       <div className="mx-auto max-w-[1060px]">
         <div className="mb-5">
           <p className="text-[13px] uppercase tracking-[0.22em] text-[#8d8176]">
-            Who I address
+            A chi mi rivolgo
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
           <AudienceCard
-            badge="Local Families — Como Lake / Lecco / Valtellina"
-            title="Local Italian families — Como Lake, Lecco / Valtellina"
-            description="For Italian families seeking a dedicated professional to assist the elderly, disabled, or minors with special needs with their daily needs."
+            badge="Famiglie del territorio — Lago di Como / Lecco / Valtellina"
+            title="Famiglie italiane sul territorio"
+            description="Per famiglie italiane che cercano un professionista dedicato per assistere anziani, persone con disabilità o minori con bisogni speciali nelle attività quotidiane."
             tags={leftTags}
-            linkText="Discover the services →"
+            linkText="Scopri i servizi →"
             accentClassName="border-t-[3px] border-t-[#15a16b]"
           />
 
           <AudienceCard
-            badge="International clients — Expat & temporary stay"
-            title="Structured care with no language barrier"
-            description="For expat families seeking a culturally aware, multilingual professional, for care assistance on Como Lake - Lecco / Milano."
+            badge="Clienti internazionali — expat e soggiorni temporanei"
+            title="Assistenza strutturata senza barriere linguistiche"
+            description="Per famiglie expat che cercano un professionista attento e affidabile per un supporto domiciliare sul Lago di Como, a Lecco o a Milano."
             tags={rightTags}
-            linkText="View services →"
+            linkText="Vai ai servizi →"
             accentClassName="border-t-[3px] border-t-[#2f78d6]"
           />
         </div>
 
-        {/* Images - larger and closer together */}
         <div className="mt-10 flex flex-wrap justify-center gap-3 md:gap-4">
-          <div className="w-[380px] h-[260px] rounded-2xl overflow-hidden shadow-md border border-[#d9d3c8]">
+          <div className="h-[260px] w-[380px] overflow-hidden rounded-2xl border border-[#d9d3c8] shadow-md">
             <Image
               src="/Images/1.jpg"
-              alt="Care professional assisting elderly person"
+              alt="Assistenza domiciliare per anziani sul Lago di Como"
               width={380}
               height={260}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
+              sizes="(max-width: 768px) 100vw, 380px"
+              quality={85}
             />
           </div>
-          <div className="w-[380px] h-[260px] rounded-2xl overflow-hidden shadow-md border border-[#d9d3c8]">
+          <div className="h-[260px] w-[380px] overflow-hidden rounded-2xl border border-[#d9d3c8] shadow-md">
             <Image
               src="/Images/3.jpg"
-              alt="Supportive care environment"
+              alt="Professionista OSS per supporto familiare e assistenza domiciliare"
               width={380}
               height={260}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
+              sizes="(max-width: 768px) 100vw, 380px"
+              quality={85}
             />
           </div>
         </div>

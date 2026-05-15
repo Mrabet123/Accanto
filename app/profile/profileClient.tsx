@@ -567,15 +567,14 @@ export default function ProfilePage() {
   return (
     <>
       <Head>
-        <title>
-          Certified OSS · Independent Healthcare Support Professional · Como Lake –
-                Lecco / Valtellina / Milan
-        </title>
-        <meta
-          name="description"
-          content="Certified OSS with 8+ years in the healthcare and social care field, with over a decade in customer experience and international hospitality."
-        />
-      </Head>
+  <title>
+    OSS certificato · Professionista di assistenza sanitaria indipendente · Lago di Como – Lecco / Valtellina / Milano
+  </title>
+  <meta
+    name="description"
+    content="OSS certificato con oltre 8 anni nel settore socio-sanitario e oltre un decennio in customer experience e hospitality internazionale."
+  />
+</Head>
 
       <style>{css}</style>
 
@@ -583,35 +582,36 @@ export default function ProfilePage() {
         <section className="profile-hero">
           <div className="profile-hero-inner">
             <div className="profile-photo-wrap">
-              <Image
-                src="/Images/ghassen.jpg"
-                alt="Ghassen Mansouri"
-                width={160}
-                height={160}
-                className="profile-photo"
-                priority
-              />
-            </div>
+  <Image
+    src="/Images/ghassen.jpg"
+    alt="Ghassen Mansouri, OSS certificato e professionista di assistenza sanitaria indipendente"
+    width={160}
+    height={160}
+    className="profile-photo"
+    priority
+    sizes="160px"
+  />
+</div>
 
             <div>
-              <div className="profile-eyebrow">Professional identity</div>
+              <div className="profile-eyebrow">Identità professionale</div>
               <h1 className="profile-name">Ghassen Mansouri</h1>
               <div className="profile-role">
-                Certified OSS · Independent Healthcare Support Professional · Como Lake –
-                Lecco / Valtellina / Milan
+                OSS certificato · Professionista di assistenza sanitaria indipendente · Lago di Como –
+                Lecco / Valtellina / Milano
               </div>
               <div className="profile-chips">
-                <span className="chip chip-accent">OSS · Independent professional</span>
-                <span className="chip">5 languages</span>
-                <span className="chip">8+ years healthcare</span>
-                <span className="chip">10+ years hospitality</span>
+                <span className="chip chip-accent">OSS · Professionista indipendente</span>
+                <span className="chip">5 lingue</span>
+                <span className="chip">Oltre 8 anni in ambito sanitario</span>
+                <span className="chip">Oltre 10 anni in hospitality</span>
                 <span className="chip">BLSD · HACCP</span>
               </div>
               <p className="profile-bio">
-                Certified OSS with 8+ years in the healthcare and social care field with over
-                a decade in customer experience and international hospitality. Professional
-                communication in Italian, English, French, Arabic, and German. Human approach,
-                field proven structure, no compromises.
+                OSS certificato con oltre 8 anni nel settore socio-sanitario e più di un decennio
+                in customer experience e hospitality internazionale. Comunicazione professionale in
+                italiano, inglese, francese, arabo e tedesco. Approccio umano, struttura provata sul
+                campo, nessun compromesso.
               </p>
             </div>
           </div>
@@ -619,35 +619,36 @@ export default function ProfilePage() {
 
         <section className="section">
           <div className="section-inner">
-            <div className="section-eyebrow">Professional path</div>
+            <div className="section-eyebrow">Percorso professionale</div>
             <h2 className="section-title">
-              Two professional worlds.
+              Due mondi professionali.
               <br />
-              One integrated approach to care.
+              Un unico approccio integrato alla cura.
             </h2>
             <div className="path-grid">
               <div className="path-card">
                 <div className="path-num">8+</div>
-                <div className="path-label">years — Social and health sector</div>
+                <div className="path-label">anni — settore socio-sanitario</div>
                 <div className="path-sub">
-                  Elderly, disabled, patients recovering in public and sheltered facilities.
+                  Anziani, persone con disabilità, pazienti in fase di recupero in strutture
+                  pubbliche e protette.
                 </div>
                 <div className="path-tags">
-                  <span className="path-tag">Public hospital</span>
+                  <span className="path-tag">Ospedale pubblico</span>
                   <span className="path-tag">RSA</span>
                   <span className="path-tag">RSD</span>
-                  <span className="path-tag">Sheltered housing</span>
+                  <span className="path-tag">Comunità protetta</span>
                 </div>
               </div>
               <div className="path-card">
                 <div className="path-num">10+</div>
-                <div className="path-label">years — Hospitality & customer experience</div>
+                <div className="path-label">anni — hospitality & customer experience</div>
                 <div className="path-sub">
-                  High-standard relational environments, international clientele, high operational
-                  pressure.
+                  Contesti relazionali di alto livello, clientela internazionale, forte pressione
+                  operativa.
                 </div>
                 <div className="path-tags">
-                  <span className="path-tag">Cruise lines</span>
+                  <span className="path-tag">Crociera</span>
                   <span className="path-tag">Duty free</span>
                   <span className="path-tag">Luxury brands</span>
                   <span className="path-tag">IT SaaS</span>
@@ -659,17 +660,17 @@ export default function ProfilePage() {
               <div className="cert-badge">
                 <div className="cert-dot" />
                 <span className="cert-name">OSS</span>
-                <span className="cert-desc">Social Health Worker</span>
+                <span className="cert-desc">Operatore Socio-Sanitario</span>
               </div>
               <div className="cert-badge">
                 <div className="cert-dot" />
                 <span className="cert-name">BLSD</span>
-                <span className="cert-desc">Cardiopulmonary resuscitation</span>
+                <span className="cert-desc">Rianimazione cardiopolmonare</span>
               </div>
               <div className="cert-badge">
                 <div className="cert-dot" />
                 <span className="cert-name">HACCP</span>
-                <span className="cert-desc">Food Safety</span>
+                <span className="cert-desc">Sicurezza alimentare</span>
               </div>
             </div>
           </div>
@@ -677,52 +678,52 @@ export default function ProfilePage() {
 
         <section className="section section-alt">
           <div className="section-inner">
-            <div className="section-eyebrow">Linguistic capacity</div>
-            <h2 className="section-title">Five languages. No communication barriers.</h2>
+            <div className="section-eyebrow">Competenze linguistiche</div>
+            <h2 className="section-title">Cinque lingue. Nessuna barriera comunicativa.</h2>
             <div className="langs-grid">
               <div className="lang-card">
-                <div className="lang-name">Arabic</div>
-                <div className="lang-level">Native</div>
+                <div className="lang-name">Arabo</div>
+                <div className="lang-level">Madrelingua</div>
                 <div className="lang-skills">
-                  <div className="lang-skill">Writing</div>
-                  <div className="lang-skill">Reading</div>
-                  <div className="lang-skill">Speaking</div>
+                  <div className="lang-skill">Scrittura</div>
+                  <div className="lang-skill">Lettura</div>
+                  <div className="lang-skill">Parlato</div>
                 </div>
               </div>
               <div className="lang-card">
-                <div className="lang-name">Italian</div>
-                <div className="lang-level">Fluent</div>
+                <div className="lang-name">Italiano</div>
+                <div className="lang-level">Fluente</div>
                 <div className="lang-skills">
-                  <div className="lang-skill">Writing</div>
-                  <div className="lang-skill">Reading</div>
-                  <div className="lang-skill">Speaking</div>
+                  <div className="lang-skill">Scrittura</div>
+                  <div className="lang-skill">Lettura</div>
+                  <div className="lang-skill">Parlato</div>
                 </div>
               </div>
               <div className="lang-card">
-                <div className="lang-name">French</div>
-                <div className="lang-level">Fluent</div>
+                <div className="lang-name">Francese</div>
+                <div className="lang-level">Fluente</div>
                 <div className="lang-skills">
-                  <div className="lang-skill">Writing</div>
-                  <div className="lang-skill">Reading</div>
-                  <div className="lang-skill">Speaking</div>
+                  <div className="lang-skill">Scrittura</div>
+                  <div className="lang-skill">Lettura</div>
+                  <div className="lang-skill">Parlato</div>
                 </div>
               </div>
               <div className="lang-card">
-                <div className="lang-name">English</div>
-                <div className="lang-level">Fluent</div>
+                <div className="lang-name">Inglese</div>
+                <div className="lang-level">Fluente</div>
                 <div className="lang-skills">
-                  <div className="lang-skill">Writing</div>
-                  <div className="lang-skill">Reading</div>
-                  <div className="lang-skill">Speaking</div>
+                  <div className="lang-skill">Scrittura</div>
+                  <div className="lang-skill">Lettura</div>
+                  <div className="lang-skill">Parlato</div>
                 </div>
               </div>
               <div className="lang-card">
-                <div className="lang-name">German</div>
-                <div className="lang-level">Professional</div>
+                <div className="lang-name">Tedesco</div>
+                <div className="lang-level">Professionale</div>
                 <div className="lang-skills">
-                  <div className="lang-skill">Writing</div>
-                  <div className="lang-skill">Reading</div>
-                  <div className="lang-skill">Speaking</div>
+                  <div className="lang-skill">Scrittura</div>
+                  <div className="lang-skill">Lettura</div>
+                  <div className="lang-skill">Parlato</div>
                 </div>
               </div>
             </div>
@@ -731,71 +732,70 @@ export default function ProfilePage() {
 
         <section className="section">
           <div className="section-inner">
-            <div className="section-eyebrow">Working methodology</div>
-            <h2 className="section-title">How every collaboration is built.</h2>
+            <div className="section-eyebrow">Metodo di lavoro</div>
+            <h2 className="section-title">Come viene costruita ogni collaborazione.</h2>
             <div className="method-list">
               <div className="method-item">
                 <div className="method-num">1</div>
                 <div className="method-body">
-                  <div className="method-title">Professional communication</div>
+                  <div className="method-title">Comunicazione professionale</div>
                   <div className="method-desc">
-                    Professional communication in Italian, English, French, Arabic, and German.
+                    Comunicazione professionale in italiano, inglese, francese, arabo e tedesco.
                   </div>
                   <div className="method-benefit">
-                    Human approach, field proven structure, no compromises.
+                    Approccio umano, struttura provata sul campo, nessun compromesso.
                   </div>
                 </div>
               </div>
               <div className="method-item">
                 <div className="method-num">2</div>
                 <div className="method-body">
-                  <div className="method-title">Care diary</div>
+                  <div className="method-title">Diario di assistenza</div>
                   <div className="method-desc">
-                    Every intervention is documented. Activities performed, conditions observed, and
-                    changes noted. Shared with the family according to the agreed frequency.
+                    Ogni intervento viene documentato. Attività svolte, condizioni osservate e
+                    cambiamenti rilevati. Condivisi con la famiglia secondo la frequenza concordata.
                   </div>
                   <div className="method-benefit">
-                    You always know what happened during the session, even when you weren&apos;t
-                    there.
+                    Sai sempre cosa è accaduto durante la sessione, anche quando non eri presente.
                   </div>
                 </div>
               </div>
               <div className="method-item">
                 <div className="method-num">3</div>
                 <div className="method-body">
-                  <div className="method-title">Proactive communication with family</div>
+                  <div className="method-title">Comunicazione proattiva con la famiglia</div>
                   <div className="method-desc">
-                    Regular updates in your preferred language (EN / IT / FR / AR / DE). No surprises.
-                    Any changes are communicated immediately.
+                    Aggiornamenti regolari nella lingua preferita (EN / IT / FR / AR / DE). Nessuna
+                    sorpresa. Ogni cambiamento viene comunicato immediatamente.
                   </div>
                   <div className="method-benefit">
-                    Families abroad receive the same level of information as families who are present.
+                    Le famiglie all’estero ricevono lo stesso livello di informazioni di chi è presente.
                   </div>
                 </div>
               </div>
               <div className="method-item">
                 <div className="method-num">4</div>
                 <div className="method-body">
-                  <div className="method-title">Punctuality and operational reliability</div>
+                  <div className="method-title">Puntualità e affidabilità operativa</div>
                   <div className="method-desc">
-                    Each support session begins and ends as agreed. Changes are communicated in
-                    advance whenever possible.
+                    Ogni sessione di assistenza inizia e termina come concordato. Le modifiche vengono
+                    comunicate in anticipo quando possibile.
                   </div>
                   <div className="method-benefit">
-                    Your planning is never disrupted by uncertainty or last-minute surprises.
+                    La tua pianificazione non viene mai disturbata da incertezze o sorprese all’ultimo minuto.
                   </div>
                 </div>
               </div>
               <div className="method-item">
                 <div className="method-num">5</div>
                 <div className="method-body">
-                  <div className="method-title">Clarity of professional boundaries</div>
+                  <div className="method-title">Chiarezza dei confini professionali</div>
                   <div className="method-desc">
-                    Operations performed exclusively within the OSS / Healthcare support perimeter. Clinical situations are
-                    reported and directed to the appropriate professional.
+                    Operatività esclusivamente entro il perimetro OSS / supporto socio-sanitario. Le situazioni cliniche vengono
+                    segnalate e indirizzate al professionista appropriato.
                   </div>
                   <div className="method-benefit">
-                    You always know exactly what I do and don&apos;t do — nothing is left ambiguous.
+                    Sai sempre esattamente cosa faccio e cosa non faccio — nulla resta ambiguo.
                   </div>
                 </div>
               </div>
@@ -805,28 +805,26 @@ export default function ProfilePage() {
 
         <section className="section section-alt">
           <div className="section-inner">
-            <div className="section-eyebrow">Philosophy and values</div>
-            <h2 className="section-title">What guides this work.</h2>
+            <div className="section-eyebrow">Filosofia e valori</div>
+            <h2 className="section-title">Ciò che guida questo lavoro.</h2>
             <div className="philosophy-block">
               <div className="philosophy-item">
-                <div className="philosophy-quote">Structured care. Human approach.</div>
+                <div className="philosophy-quote">Assistenza strutturata. Approccio umano.</div>
               </div>
               <div className="philosophy-item">
                 <div className="philosophy-quote">
-                  “Professional support means more than completing tasks—it means understanding
-                  needs, often before they are expressed.”
+                  “Il supporto professionale significa più che svolgere attività: significa comprendere
+                  i bisogni, spesso prima che vengano espressi.”
                   <br />
-                  “My approach combines method, consistency, and genuine respect for each
-                  individual’s rhythm, habits, and wellbeing.”
-                  
+                  “Il mio approccio unisce metodo, coerenza e rispetto autentico per il ritmo, le abitudini e
+                  il benessere di ogni persona.”
                 </div>
               </div>
               <div className="philosophy-item">
                 <div className="philosophy-quote">
-                  “My measure of success is not the duration of an intervention. It is the moment
-                  the person I care for stops seeing me as a passing professional and starts
-                  considering me part of their daily life. That is the real progress in every care
-                  journey.”
+                  “La mia misura del successo non è la durata di un intervento. È il momento in cui la persona
+                  che assisto smette di vedermi come un professionista di passaggio e inizia a considerarmi parte
+                  della sua vita quotidiana. Questo è il vero progresso in ogni percorso di cura.”
                 </div>
               </div>
             </div>
@@ -835,31 +833,31 @@ export default function ProfilePage() {
 
         <section className="section">
           <div className="section-inner">
-            <div className="section-eyebrow">Intervention area</div>
-            <h2 className="section-title">Where I operate.</h2>
+            <div className="section-eyebrow">Area di intervento</div>
+            <h2 className="section-title">Dove opero.</h2>
             <div className="area-grid">
               <div className="area-card">
-                <div className="area-tag">Operational base</div>
+                <div className="area-tag">Base operativa</div>
                 <div className="area-title">Dervio – Lecco</div>
-                <div className="area-desc">Starting point for every intervention.</div>
+                <div className="area-desc">Punto di partenza per ogni intervento.</div>
               </div>
               <div className="area-card">
-                <div className="area-tag">Main area</div>
-                <div className="area-title">Lecco – Como Lake / Valtellina</div>
-                <div className="area-desc">Primary intervention area.</div>
+                <div className="area-tag">Area principale</div>
+                <div className="area-title">Lecco – Lago di Como / Valtellina</div>
+                <div className="area-desc">Area principale di intervento.</div>
               </div>
               <div className="area-card">
-                <div className="area-tag">Emerging market</div>
-                <div className="area-title">Milan</div>
+                <div className="area-tag">Mercato in crescita</div>
+                <div className="area-title">Milano</div>
                 <div className="area-desc">
-                  Expat clientele and international families. Accepted upon evaluation.
+                  Clientela expat e famiglie internazionali. Accettata previa valutazione.
                 </div>
               </div>
               <div className="area-card">
-                <div className="area-tag">Minimum per support session</div>
-                <div className="area-title">5 hours</div>
+                <div className="area-tag">Minimo per sessione di assistenza</div>
+                <div className="area-title">5 ore</div>
                 <div className="area-desc">
-                  Minimum duration for each intervention. No exceptions. Defined contractually.
+                  Durata minima per ogni intervento. Nessuna eccezione. Definita contrattualmente.
                 </div>
               </div>
             </div>
@@ -868,52 +866,52 @@ export default function ProfilePage() {
 
         <section className="section section-alt">
           <div className="section-inner narrow">
-            <div className="section-eyebrow centered">How the discovery session works</div>
+            <div className="section-eyebrow centered">Come funziona il primo colloquio</div>
             <h2 className="section-title centered">
-              Four steps between your request
+              Quattro passi tra la tua richiesta
               <br />
-              and our first conversation.
+              e il nostro primo confronto.
             </h2>
             <div className="discovery-steps">
               <div className="discovery-step">
                 <div className="discovery-num">1</div>
-                <div className="discovery-text">Fill out the request online.</div>
+                <div className="discovery-text">Compila la richiesta online.</div>
               </div>
               <div className="discovery-step">
                 <div className="discovery-num">2</div>
-                <div className="discovery-text">Individual analysis within 48 working hours.</div>
+                <div className="discovery-text">Analisi individuale entro 48 ore lavorative.</div>
               </div>
               <div className="discovery-step">
                 <div className="discovery-num">3</div>
                 <div className="discovery-text">
-                  If compatible: a calendar link will be shared with you.
+                  Se compatibile: ti verrà condiviso un link per il calendario.
                 </div>
               </div>
               <div className="discovery-step">
                 <div className="discovery-num">4</div>
-                <div className="discovery-text">Choose date and time · 20–30 min · phone or video.</div>
+                <div className="discovery-text">Scegli data e ora · 20–30 min · telefono o video.</div>
               </div>
             </div>
             <div className="discovery-note centered-note">
-              The calendar remains private. It is accessible only to approved requests.
+              Il calendario resta privato. È accessibile solo alle richieste approvate.
             </div>
 
             <div className="cta-you">
               <h3 className="cta-you-title">
-                Submit your request.
+                Invia la tua richiesta.
                 <br />
-                I&apos;ll evaluate it personally.
+                La valuterò personalmente.
               </h3>
               <p className="cta-you-sub">
-                Every case is different. I review each request individually.
+                Ogni caso è diverso. Esamino ogni richiesta in modo individuale.
                 <br />
-                If there&apos;s a fit, I&apos;ll contact you in your language.
+                Se c’è compatibilità, ti contatterò nella tua lingua.
               </p>
               <a href="/request" className="btn-terra">
-                Submit your  request →
+                Invia la tua richiesta →
               </a>
               <p className="cta-note">
-                No obligation. No automatic responses. Just a professional assessment.
+                Nessun obbligo. Nessuna risposta automatica. Solo una valutazione professionale.
               </p>
             </div>
           </div>

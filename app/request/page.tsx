@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import RequestClient from "./requestClient";
 
 export const metadata: Metadata = {
-  title: "Submit a Request — Accanto Home Care",
+  title: "Invia una richiesta — Accanto Home Care",
   description:
-    "Submit your home care request to Ghassen Mansouri, certified OSS professional. I review every request personally within 48 hours. Como Lake · Lecco · Sondrio · Milan.",
+    "Invia la tua richiesta di assistenza domiciliare a Ghassen Mansouri, professionista OSS certificato. Valuto personalmente ogni richiesta entro 48 ore. Lago di Como · Lecco · Sondrio · Milano.",
   keywords: [
     "richiedere assistenza domiciliare Lecco",
-    "contattare caregiver Como",
+    "contattare OSS Como",
     "richiesta valutazione OSS",
-    "home care request Lake Como",
+    "richiesta assistenza domiciliare Lago di Como",
     "caregiver privato contatto Lecco",
   ],
   authors: [{ name: "Ghassen Mansouri" }],
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://accanto.care/request",
-    title: "Submit a Request — Accanto Home Care",
+    title: "Invia una richiesta — Accanto Home Care",
     description:
-      "Submit your home care request. I review every request personally within 48 hours. Not all requests are accepted.",
+      "Invia la tua richiesta di assistenza domiciliare. Valuto personalmente ogni richiesta entro 48 ore. Non tutte le richieste vengono accettate.",
     images: [
       {
         url: "/Images/og-image.jpg",
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
         alt: "Accanto Home Care",
       },
     ],
-    locale: "en_GB",
+    locale: "it_IT",
     siteName: "Accanto",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Submit an Request — Accanto Home Care",
+    title: "Invia una richiesta — Accanto Home Care",
     description:
-      "I review every request personally within 48 hours. Como Lake · Lecco · Milan.",
+      "Valuto personalmente ogni richiesta entro 48 ore. Lago di Como · Lecco · Milano.",
     images: ["/Images/og-image.jpg"],
   },
 };
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Request — Accanto Home Care",
+  name: "Richiesta — Accanto Home Care",
   description:
-    "Submit a home care request to Ghassen Mansouri, certified OSS independent professional.",
+    "Invia una richiesta di assistenza domiciliare a Ghassen Mansouri, professionista OSS indipendente certificato.",
   url: "https://accanto.care/request",
   mainEntity: {
     "@id": "https://accanto.care/#business",

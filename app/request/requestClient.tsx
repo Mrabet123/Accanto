@@ -8,16 +8,16 @@ type ErrorState = Record<string, string>;
 
 const countryCodes = [
   { code: "+216", name: "Tunisia", flagCode: "tn" },
-  { code: "+39", name: "Italy", flagCode: "it" },
-  { code: "+33", name: "France", flagCode: "fr" },
-  { code: "+44", name: "United Kingdom", flagCode: "gb" },
-  { code: "+1", name: "United States", flagCode: "us" },
-  { code: "+49", name: "Germany", flagCode: "de" },
-  { code: "+34", name: "Spain", flagCode: "es" },
-  { code: "+41", name: "Switzerland", flagCode: "ch" },
-  { code: "+971", name: "United Arab Emirates", flagCode: "ae" },
+  { code: "+39", name: "Italia", flagCode: "it" },
+  { code: "+33", name: "Francia", flagCode: "fr" },
+  { code: "+44", name: "Regno Unito", flagCode: "gb" },
+  { code: "+1", name: "Stati Uniti", flagCode: "us" },
+  { code: "+49", name: "Germania", flagCode: "de" },
+  { code: "+34", name: "Spagna", flagCode: "es" },
+  { code: "+41", name: "Svizzera", flagCode: "ch" },
+  { code: "+971", name: "Emirati Arabi Uniti", flagCode: "ae" },
   { code: "+213", name: "Algeria", flagCode: "dz" },
-  { code: "+212", name: "Morocco", flagCode: "ma" },
+  { code: "+212", name: "Marocco", flagCode: "ma" },
 ];
 
 export default function RequestPage() {
@@ -35,7 +35,7 @@ export default function RequestPage() {
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
 
-  // "Other" text values and selection states
+  // Valori "Altro" e stati di selezione
   const [roleOther, setRoleOther] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
   const [typeOther, setTypeOther] = useState("");
@@ -89,15 +89,15 @@ export default function RequestPage() {
     if (!form) return false;
 
     const requiredFields = [
-      { name: "who", label: "Who are you?" },
-      { name: "role", label: "Applicant's role" },
-      { name: "name", label: "Name and surname" },
-      { name: "phoneCountryCode", label: "Country code" },
-      { name: "phoneNumber", label: "Phone number" },
+      { name: "who", label: "Chi sei?" },
+      { name: "role", label: "Ruolo del richiedente" },
+      { name: "name", label: "Nome e cognome" },
+      { name: "phoneCountryCode", label: "Prefisso internazionale" },
+      { name: "phoneNumber", label: "Numero di telefono" },
       { name: "email", label: "Email" },
-      { name: "lang", label: "Preferred language" },
-      { name: "municipality", label: "Municipality of residence" },
-      { name: "zip", label: "ZIP Code" },
+      { name: "lang", label: "Lingua preferita" },
+      { name: "municipality", label: "Comune di residenza" },
+      { name: "zip", label: "CAP" },
     ];
 
     let ok = true;
@@ -105,27 +105,27 @@ export default function RequestPage() {
     for (const item of requiredFields) {
       if (item.name === "role") {
         if (!selectedRole) {
-          setFieldError("role", "Please complete this field.");
+          setFieldError("role", "Compila questo campo.");
           ok = false;
         } else if (selectedRole === "Other" && !roleOther.trim()) {
-          setFieldError("role", "Please specify your role.");
+          setFieldError("role", "Specifica il tuo ruolo.");
           ok = false;
         }
       } else if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Please complete this field.");
+        setFieldError(item.name, "Compila questo campo.");
         ok = false;
       }
     }
 
     const emailInput = form.elements.namedItem("email") as HTMLInputElement | null;
     if (emailInput && emailInput.value && !emailInput.checkValidity()) {
-      setFieldError("email", "Please enter a valid email address.");
+      setFieldError("email", "Inserisci un indirizzo email valido.");
       ok = false;
     }
 
     const phoneInput = form.elements.namedItem("phoneNumber") as HTMLInputElement | null;
     if (phoneInput && phoneInput.value && !phoneInput.checkValidity()) {
-      setFieldError("phoneNumber", "Please enter a valid phone number.");
+      setFieldError("phoneNumber", "Inserisci un numero di telefono valido.");
       ok = false;
     }
 
@@ -136,28 +136,28 @@ export default function RequestPage() {
     let ok = true;
 
     if (!selectedType) {
-      setFieldError("type", "Please complete this field.");
+      setFieldError("type", "Compila questo campo.");
       ok = false;
     } else if (selectedType === "Other" && !typeOther.trim()) {
-      setFieldError("type", "Please specify the type of person assisted.");
+      setFieldError("type", "Specifica il tipo di persona assistita.");
       ok = false;
     }
 
     const requiredFields = [
-      { name: "age", label: "Age range" },
-      { name: "autonomy", label: "Level of autonomy" },
-      { name: "description", label: "Description of activities and expectations" },
+      { name: "age", label: "Fascia d'età" },
+      { name: "autonomy", label: "Livello di autonomia" },
+      { name: "description", label: "Descrizione delle attività e delle aspettative" },
     ];
 
     for (const item of requiredFields) {
       if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Please complete this field.");
+        setFieldError(item.name, "Compila questo campo.");
         ok = false;
       }
     }
 
     if (checkboxCount("activities") === 0) {
-      setFieldError("activities", "Please select at least one requested activity.");
+      setFieldError("activities", "Seleziona almeno un'attività richiesta.");
       ok = false;
     }
 
@@ -166,23 +166,23 @@ export default function RequestPage() {
 
   const validateStep3 = () => {
     const requiredFields = [
-      { name: "days", label: "Days per week" },
-      { name: "hours", label: "Hours per support session" },
-      { name: "slot", label: "Time slot" },
-      { name: "start-date", label: "Requested start date" },
+      { name: "days", label: "Giorni alla settimana" },
+      { name: "hours", label: "Ore per sessione di assistenza" },
+      { name: "slot", label: "Fascia oraria" },
+      { name: "start-date", label: "Data di inizio richiesta" },
     ];
 
     let ok = true;
 
     for (const item of requiredFields) {
       if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Please complete this field.");
+        setFieldError(item.name, "Compila questo campo.");
         ok = false;
       }
     }
 
     if (fieldValue("slot") === "Night" && !fieldValue("night-type")) {
-      setFieldError("night-type", "Please select a night shift type.");
+      setFieldError("night-type", "Seleziona il tipo di turno notturno.");
       ok = false;
     }
 
@@ -193,33 +193,33 @@ export default function RequestPage() {
     let ok = true;
 
     if (!selectedSource) {
-      setFieldError("source", "Please complete this field.");
+      setFieldError("source", "Compila questo campo.");
       ok = false;
     } else if (selectedSource === "Other" && !sourceOther.trim()) {
-      setFieldError("source", "Please specify how you found this site.");
+      setFieldError("source", "Specifica come hai trovato questo sito.");
       ok = false;
     }
 
     const requiredFields = [
-      { name: "duration", label: "Expected support duration" },
-      { name: "previous", label: "Have you already evaluated other professionals?" },
-      { name: "urgency", label: "Urgency level" },
+      { name: "duration", label: "Durata prevista del supporto" },
+      { name: "previous", label: "Hai già valutato altri professionisti?" },
+      { name: "urgency", label: "Livello di urgenza" },
     ];
 
     for (const item of requiredFields) {
       if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Please complete this field.");
+        setFieldError(item.name, "Compila questo campo.");
         ok = false;
       }
     }
 
     if (!fieldValue("gdpr-consent")) {
-      setFieldError("gdpr-consent", "You need to accept the GDPR consent.");
+      setFieldError("gdpr-consent", "Devi accettare il consenso GDPR.");
       ok = false;
     }
 
     if (!fieldValue("terms-consent")) {
-      setFieldError("terms-consent", "You need to accept the terms of collaboration.");
+      setFieldError("terms-consent", "Devi accettare i termini di collaborazione.");
       ok = false;
     }
 
@@ -252,7 +252,7 @@ export default function RequestPage() {
       return;
     }
 
-    // All data is valid – you can send the actual values
+    // Tutti i dati sono validi – puoi inviare i valori effettivi
     setShowSuccess(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -286,11 +286,11 @@ export default function RequestPage() {
 
   const selectedCountry = countryCodes.find((c) => c.code === selectedCountryCode);
 
-  // --- Terms modal logic ---
+  // --- Logica modale termini ---
   const openTermsModal = () => {
     setIsTermsModalOpen(true);
     document.body.style.overflow = "hidden";
-    // Reset scroll position and progress when opening
+    // Reimposta la posizione di scroll e la barra di avanzamento all'apertura
     setTimeout(() => {
       if (modalBodyRef.current) {
         modalBodyRef.current.scrollTop = 0;
@@ -311,7 +311,7 @@ export default function RequestPage() {
     if (progressFillRef.current) {
       progressFillRef.current.style.width = `${pct}%`;
     }
-    // Hide scroll hint after scrolling a bit
+    // Nasconde il suggerimento di scroll dopo un po'
     if (scrollHintRef.current) {
       if (scrollTop > scrollable.scrollHeight * 0.1) {
         scrollHintRef.current.classList.add("hidden");
@@ -327,7 +327,7 @@ export default function RequestPage() {
     }
   };
 
-  // Handle Escape key and click outside
+  // Gestione tasto Escape e clic fuori
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isTermsModalOpen) {
@@ -358,7 +358,7 @@ export default function RequestPage() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [showCountryDropdown]);
 
-  // Hidden inputs to store the selected values for form submission
+  // Campi nascosti per salvare i valori selezionati nel form
   useEffect(() => {
     const roleInput = document.querySelector('input[name="role"]') as HTMLInputElement;
     if (roleInput) roleInput.value = selectedRole === "Other" ? roleOther : selectedRole;
@@ -377,19 +377,19 @@ export default function RequestPage() {
   return (
     <main className="request-page">
       <div className="page-wrap">
-        <div className="page-eyebrow">Evaluation Request</div>
-        <h1 className="page-title">Lead qualification form</h1>
+        <div className="page-eyebrow">Richiesta di valutazione</div>
+        <h1 className="page-title">Modulo di qualificazione del contatto</h1>
         <p className="page-subtitle">
-          4 sections · Please complete carefully. I evaluate each request individually.
+          4 sezioni · Compila con attenzione. Valuto ogni richiesta in modo individuale.
           <br />
-          Not all requests are accepted.
+          Non tutte le richieste vengono accettate.
         </p>
 
         {!showSuccess ? (
           <form ref={formRef} onSubmit={(e) => e.preventDefault()} noValidate>
             <div className="progress-bar-wrap">
               <span className="progress-step-label">
-                Section {currentStep} of {totalSteps}
+                Sezione {currentStep} di {totalSteps}
               </span>
               <div className="progress-bar">
                 <div className="progress-fill" style={{ width: `${progress}%` }} />
@@ -399,13 +399,13 @@ export default function RequestPage() {
 
             <section className={`form-section ${currentStep === 1 ? "active" : ""}`} id="section-1">
               <div className="form-section-header">
-                <div className="form-section-num">Section 1 of 4</div>
-                <div className="form-section-title">Applicant&apos;s data</div>
+                <div className="form-section-num">Sezione 1 di 4</div>
+                <div className="form-section-title">Dati del richiedente</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Who are you? <span className="req">*</span>
+                  Chi sei? <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -413,7 +413,7 @@ export default function RequestPage() {
                       name="who"
                       id="who-it"
                       value="Italian"
-                      label="Italian"
+                      label="Italiano"
                       required
                       onChange={clearAndHandle("who")}
                     />
@@ -421,7 +421,7 @@ export default function RequestPage() {
                       name="who"
                       id="who-ex"
                       value="Expat"
-                      label="Expat / International"
+                      label="Expat / Internazionale"
                       onChange={clearAndHandle("who")}
                     />
                   </div>
@@ -431,7 +431,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Applicant&apos;s role <span className="req">*</span>
+                  Ruolo del richiedente <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -449,7 +449,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-direct" className="radio-label">
-                      Interested party directly
+                      Interessato direttamente
                     </label>
 
                     <input
@@ -466,7 +466,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-family" className="radio-label">
-                      Family
+                      Famiglia
                     </label>
 
                     <input
@@ -483,7 +483,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-son" className="radio-label">
-                      Son / Daughter
+                      Figlio / Figlia
                     </label>
 
                     <input
@@ -500,7 +500,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-relative" className="radio-label">
-                      Relative
+                      Parente
                     </label>
 
                     <input
@@ -516,7 +516,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-other" className="radio-label">
-                      Other
+                      Altro
                     </label>
                   </div>
                   <div className="other-input-container">
@@ -524,7 +524,7 @@ export default function RequestPage() {
                       <input
                         type="text"
                         className="other-text-input"
-                        placeholder="Please specify your role"
+                        placeholder="Specifica il tuo ruolo"
                         value={roleOther}
                         onChange={(e) => {
                           setRoleOther(e.target.value);
@@ -535,13 +535,17 @@ export default function RequestPage() {
                   </div>
                   <FieldError message={errors.role} />
                 </div>
-                <input type="hidden" name="role" value={selectedRole === "Other" ? roleOther : selectedRole} />
+                <input
+                  type="hidden"
+                  name="role"
+                  value={selectedRole === "Other" ? roleOther : selectedRole}
+                />
               </div>
 
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">
-                    Name and surname <span className="req">*</span>
+                    Nome e cognome <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <input
@@ -549,7 +553,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.name ? "error" : ""}`}
                       id="name"
                       name="name"
-                      placeholder="Your full name"
+                      placeholder="Il tuo nome completo"
                       required
                       onChange={clearAndHandle("name")}
                     />
@@ -559,7 +563,7 @@ export default function RequestPage() {
 
                 <div className="form-group">
                   <label className="form-label">
-                    Phone <span className="req">*</span>
+                    Telefono <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <div className="phone-group">
@@ -618,7 +622,7 @@ export default function RequestPage() {
                         className={`form-input phone-number ${errors.phoneNumber ? "error" : ""}`}
                         id="phoneNumber"
                         name="phoneNumber"
-                        placeholder="Phone number"
+                        placeholder="Numero di telefono"
                         inputMode="tel"
                         pattern="^[0-9()+\\-\\s]{6,}$"
                         required
@@ -641,7 +645,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.email ? "error" : ""}`}
                       id="email"
                       name="email"
-                      placeholder="your@email.com"
+                      placeholder="tuo@email.com"
                       required
                       onChange={clearAndHandle("email")}
                     />
@@ -650,7 +654,7 @@ export default function RequestPage() {
                 </div>
                 <div className="form-group">
                   <label className="form-label">
-                    Preferred language <span className="req">*</span>
+                    Lingua preferita <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <select
@@ -661,12 +665,12 @@ export default function RequestPage() {
                       required
                       onChange={clearAndHandle("lang")}
                     >
-                      <option value="">Select language…</option>
-                      <option>Italian</option>
-                      <option>English</option>
-                      <option>French</option>
-                      <option>Arabic</option>
-                      <option>German</option>
+                      <option value="">Seleziona la lingua…</option>
+                      <option>Italiano</option>
+                      <option>Inglese</option>
+                      <option>Francese</option>
+                      <option>Arabo</option>
+                      <option>Tedesco</option>
                     </select>
                     <FieldError message={errors.lang} />
                   </div>
@@ -676,7 +680,7 @@ export default function RequestPage() {
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">
-                    Municipality of residence <span className="req">*</span>
+                    Comune di residenza <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <input
@@ -684,7 +688,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.municipality ? "error" : ""}`}
                       id="municipality"
                       name="municipality"
-                      placeholder="e.g. Lecco, Como, Milan…"
+                      placeholder="es. Lecco, Como, Milano…"
                       required
                       onChange={clearAndHandle("municipality")}
                     />
@@ -693,7 +697,7 @@ export default function RequestPage() {
                 </div>
                 <div className="form-group">
                   <label className="form-label">
-                    ZIP Code <span className="req">*</span>
+                    CAP <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <input
@@ -701,7 +705,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.zip ? "error" : ""}`}
                       id="zip"
                       name="zip"
-                      placeholder="e.g. 23900"
+                      placeholder="es. 23900"
                       required
                       onChange={clearAndHandle("zip")}
                     />
@@ -713,20 +717,20 @@ export default function RequestPage() {
               <div className="form-nav">
                 <div />
                 <button type="button" className="btn-next" onClick={() => goStep(2)}>
-                  Next → Profile of the person assisted
+                  Avanti → Profilo della persona assistita
                 </button>
               </div>
             </section>
 
             <section className={`form-section ${currentStep === 2 ? "active" : ""}`} id="section-2">
               <div className="form-section-header">
-                <div className="form-section-num">Section 2 of 4</div>
-                <div className="form-section-title">Profile of the person assisted</div>
+                <div className="form-section-num">Sezione 2 di 4</div>
+                <div className="form-section-title">Profilo della persona assistita</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Type of person assisted <span className="req">*</span>
+                  Tipo di persona assistita <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -744,7 +748,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-elderly" className="radio-label">
-                      Elderly
+                      Anziano
                     </label>
 
                     <input
@@ -761,7 +765,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-disabled" className="radio-label">
-                      Disabled person
+                      Persona con disabilità
                     </label>
 
                     <input
@@ -778,7 +782,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-minor" className="radio-label">
-                      Minor
+                      Minore
                     </label>
 
                     <input
@@ -794,7 +798,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-other" className="radio-label">
-                      Other
+                      Altro
                     </label>
                   </div>
                   <div className="other-input-container">
@@ -802,7 +806,7 @@ export default function RequestPage() {
                       <input
                         type="text"
                         className="other-text-input"
-                        placeholder="Please specify type"
+                        placeholder="Specifica il tipo"
                         value={typeOther}
                         onChange={(e) => {
                           setTypeOther(e.target.value);
@@ -813,12 +817,16 @@ export default function RequestPage() {
                   </div>
                   <FieldError message={errors.type} />
                 </div>
-                <input type="hidden" name="type" value={selectedType === "Other" ? typeOther : selectedType} />
+                <input
+                  type="hidden"
+                  name="type"
+                  value={selectedType === "Other" ? typeOther : selectedType}
+                />
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Age range <span className="req">*</span>
+                  Fascia d'età <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <select
@@ -829,13 +837,13 @@ export default function RequestPage() {
                     required
                     onChange={clearAndHandle("age")}
                   >
-                    <option value="">Select age range…</option>
-                    <option>6–17 years</option>
-                    <option>18–35 years</option>
-                    <option>36–55 years</option>
-                    <option>56–70 years</option>
-                    <option>71–85 years</option>
-                    <option>86+ years</option>
+                    <option value="">Seleziona la fascia d'età…</option>
+                    <option>6–17 anni</option>
+                    <option>18–35 anni</option>
+                    <option>36–55 anni</option>
+                    <option>56–70 anni</option>
+                    <option>71–85 anni</option>
+                    <option>86+ anni</option>
                   </select>
                   <FieldError message={errors.age} />
                 </div>
@@ -843,7 +851,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Level of autonomy <span className="req">*</span>
+                  Livello di autonomia <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -851,7 +859,7 @@ export default function RequestPage() {
                       name="autonomy"
                       id="aut-auto"
                       value="Autonomous"
-                      label="Autonomous"
+                      label="Autonomo"
                       required
                       onChange={clearAndHandle("autonomy")}
                     />
@@ -859,14 +867,14 @@ export default function RequestPage() {
                       name="autonomy"
                       id="aut-semi"
                       value="Semi-autonomous"
-                      label="Semi-autonomous"
+                      label="Semi-autonomo"
                       onChange={clearAndHandle("autonomy")}
                     />
                     <RadioButton
                       name="autonomy"
                       id="aut-not"
                       value="Not autonomous"
-                      label="Not autonomous"
+                      label="Non autonomo"
                       onChange={clearAndHandle("autonomy")}
                     />
                   </div>
@@ -876,56 +884,56 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Requested activities <span className="req">*</span>
+                  Attività richieste <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className={`checkbox-group ${errors.activities ? "error" : ""}`}>
                     <CheckBox
-                      label="Personal hygiene and personal care"
+                      label="Igiene personale e cura della persona"
                       name="activities"
-                      value="Personal hygiene and personal care"
+                      value="Igiene personale e cura della persona"
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Mobilization and transfers"
+                      label="Mobilizzazione e trasferimenti"
                       name="activities"
-                      value="Mobilization and transfers"
+                      value="Mobilizzazione e trasferimenti"
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Meal preparation and feeding assistance"
+                      label="Preparazione dei pasti e assistenza all'alimentazione"
                       name="activities"
-                      value="Meal preparation and feeding assistance"
+                      value="Preparazione dei pasti e assistenza all'alimentazione"
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Company and cognitive stimulation"
+                      label="Compagnia e stimolazione cognitiva"
                       name="activities"
-                      value="Company and cognitive stimulation"
+                      value="Compagnia e stimolazione cognitiva"
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Home supervision and security"
+                      label="Supervisione e sicurezza a domicilio"
                       name="activities"
-                      value="Home supervision and security"
+                      value="Supervisione e sicurezza a domicilio"
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="External accompaniment"
+                      label="Accompagnamento esterno"
                       name="activities"
-                      value="External accompaniment"
+                      value="Accompagnamento esterno"
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Family communication / reporting"
+                      label="Comunicazione / report alla famiglia"
                       name="activities"
-                      value="Family communication / reporting"
+                      value="Comunicazione / report alla famiglia"
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Cultural/linguistic mediation"
+                      label="Mediazione culturale / linguistica"
                       name="activities"
-                      value="Cultural/linguistic mediation"
+                      value="Mediazione culturale / linguistica"
                       onChange={clearAndHandle("activities")}
                     />
                   </div>
@@ -935,14 +943,14 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Description of activities and expectations <span className="req">*</span>
+                  Descrizione delle attività e delle aspettative <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <textarea
                     className={`form-textarea ${errors.description ? "error" : ""}`}
                     id="description"
                     name="description"
-                    placeholder="Describe the situation, any specific needs, routines, expectations…"
+                    placeholder="Descrivi la situazione, eventuali bisogni specifici, routine, aspettative…"
                     rows={4}
                     required
                     onChange={clearAndHandle("description")}
@@ -953,23 +961,23 @@ export default function RequestPage() {
 
               <div className="form-nav">
                 <button type="button" className="btn-back" onClick={() => goStep(1)}>
-                  ← Back
+                  ← Indietro
                 </button>
                 <button type="button" className="btn-next" onClick={() => goStep(3)}>
-                  Next → Logistics and planning
+                  Avanti → Logistica e pianificazione
                 </button>
               </div>
             </section>
 
             <section className={`form-section ${currentStep === 3 ? "active" : ""}`} id="section-3">
               <div className="form-section-header">
-                <div className="form-section-num">Section 3 of 4</div>
-                <div className="form-section-title">Logistics and planning</div>
+                <div className="form-section-num">Sezione 3 di 4</div>
+                <div className="form-section-title">Logistica e pianificazione</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Days per week <span className="req">*</span>
+                  Giorni alla settimana <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <select
@@ -980,14 +988,14 @@ export default function RequestPage() {
                     required
                     onChange={clearAndHandle("days")}
                   >
-                    <option value="">Select number of days…</option>
-                    <option>1 day</option>
-                    <option>2 days</option>
-                    <option>3 days</option>
-                    <option>4 days</option>
-                    <option>5 days (Mon–Fri)</option>
-                    <option>6 days</option>
-                    <option>7 days</option>
+                    <option value="">Seleziona il numero di giorni…</option>
+                    <option>1 giorno</option>
+                    <option>2 giorni</option>
+                    <option>3 giorni</option>
+                    <option>4 giorni</option>
+                    <option>5 giorni (lun–ven)</option>
+                    <option>6 giorni</option>
+                    <option>7 giorni</option>
                   </select>
                   <FieldError message={errors.days} />
                 </div>
@@ -995,7 +1003,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Hours per support session <span className="req">*</span>
+                  Ore per sessione di assistenza <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <select
@@ -1006,10 +1014,10 @@ export default function RequestPage() {
                     required
                     onChange={clearAndHandle("hours")}
                   >
-                    <option value="">Select duration…</option>
-                    <option>5 hours (minimum)</option>
-                    <option>6–10 hours</option>
-                    <option>10+ hours</option>
+                    <option value="">Seleziona la durata…</option>
+                    <option>5 ore (minimo)</option>
+                    <option>6–10 ore</option>
+                    <option>Oltre 10 ore</option>
                   </select>
                   <FieldError message={errors.hours} />
                 </div>
@@ -1017,7 +1025,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Time slot <span className="req">*</span>
+                  Fascia oraria <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div>
@@ -1032,7 +1040,7 @@ export default function RequestPage() {
                         onChange={() => handleSlotChange("Daytime")}
                       />
                       <label htmlFor="slot-day" className="radio-label">
-                        Daytime (07:00–22:00)
+                        Diurna (07:00–22:00)
                       </label>
 
                       <input
@@ -1044,19 +1052,19 @@ export default function RequestPage() {
                         onChange={() => handleSlotChange("Night")}
                       />
                       <label htmlFor="slot-night" className="radio-label">
-                        Night (22:00–07:00)
+                        Notturna (22:00–07:00)
                       </label>
                     </div>
                     <div className={`night-sub ${slot === "Night" ? "visible" : ""}`} id="night-sub">
                       <div className="night-sub-label">
-                        Night shift type <span className="req">*</span>
+                        Tipo di turno notturno <span className="req">*</span>
                       </div>
                       <div className="radio-group">
                         <RadioButton
                           name="night-type"
                           id="nt-passive"
                           value="Passive night"
-                          label="Passive — person sleeps autonomously, presence for sudden needs"
+                          label="Passivo — la persona dorme autonomamente, presenza per necessità improvvise"
                           required={slot === "Night"}
                           onChange={clearAndHandle("night-type")}
                         />
@@ -1064,7 +1072,7 @@ export default function RequestPage() {
                           name="night-type"
                           id="nt-active"
                           value="Active night"
-                          label="Active — interventions required during the night session"
+                          label="Attivo — interventi richiesti durante la notte"
                           onChange={clearAndHandle("night-type")}
                         />
                       </div>
@@ -1076,7 +1084,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Requested start date <span className="req">*</span>
+                  Data di inizio richiesta <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <input
@@ -1092,29 +1100,29 @@ export default function RequestPage() {
               </div>
 
               <div className="info-box">
-                Night support sessions have specific pricing conditions (passive: €35/h · active: €40/h).
-                These will be confirmed during the evaluation call.
+                Le sessioni notturne hanno condizioni tariffarie specifiche (passivo: €35/h · attivo: €40/h).
+                Verranno confermate durante il colloquio di valutazione.
               </div>
 
               <div className="form-nav">
                 <button type="button" className="btn-back" onClick={() => goStep(2)}>
-                  ← Back
+                  ← Indietro
                 </button>
                 <button type="button" className="btn-next" onClick={() => goStep(4)}>
-                  Next → Duration and qualification
+                  Avanti → Durata e qualificazione
                 </button>
               </div>
             </section>
 
             <section className={`form-section ${currentStep === 4 ? "active" : ""}`} id="section-4">
               <div className="form-section-header">
-                <div className="form-section-num">Section 4 of 4</div>
-                <div className="form-section-title">Duration and qualification</div>
+                <div className="form-section-num">Sezione 4 di 4</div>
+                <div className="form-section-title">Durata e qualificazione</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Expected support duration <span className="req">*</span>
+                  Durata prevista del supporto <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1122,7 +1130,7 @@ export default function RequestPage() {
                       name="duration"
                       id="dur-short"
                       value="Short"
-                      label="Short (less than 1 month)"
+                      label="Breve (meno di 1 mese)"
                       required
                       onChange={clearAndHandle("duration")}
                     />
@@ -1130,21 +1138,21 @@ export default function RequestPage() {
                       name="duration"
                       id="dur-mid"
                       value="Medium"
-                      label="Medium term (1–3 months)"
+                      label="Medio termine (1–3 mesi)"
                       onChange={clearAndHandle("duration")}
                     />
                     <RadioButton
                       name="duration"
                       id="dur-long"
                       value="Long"
-                      label="Long term (3+ months)"
+                      label="Lungo termine (oltre 3 mesi)"
                       onChange={clearAndHandle("duration")}
                     />
                     <RadioButton
                       name="duration"
                       id="dur-undef"
                       value="Not defined"
-                      label="Not defined"
+                      label="Non definita"
                       onChange={clearAndHandle("duration")}
                     />
                   </div>
@@ -1154,7 +1162,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Have you already evaluated other professionals? <span className="req">*</span>
+                  Hai già valutato altri professionisti? <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1162,7 +1170,7 @@ export default function RequestPage() {
                       name="previous"
                       id="prev-yes"
                       value="Yes"
-                      label="Yes"
+                      label="Sì"
                       required
                       onChange={clearAndHandle("previous")}
                     />
@@ -1170,7 +1178,7 @@ export default function RequestPage() {
                       name="previous"
                       id="prev-no"
                       value="No, first assessment"
-                      label="No, first assessment"
+                      label="No, prima valutazione"
                       onChange={clearAndHandle("previous")}
                     />
                   </div>
@@ -1180,7 +1188,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  How did you find this site? <span className="req">*</span>
+                  Come hai trovato questo sito? <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1198,24 +1206,24 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="source-google" className="radio-label">
-                      Google Search
+                      Ricerca Google
                     </label>
                     <input
-                      type="radio"
-                      name="sourceRadio"
-                      id="source-sm"
-                      value="Social Media"
-                      className="radio-option"
-                      checked={selectedSource === "Social Media"}
-                      onChange={() => {
-                        setSelectedSource("Social Media");
-                        clearFieldError("source");
-                        setSourceOther("");
-                      }}
-                    />
-                    <label htmlFor="source-fb" className="radio-label">
-                      Social Media
-                    </label>
+  type="radio"
+  name="sourceRadio"
+  id="source-sm"
+  value="Social Media"
+  className="radio-option"
+  checked={selectedSource === "Social Media"}
+  onChange={() => {
+    setSelectedSource("Social Media");
+    clearFieldError("source");
+    setSourceOther("");
+  }}
+/>
+<label htmlFor="source-sm" className="radio-label">
+  Social media
+</label>
 
                     <input
                       type="radio"
@@ -1248,7 +1256,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="source-referral" className="radio-label">
-                      Referral
+                      Segnalazione
                     </label>
 
                     <input
@@ -1264,7 +1272,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="source-other" className="radio-label">
-                      Other
+                      Altro
                     </label>
                   </div>
                   <div className="other-input-container">
@@ -1272,7 +1280,7 @@ export default function RequestPage() {
                       <input
                         type="text"
                         className="other-text-input"
-                        placeholder="Please specify source"
+                        placeholder="Specifica la fonte"
                         value={sourceOther}
                         onChange={(e) => {
                           setSourceOther(e.target.value);
@@ -1283,12 +1291,16 @@ export default function RequestPage() {
                   </div>
                   <FieldError message={errors.source} />
                 </div>
-                <input type="hidden" name="source" value={selectedSource === "Other" ? sourceOther : selectedSource} />
+                <input
+                  type="hidden"
+                  name="source"
+                  value={selectedSource === "Other" ? sourceOther : selectedSource}
+                />
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Urgency level <span className="req">*</span>
+                  Livello di urgenza <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1296,7 +1308,7 @@ export default function RequestPage() {
                       name="urgency"
                       id="urg-normal"
                       value="Normal"
-                      label="Normal"
+                      label="Normale"
                       required
                       onChange={clearAndHandle("urgency")}
                     />
@@ -1304,14 +1316,14 @@ export default function RequestPage() {
                       name="urgency"
                       id="urg-priority"
                       value="Priority"
-                      label="Priority"
+                      label="Prioritaria"
                       onChange={clearAndHandle("urgency")}
                     />
                     <RadioButton
                       name="urgency"
                       id="urg-urgent"
                       value="Urgent"
-                      label="Urgent"
+                      label="Urgente"
                       onChange={clearAndHandle("urgency")}
                     />
                   </div>
@@ -1320,7 +1332,7 @@ export default function RequestPage() {
               </div>
 
               <div className="privacy-block">
-                <div className="privacy-title">Privacy and conditions</div>
+                <div className="privacy-title">Privacy e condizioni</div>
 
                 <div className="form-group">
                   <div className="input-error-row">
@@ -1333,8 +1345,8 @@ export default function RequestPage() {
                         onChange={clearAndHandle("gdpr-consent")}
                       />
                       <span>
-                        I consent to the processing of personal data pursuant to the GDPR (EU Regulation
-                        2016/679).
+                        Acconsento al trattamento dei dati personali ai sensi del GDPR
+                        (Regolamento UE 2016/679).
                       </span>
                     </label>
                     <FieldError message={errors["gdpr-consent"]} />
@@ -1352,15 +1364,17 @@ export default function RequestPage() {
                         onChange={clearAndHandle("terms-consent")}
                       />
                       <span>
-                        I declare that I have read and understood the{" "}
+                        Dichiaro di aver letto e compreso i{" "}
                         <span
                           className="terms-trigger-link"
                           onClick={openTermsModal}
                           role="button"
                           tabIndex={0}
-                          onKeyDown={(e) => { if (e.key === 'Enter') openTermsModal(); }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") openTermsModal();
+                          }}
                         >
-                          terms of collaboration
+                          termini di collaborazione
                         </span>
                         .
                       </span>
@@ -1372,41 +1386,41 @@ export default function RequestPage() {
 
               <div className="form-nav submit-nav">
                 <button type="button" className="btn-back" onClick={() => goStep(3)}>
-                  ← Back
+                  ← Indietro
                 </button>
                 <button type="button" className="btn-submit" onClick={submitForm}>
-                  Submit my request →
+                  Invia la mia richiesta →
                 </button>
               </div>
 
               <p className="submit-note">
-                You will receive a response within 48 business hours.
+                Riceverai una risposta entro 48 ore lavorative.
                 <br />
-                Not all requests are accepted.
+                Non tutte le richieste vengono accettate.
               </p>
             </section>
           </form>
         ) : (
           <div className="success-box visible">
             <div className="success-icon">✓</div>
-            <div className="success-title">Request received.</div>
+            <div className="success-title">Richiesta ricevuta.</div>
             <p className="success-sub">
-              Thank you for submitting your request.
+              Grazie per aver inviato la tua richiesta.
               <br />
-              I will review it personally and contact you within 48 business hours — in your preferred
-              language.
+              La esaminerò personalmente e ti contatterò entro 48 ore lavorative — nella tua lingua
+              preferita.
               <br />
               <br />
-              Not all requests lead to a collaboration. If there is a fit, you will hear from me
-              directly.
+              Non tutte le richieste portano a una collaborazione. Se c'è compatibilità, ti contatterò
+              direttamente.
             </p>
           </div>
         )}
 
         <div className="wa-alt">
           <div className="wa-alt-text">
-            <strong>Have an urgent need? </strong> Write to me directly and I&apos;ll get back to you
-            personally.
+            <strong>Hai un'esigenza urgente? </strong> Scrivimi direttamente e ti risponderò
+            personalmente.
           </div>
           <a
             href="https://wa.me/393792306809"
@@ -1419,7 +1433,7 @@ export default function RequestPage() {
         </div>
       </div>
 
-      {/* TERMS OF COLLABORATION MODAL */}
+      {/* MODALE TERMINI DI COLLABORAZIONE */}
       <div
         className={`terms-overlay ${isTermsModalOpen ? "open" : ""}`}
         role="dialog"
@@ -1430,10 +1444,16 @@ export default function RequestPage() {
           <div className="terms-header">
             <div className="terms-header-left">
               <div className="terms-header-eyebrow">Accanto · accanto.care</div>
-              <h2 className="terms-header-title" id="terms-title">Collaboration terms</h2>
-              <div className="terms-header-sub">Read before ticking the box — this is what you are agreeing to.</div>
+              <h2 className="terms-header-title" id="terms-title">
+                Termini di collaborazione
+              </h2>
+              <div className="terms-header-sub">
+                Leggi prima di spuntare la casella — è ciò che stai accettando.
+              </div>
             </div>
-            <button className="terms-close" onClick={closeTermsModal} aria-label="Close terms">✕</button>
+            <button className="terms-close" onClick={closeTermsModal} aria-label="Chiudi i termini">
+              ✕
+            </button>
           </div>
 
           <div className="terms-progress-bar">
@@ -1442,169 +1462,316 @@ export default function RequestPage() {
 
           <div className="terms-body" ref={modalBodyRef} onScroll={handleModalScroll}>
             <div className="terms-intro">
-              <strong>These are the collaboration terms between you (the client) and Ghassen Mansouri, OSS independent professional (P.IVA 01103920144).</strong><br />
-              By ticking the checkbox on the evaluation request form, you confirm that you have read and understood all of the conditions described here. The full signed contract is transmitted separately via email in PDF format, after your request has been evaluated and approved.
+              <strong>
+                Questi sono i termini di collaborazione tra te (il cliente) e Ghassen Mansouri,
+                professionista OSS indipendente (P.IVA 01103920144).
+              </strong>
+              <br />
+              Spuntando la casella nel modulo di richiesta di valutazione, confermi di aver letto e
+              compreso tutte le condizioni descritte qui. Il contratto completo firmato viene
+              trasmesso separatamente via email in formato PDF, dopo che la tua richiesta è stata
+              valutata e approvata.
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 1</div>
-              <h3 className="terms-section-title">Who I am and how I work</h3>
+              <div className="terms-section-num">Sezione 1</div>
+              <h3 className="terms-section-title">Chi sono e come lavoro</h3>
               <div className="terms-section-body">
-                <p>I am <strong>Ghassen Mansouri</strong>, an independent certified OSS (Operatore Socio-Sanitario) professional, operating under Italian law with P.IVA 01103920144, based in Dervio (LC). I work as a fully autonomous independent professional — not as an employee, not through an agency, and not as a subordinate worker.</p>
-                <p>I provide structured home care assistance exclusively within the certified OSS professional scope as defined by Legge 42/1999 and D.M. 520/2001. I operate across the provinces of Lecco, Como, Sondrio, and Milan.</p>
-                <p>I offer care in three categories: <strong>elderly care</strong>, <strong>disability support</strong>, and <strong>care for minors with special needs</strong> (disabled or semi-autonomous).</p>
+                <p>
+                  Sono <strong>Ghassen Mansouri</strong>, professionista indipendente certificato
+                  OSS (Operatore Socio-Sanitario), operante ai sensi della legge italiana con P.IVA
+                  01103920144, con base a Dervio (LC). Lavoro come professionista indipendente
+                  pienamente autonomo — non come dipendente, non tramite agenzia e non come lavoratore
+                  subordinato.
+                </p>
+                <p>
+                  Fornisco assistenza domiciliare strutturata esclusivamente entro il perimetro
+                  professionale OSS certificato, come definito dalla Legge 42/1999 e dal D.M. 520/2001.
+                  Opero nelle province di Lecco, Como, Sondrio e Milano.
+                </p>
+                <p>
+                  Offro assistenza in tre categorie: <strong>assistenza anziani</strong>,{" "}
+                  <strong>supporto alla disabilità</strong> e{" "}
+                  <strong>assistenza per minori con bisogni speciali</strong> (disabili o semi-autonomi).
+                </p>
                 <div className="terms-pill-row">
-                  <span className="terms-pill green">OSS certified</span>
+                  <span className="terms-pill green">OSS certificato</span>
                   <span className="terms-pill green">P.IVA 01103920144</span>
-                  <span className="terms-pill">Lecco · Como · Sondrio · Milan</span>
-                  <span className="terms-pill">5 languages</span>
+                  <span className="terms-pill">Lecco · Como · Sondrio · Milano</span>
+                  <span className="terms-pill">5 lingue</span>
                 </div>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 2</div>
-              <h3 className="terms-section-title">How the collaboration works</h3>
+              <div className="terms-section-num">Sezione 2</div>
+              <h3 className="terms-section-title">Come funziona la collaborazione</h3>
               <div className="terms-section-body">
-                <p>Submitting an evaluation request does not constitute a confirmed collaboration. Every request is reviewed personally. Not all requests are accepted.</p>
-                <p>The process is: <strong>1.</strong> You submit the evaluation form. <strong>2.</strong> I review it within 48 business hours. <strong>3.</strong> If compatible, I contact you to schedule a discovery call. <strong>4.</strong> If confirmed, a contract is sent by email for signature. <strong>5.</strong> Sessions begin after the contract is signed and advance payment is received.</p>
-                <p><strong>No sessions take place before a signed contract and advance payment.</strong> This protects both parties.</p>
+                <p>
+                  Inviare una richiesta di valutazione non costituisce una collaborazione confermata.
+                  Ogni richiesta viene esaminata personalmente. Non tutte le richieste vengono
+                  accettate.
+                </p>
+                <p>
+                  Il processo è: <strong>1.</strong> invii il modulo di valutazione.{" "}
+                  <strong>2.</strong> lo esamino entro 48 ore lavorative. <strong>3.</strong> Se
+                  compatibile, ti contatto per fissare un colloquio conoscitivo. <strong>4.</strong>{" "}
+                  Se confermato, il contratto viene inviato via email per la firma. <strong>5.</strong>{" "}
+                  Le sessioni iniziano dopo la firma del contratto e il ricevimento del pagamento
+                  anticipato.
+                </p>
+                <p>
+                  <strong>Nessuna sessione ha luogo prima di un contratto firmato e del pagamento anticipato.</strong>{" "}
+                  Questo tutela entrambe le parti.
+                </p>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 3</div>
-              <h3 className="terms-section-title">Rates and payment</h3>
+              <div className="terms-section-num">Sezione 3</div>
+              <h3 className="terms-section-title">Tariffe e pagamento</h3>
               <div className="terms-section-body">
-                <p>Rates are agreed in writing before any contract is signed. The base hourly rate starts from <strong>€28/hour</strong> for daytime sessions. Supplements apply for evening, night, active night, high-complexity profiles, or locations outside the primary zone. The exact rate applicable to your situation is defined during the evaluation.</p>
-                <p><strong>Payment is always made in advance</strong>, before the sessions of each agreed period begin — either weekly (by the Monday preceding the week) or monthly (by the first of the month). No advance payment means no confirmed collaboration for that period. I am then free to accept other clients.</p>
-                <p>I accept payment exclusively by <strong>bank transfer</strong> or <strong>cash</strong> (within legal limits). No other methods are accepted. All payments in Euro. International transfer fees are at the client's expense.</p>
-                <p>I issue an <strong>electronic invoice</strong> via the Italian SDI system (Aruba) within 12 days of receiving payment, in compliance with Art. 6 D.P.R. 633/1972. I operate in regime forfettario — no IVA applies. No ritenuta d'acconto applies to private individuals.</p>
+                <p>
+                  Le tariffe vengono concordate per iscritto prima della firma di qualsiasi contratto.
+                  La tariffa oraria base parte da <strong>€28/ora</strong> per le sessioni diurne.
+                  Sono previsti supplementi per la sera, la notte, il turno notturno attivo, i profili
+                  ad alta complessità o le località fuori dalla zona primaria. La tariffa esatta
+                  applicabile alla tua situazione viene definita durante la valutazione.
+                </p>
+                <p>
+                  <strong>Il pagamento avviene sempre in anticipo</strong>, prima dell'inizio delle
+                  sessioni di ciascun periodo concordato — settimanale (entro il lunedì precedente la
+                  settimana) oppure mensile (entro il primo del mese). Senza pagamento anticipato non
+                  esiste una collaborazione confermata per quel periodo. In tal caso sono libero di
+                  accettare altri clienti.
+                </p>
+                <p>
+                  Accetto il pagamento esclusivamente tramite <strong>bonifico bancario</strong> o{" "}
+                  <strong>contanti</strong> (nei limiti di legge). Non sono accettati altri metodi.
+                  Tutti i pagamenti sono in Euro. Le eventuali commissioni dei bonifici internazionali
+                  sono a carico del cliente.
+                </p>
+                <p>
+                  Emesso <strong>fattura elettronica</strong> tramite sistema SDI italiano (Aruba)
+                  entro 12 giorni dal ricevimento del pagamento, in conformità all'art. 6 D.P.R.
+                  633/1972. Opero in regime forfettario — non si applica IVA. Non si applica la
+                  ritenuta d'acconto per i privati.
+                </p>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 4</div>
-              <h3 className="terms-section-title">Minimum session and scheduling</h3>
+              <div className="terms-section-num">Sezione 4</div>
+              <h3 className="terms-section-title">Durata minima e pianificazione</h3>
               <div className="terms-section-body">
-                <p>The minimum duration for any support session is <strong>5 consecutive hours</strong>. No session of shorter duration can be agreed, invoiced, or delivered. This applies to all session types — daytime, passive night, and active night — without exception.</p>
-                <p>The session calendar (days, time slots) is flexible and agreed between us. What is fixed contractually is: the duration in hours per session, the number of sessions per period, and the session type. Time slot changes require 48 hours notice and my explicit agreement. I cannot be required to accept a change of time slot.</p>
+                <p>
+                  La durata minima per qualsiasi sessione di assistenza è di{" "}
+                  <strong>5 ore consecutive</strong>. Nessuna sessione di durata inferiore può essere
+                  concordata, fatturata o erogata. Questo vale per tutti i tipi di sessione — diurna,
+                  notturna passiva e notturna attiva — senza eccezioni.
+                </p>
+                <p>
+                  Il calendario delle sessioni (giorni, fasce orarie) è flessibile e viene concordato
+                  tra noi. Ciò che è fissato contrattualmente è: la durata in ore per sessione, il numero
+                  di sessioni per periodo e il tipo di sessione. Le modifiche della fascia oraria
+                  richiedono 48 ore di preavviso e il mio consenso esplicito. Non posso essere obbligato
+                  ad accettare una modifica della fascia oraria.
+                </p>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 5</div>
-              <h3 className="terms-section-title">Cancellation policy</h3>
+              <div className="terms-section-num">Sezione 5</div>
+              <h3 className="terms-section-title">Politica di cancellazione</h3>
               <div className="terms-section-body">
-                <p>A single threshold applies. No exceptions — including medical emergencies, hospitalisation, or any other circumstance.</p>
+                <p>
+                  Si applica una sola soglia. Nessuna eccezione — comprese emergenze mediche,
+                  ricovero ospedaliero o qualsiasi altra circostanza.
+                </p>
 
                 <table className="terms-cancel-table">
                   <thead>
                     <tr>
-                      <th>Notice given by client</th>
-                      <th>What happens to the advance payment</th>
+                      <th>Preavviso dato dal cliente</th>
+                      <th>Cosa accade al pagamento anticipato</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>More than 7 days<br />before start of period</td>
+                      <td>Più di 7 giorni<br />prima dell'inizio del periodo</td>
                       <td>
-                        Full reimbursement within 5 working days by bank transfer.
-                        <br /><span className="badge-green">Full refund</span>
+                        Rimborso completo entro 5 giorni lavorativi tramite bonifico bancario.
+                        <br />
+                        <span className="badge-green">Rimborso completo</span>
                       </td>
                     </tr>
                     <tr>
-                      <td>Less than 7 days<br />before start of period</td>
+                      <td>Meno di 7 giorni<br />prima dell'inizio del periodo</td>
                       <td>
-                        The full advance payment is retained by me. No reimbursement.
-                        <br /><span className="badge-terra">No refund</span>
+                        L'intero pagamento anticipato viene trattenuto. Nessun rimborso.
+                        <br />
+                        <span className="badge-terra">Nessun rimborso</span>
                       </td>
                     </tr>
                   </tbody>
                 </table>
 
-                <p style={{ marginTop: '14px' }}>Cancellation must be communicated <strong>in writing</strong> — by email or WhatsApp — to my contact addresses. Verbal notice has no legal validity. The date and time of the written communication determines the threshold calculation.</p>
-                <p>The same threshold applies to the cancellation of individual sessions within an already-paid period.</p>
+                <p style={{ marginTop: "14px" }}>
+                  La cancellazione deve essere comunicata <strong>per iscritto</strong> — via email o
+                  WhatsApp — ai miei contatti. La comunicazione verbale non ha validità legale. La data
+                  e l'ora della comunicazione scritta determinano il calcolo della soglia.
+                </p>
+                <p>
+                  La stessa soglia si applica alla cancellazione di singole sessioni all'interno di un
+                  periodo già pagato.
+                </p>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 6</div>
-              <h3 className="terms-section-title">Withdrawal from the collaboration</h3>
+              <div className="terms-section-num">Sezione 6</div>
+              <h3 className="terms-section-title">Rinuncia alla collaborazione</h3>
               <div className="terms-section-body">
-                <p><strong>Client withdrawal:</strong> You may withdraw from the collaboration at any time with a minimum of <strong>15 calendar days written notice</strong>. During the notice period, sessions covered by the advance payment of the current period continue normally. Already-paid sessions that are performed are retained by me. Future unpaid periods generate no obligation for either party.</p>
-                <p><strong>My withdrawal:</strong> I may withdraw only for serious cause — including non-payment, persistent requests outside my professional scope, behaviour that puts my safety at risk, or force majeure. In such cases, I complete all already-paid sessions first (unless the cause is immediate and serious), and reimburse undelivered sessions proportionally.</p>
-                <p>Future periods not yet paid are never activated and require no notice from either party.</p>
+                <p>
+                  <strong>Rinuncia del cliente:</strong> puoi rinunciare alla collaborazione in
+                  qualsiasi momento con un preavviso scritto minimo di{" "}
+                  <strong>15 giorni di calendario</strong>. Durante il periodo di preavviso, le
+                  sessioni coperte dal pagamento anticipato del periodo corrente proseguono
+                  normalmente. Le sessioni già pagate ed eseguite vengono trattenute da me. I periodi
+                  futuri non pagati non generano alcun obbligo per nessuna delle parti.
+                </p>
+                <p>
+                  <strong>La mia rinuncia:</strong> posso rinunciare solo per giusta causa — inclusi
+                  mancato pagamento, richieste persistenti fuori dal mio ambito professionale,
+                  comportamenti che mettono a rischio la mia sicurezza o forza maggiore. In tali casi,
+                  completo prima tutte le sessioni già pagate (salvo che la causa sia immediata e
+                  grave) e rimborsare proporzionalmente le sessioni non erogate.
+                </p>
+                <p>
+                  I periodi futuri non ancora pagati non vengono mai attivati e non richiedono alcun
+                  preavviso da parte di nessuna delle due parti.
+                </p>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 7</div>
-              <h3 className="terms-section-title">What I do — OSS professional scope</h3>
+              <div className="terms-section-num">Sezione 7</div>
+              <h3 className="terms-section-title">Cosa faccio — perimetro professionale OSS</h3>
               <div className="terms-section-body">
-                <p>I operate exclusively within the certified OSS professional scope (Legge 42/1999, D.M. 520/2001). Activities I provide include:</p>
-                <p>Personal hygiene and daily care · Mobilisation and transfers · Meal preparation and feeding assistance · Cognitive stimulation and supervised activities · Home supervision · Accompaniment to medical visits · Family updates and care diary · ADL assistance for disabled individuals · Educational and routine support for minors with special needs.</p>
-                <p>The specific activities included in your collaboration are agreed in writing and documented in the Task Schedule (Allegato A) attached to the signed contract.</p>
+                <p>
+                  Opero esclusivamente entro il perimetro professionale OSS certificato (Legge
+                  42/1999, D.M. 520/2001). Le attività che fornisco includono:
+                </p>
+                <p>
+                  Igiene personale e cura quotidiana · Mobilizzazione e trasferimenti · Preparazione
+                  dei pasti e assistenza all'alimentazione · Stimolazione cognitiva e attività
+                  supervisionate · Supervisione domestica · Accompagnamento alle visite mediche ·
+                  Aggiornamenti alla famiglia e diario di assistenza · Supporto ADL per persone con
+                  disabilità · Supporto educativo e alla routine per minori con bisogni speciali.
+                </p>
+                <p>
+                  Le attività specifiche incluse nella tua collaborazione sono concordate per iscritto
+                  e documentate nel Programma delle attività (Allegato A) allegato al contratto
+                  firmato.
+                </p>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 8</div>
-              <h3 className="terms-section-title">What I never do — hard exclusions</h3>
+              <div className="terms-section-num">Sezione 8</div>
+              <h3 className="terms-section-title">Cosa non faccio mai — esclusioni rigide</h3>
               <div className="terms-section-body">
-                <p>The following activities are permanently excluded from my professional scope. They will always be declined, regardless of the situation, urgency, or request — and refusal does not constitute non-compliance with the contract:</p>
+                <p>
+                  Le seguenti attività sono escluse in modo permanente dal mio perimetro professionale.
+                  Verranno sempre rifiutate, indipendentemente dalla situazione, dall'urgenza o dalla
+                  richiesta — e il rifiuto non costituisce inadempimento contrattuale:
+                </p>
                 <ul className="terms-exclusion-list">
-                  <li>Medication administration, management, or supervision of any kind</li>
-                  <li>Medical or nursing procedures of any nature</li>
-                  <li>Clinical diagnosis or health assessment</li>
-                  <li>Wound care, dressing changes, or post-surgical treatment</li>
-                  <li>Psychological or therapeutic sessions</li>
-                  <li>24-hour live-in care — this service is not offered under any circumstances</li>
+                  <li>Somministrazione, gestione o supervisione dei farmaci di qualsiasi tipo</li>
+                  <li>Procedure mediche o infermieristiche di qualsiasi natura</li>
+                  <li>Diagnosi cliniche o valutazioni sanitarie</li>
+                  <li>Cura delle ferite, medicazioni o trattamenti post-operatori</li>
+                  <li>Sedute psicologiche o terapeutiche</li>
+                  <li>Assistenza domiciliare 24 ore su 24 — servizio non offerto in alcun caso</li>
                 </ul>
-                <p style={{ marginTop: '12px' }}>If I identify a clinical situation during a session that requires medical intervention, I will notify the family immediately and redirect to the appropriate professional.</p>
+                <p style={{ marginTop: "12px" }}>
+                  Se durante una sessione individuo una situazione clinica che richiede un intervento
+                  medico, avviserò immediatamente la famiglia e indirizzerò la situazione al
+                  professionista appropriato.
+                </p>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 9</div>
-              <h3 className="terms-section-title">Confidentiality and personal data (GDPR)</h3>
+              <div className="terms-section-num">Sezione 9</div>
+              <h3 className="terms-section-title">Riservatezza e dati personali (GDPR)</h3>
               <div className="terms-section-body">
-                <p>I maintain absolute professional confidentiality over all information relating to the assisted person, the family, health conditions, and any information acquired in the course of my work. This information will never be shared with third parties without explicit written consent, except where required by law.</p>
-                <p>Your personal data and the health data of the assisted person are processed by me as <strong>Data Controller</strong>, exclusively for the purposes of this collaboration, in compliance with EU Regulation 2016/679 (GDPR) and D.Lgs. 101/2018. Health data is treated as a special category under art. 9 GDPR and processed only with your explicit consent.</p>
-                <p>Data is retained for the duration of the collaboration, plus 10 years for fiscal obligations and 3 years for contractual disputes. You have the right to access, rectify, and request erasure of your data at any time by contacting me in writing.</p>
+                <p>
+                  Mantengo la massima riservatezza professionale su tutte le informazioni relative alla
+                  persona assistita, alla famiglia, alle condizioni di salute e a qualsiasi informazione
+                  acquisita nel corso del mio lavoro. Queste informazioni non saranno mai condivise con
+                  terzi senza consenso scritto esplicito, salvo obblighi di legge.
+                </p>
+                <p>
+                  I tuoi dati personali e i dati sanitari della persona assistita sono trattati da me
+                  in qualità di <strong>Titolare del trattamento</strong>, esclusivamente per le finalità
+                  di questa collaborazione, nel rispetto del Regolamento UE 2016/679 (GDPR) e del D.Lgs.
+                  101/2018. I dati sanitari sono trattati come categoria particolare ai sensi dell'art. 9
+                  GDPR e solo con il tuo consenso esplicito.
+                </p>
+                <p>
+                  I dati vengono conservati per la durata della collaborazione, più 10 anni per obblighi
+                  fiscali e 3 anni per eventuali controversie contrattuali. Hai il diritto di accedere,
+                  rettificare e chiedere la cancellazione dei tuoi dati in qualsiasi momento contattandomi
+                  per iscritto.
+                </p>
                 <div className="terms-pill-row">
-                  <span className="terms-pill green">GDPR compliant</span>
-                  <span className="terms-pill green">No third-party sharing</span>
-                  <span className="terms-pill">EU Reg. 2016/679</span>
-                  <span className="terms-pill">3-year confidentiality obligation</span>
+                  <span className="terms-pill green">Conforme al GDPR</span>
+                  <span className="terms-pill green">Nessuna condivisione con terzi</span>
+                  <span className="terms-pill">Reg. UE 2016/679</span>
+                  <span className="terms-pill">Obbligo di riservatezza di 3 anni</span>
                 </div>
               </div>
             </div>
 
             <div className="terms-section">
-              <div className="terms-section-num">Section 10</div>
-              <h3 className="terms-section-title">Applicable law and disputes</h3>
+              <div className="terms-section-num">Sezione 10</div>
+              <h3 className="terms-section-title">Legge applicabile e controversie</h3>
               <div className="terms-section-body">
-                <p>This collaboration is governed exclusively by <strong>Italian law</strong> under artt. 2222–2237 of the Codice Civile (autonomous professional service contract). In the event of a dispute, both parties commit to an amicable resolution attempt within 15 days before resorting to legal action.</p>
-                <p>The competent court for any unresolved dispute is exclusively the <strong>Tribunale di Lecco</strong>.</p>
+                <p>
+                  La presente collaborazione è regolata esclusivamente dalla{" "}
+                  <strong>legge italiana</strong> ai sensi degli artt. 2222–2237 del Codice Civile
+                  (contratto di prestazione d'opera autonoma). In caso di controversia, entrambe le
+                  parti si impegnano a tentare una soluzione amichevole entro 15 giorni prima di
+                  ricorrere all'azione legale.
+                </p>
+                <p>
+                  Il foro competente per eventuali controversie non risolte è esclusivamente il{" "}
+                  <strong>Tribunale di Lecco</strong>.
+                </p>
                 <div className="terms-law-note">
-                  The full signed contract — containing all 17 articles, specific approval of onerous clauses, and the Task Schedule (Allegato A) — is transmitted separately after your evaluation request has been approved. The document you are reading here is a summary of the key collaboration terms for the purposes of informed consent.
+                  Il contratto completo firmato — contenente tutti i 17 articoli, l'approvazione
+                  specifica delle clausole onerose e il Programma delle attività (Allegato A) — viene
+                  trasmesso separatamente dopo l'approvazione della tua richiesta di valutazione. Il
+                  documento che stai leggendo qui è un riepilogo dei principali termini di collaborazione
+                  ai fini del consenso informato.
                 </div>
               </div>
             </div>
 
             <div className="terms-scroll-hint" id="terms-scroll-hint" ref={scrollHintRef}>
-              ↓ Scroll to read all terms
+              ↓ Scorri per leggere tutti i termini
             </div>
           </div>
 
           <div className="terms-footer">
             <div className="terms-footer-note">
-              <strong>Ghassen Mansouri</strong> · OSS Independent Professional · P.IVA 01103920144<br />
+              <strong>Ghassen Mansouri</strong> · Professionista OSS indipendente · P.IVA 01103920144
+              <br />
               ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care
             </div>
             <button className="terms-btn-close" onClick={closeTermsModal}>
-              I have read them ✓
+              Ho letto tutto ✓
             </button>
           </div>
         </div>
@@ -2233,7 +2400,6 @@ export default function RequestPage() {
           text-underline-offset: 3px;
         }
 
-        /* Error pill – slides in to the right */
         .field-popup {
           display: inline-flex;
           align-items: center;
@@ -2341,7 +2507,6 @@ export default function RequestPage() {
           }
         }
 
-        /* --- Terms Modal Styles --- */
         .terms-trigger-link {
           color: #2a7f6e;
           text-decoration: underline;
@@ -2543,7 +2708,7 @@ export default function RequestPage() {
           line-height: 1.55;
         }
         .terms-exclusion-list li::before {
-          content: '✕';
+          content: "✕";
           flex-shrink: 0;
           font-size: 11px;
           font-weight: 600;

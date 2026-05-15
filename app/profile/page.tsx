@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ProfileClient from "./profileClient";
 
 export const metadata: Metadata = {
-  title: "Ghassen Mansouri — Certified OSS Professional · Accanto",
+  title: "Ghassen Mansouri — Professionista OSS certificato · Accanto",
   description:
-    "I'm Ghassen Mansouri — certified OSS, 8 years in social healthcare, 10 in international hospitality. I speak Italian, English, French, Arabic and German. Based in Dervio, Lecco.",
+    "Sono Ghassen Mansouri — OSS certificato, 8 anni in ambito socio-sanitario e 10 in hospitality internazionale. Parlo italiano, inglese, francese, arabo e tedesco. Basato a Dervio, Lecco.",
   keywords: [
     "Ghassen Mansouri OSS",
     "operatore socio sanitario Lecco",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     url: "https://accanto.care/profile",
-    title: "Ghassen Mansouri — Certified OSS Professional · Accanto",
+    title: "Ghassen Mansouri — Professionista OSS certificato · Accanto",
     description:
-      "8 years in social healthcare, 10 in hospitality. Certified OSS, BLSD, HACCP. Italian, English, French, Arabic, German. Based in Lecco, Lake Como.",
+      "8 anni in ambito socio-sanitario, 10 in hospitality. OSS certificato, BLSD, HACCP. Italiano, inglese, francese, arabo e tedesco. Basato a Lecco, Lago di Como.",
     images: [
       {
         url: "/Images/ghassen.jpg",
@@ -37,13 +37,13 @@ export const metadata: Metadata = {
       },
     ],
     siteName: "Accanto",
-    locale: "en_GB",
+    locale: "it_IT",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ghassen Mansouri — Certified OSS Professional · Accanto",
+    title: "Ghassen Mansouri — Professionista OSS certificato · Accanto",
     description:
-      "8 years in social healthcare, 10 in hospitality. OSS certified. 5 languages. Lake Como · Lecco.",
+      "8 anni in ambito socio-sanitario, 10 in hospitality. OSS certificato. 5 lingue. Lago di Como · Lecco.",
     images: ["/Images/ghassen.jpg"],
   },
 };
@@ -55,9 +55,9 @@ const structuredData = {
     "@id": "https://accanto.care/#person",
   },
   url: "https://accanto.care/profile",
-  name: "Ghassen Mansouri — OSS Independent Professional",
+  name: "Ghassen Mansouri — Professionista OSS indipendente",
   description:
-    "Professional profile page for Ghassen Mansouri, certified OSS independent professional based in Dervio, Lecco.",
+    "Pagina profilo professionale di Ghassen Mansouri, professionista OSS indipendente certificato con base a Dervio, Lecco.",
 };
 
 export default function ProfilePage() {

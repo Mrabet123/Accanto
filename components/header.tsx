@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Profile", href: "/profile" },
-  { label: "Request", href: "/request" },
-  { label: "Contract", href: "/contract" },
+  { label: "Servizi", href: "/services" },
+  { label: "Profilo", href: "/profile" },
+  { label: "Richiesta", href: "/request" },
+  { label: "Contratto", href: "/contract" },
 ];
 
 export default function Header() {
@@ -40,21 +40,19 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 h-[92px] overflow-visible bg-[rgba(246,241,232,0.92)] backdrop-blur-md shadow-sm">
+      <header className="sticky top-0 z-50 h-[92px] overflow-visible bg-[rgba(246,241,232,0.92)] shadow-sm backdrop-blur-md">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 md:px-6">
-          {/* Logo - now larger and properly contained */}
           <Link href="/" className="flex shrink-0 items-center" onClick={closeMenu}>
             <Image
-  src="/Images/logo.png"
-  alt="Accanto logo"
-  width={110}   // increase this proportionally
-  height={110}  // increase this proportionally
-  className="h-[160px] w-[160px] object-contain md:h-[90px] md:w-[200px]"
-  priority
-/>
+              src="/Images/logo.png"
+              alt="Logo Accanto"
+              width={110}
+              height={110}
+              className="h-[160px] w-[160px] object-contain md:h-[90px] md:w-[200px]"
+              priority
+            />
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden items-center gap-6 md:flex">
             {navItems.map((item) => (
               <Link
@@ -67,19 +65,19 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop CTA Button */}
-          <Link
+          <a
             href="https://wa.me/393792306809"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden items-center justify-center rounded-full border border-transparent bg-[var(--green)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[var(--green)] hover:bg-[var(--sand)] hover:text-[var(--green)] md:inline-flex"
           >
             WhatsApp →
-          </Link>
+          </a>
 
-          {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md md:hidden"
-            aria-label="Toggle menu"
+            aria-label="Apri menu"
             aria-expanded={isMenuOpen}
           >
             <span
@@ -101,7 +99,6 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-x-0 top-[92px] z-40 transform bg-white shadow-xl transition-all duration-300 ease-in-out md:hidden ${
           isMenuOpen
@@ -121,13 +118,15 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <Link
+          <a
             href="https://wa.me/393792306809"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMenu}
             className="mt-6 inline-flex items-center justify-center rounded-full bg-[var(--green)] px-6 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-[var(--sand)] hover:text-[var(--green)]"
           >
             WhatsApp →
-          </Link>
+          </a>
         </nav>
       </div>
 

@@ -1,196 +1,104 @@
-// components/Footer.tsx
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 
 const footerLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Profile", href: "/profile" },
-  { label: "Request", href: "/request" },
-  { label: "Contract", href: "/contract" },
+  { label: "Servizi", href: "/services" },
+  { label: "Profilo", href: "/profile" },
+  { label: "Richiesta", href: "/request" },
+  { label: "Contratto", href: "/contract" },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="site-footer">
-      <div className="footer-inner">
-        <div className="footer-top">
-          {/* Logo column – inline styles for bigger logo and margin */}
+    <footer className="border-t border-[var(--border)] bg-[var(--sand)] px-[5%] py-12 pb-8">
+      <div className="mx-auto max-w-[1100px]">
+        <div className="mb-10 grid gap-12 md:grid-cols-3">
           <div>
-            <Link href="/" className="footer-logo-link" style={{ display: "inline-block", marginBottom: "25px" }}>
+            <Link
+              href="/"
+              className="mb-6 inline-block"
+            >
               <Image
                 src="/Images/logo.png"
-                alt="Accanto logo"
+                alt="Logo Accanto"
                 width={140}
                 height={140}
-                style={{ width: "200px",  objectFit: "contain" }}
+                className="w-[200px] object-contain"
                 priority={false}
               />
             </Link>
-            <p className="footer-brand-desc">
-              Certified OSS · Independent Healthcare Support Professional · Como Lake – Lecco / Valtellina / Milan
+
+            <p className="max-w-[260px] text-[13px] leading-7 text-[var(--text-muted)]">
+              Professionista OSS indipendente · Lago di Como – Lecco / Valtellina / Milano
             </p>
           </div>
 
-          {/* Navigation column with horizontal links */}
           <div>
-            <div className="footer-col-title">Navigation</div>
-            <ul className="footer-links-horizontal">
+            <div className="mb-4 text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--terra)]">
+              Navigazione
+            </div>
+
+            <ul className="flex flex-wrap gap-5">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link
+                    href={link.href}
+                    className="text-[13px] text-[var(--text-muted)] transition-colors hover:text-[var(--green)]"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact column */}
           <div>
-            <div className="footer-col-title">Contact</div>
-            <div className="footer-contact-item">
-              <a href="mailto:ghassenmansouri@mail.com">
+            <div className="mb-4 text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--terra)]">
+              Contatti
+            </div>
+
+            <div className="mb-2 text-[13px] text-[var(--text-muted)]">
+              <a
+                href="mailto:ghassenmansouri@mail.com"
+                className="transition-colors hover:text-[var(--green)]"
+              >
                 ghassenmansouri@mail.com
               </a>
             </div>
-            <div className="footer-contact-item">
-              <a href="tel:+393792306809">+39 379 230 6809</a>
+
+            <div className="mb-2 text-[13px] text-[var(--text-muted)]">
+              <a
+                href="tel:+393792306809"
+                className="transition-colors hover:text-[var(--green)]"
+              >
+                +39 379 230 6809
+              </a>
             </div>
+
             <a
               href="https://wa.me/393792306809"
-              className="footer-wa-link"
               target="_blank"
               rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center rounded-full bg-[var(--green)] px-4 py-2 text-[12px] font-medium text-white transition-colors hover:bg-[#0a5a44]"
             >
               WhatsApp →
             </a>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <span className="footer-copy">
-            © {currentYear} Accanto. All rights reserved.
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--border)] pt-6">
+          <span className="text-[12px] text-[var(--text-light)]">
+            © {currentYear} Accanto. Tutti i diritti riservati.
           </span>
-          <span className="footer-piva">P.IVA 01103920144</span>
+
+          <span className="text-[12px] text-[var(--text-light)]">
+            P.IVA 01103920144
+          </span>
         </div>
       </div>
-
-      <style jsx>{`
-        .site-footer {
-          background: var(--sand);
-          border-top: 1px solid var(--border);
-          padding: 48px 5% 32px;
-        }
-
-        .footer-inner {
-          max-width: 1100px;
-          margin: 0 auto;
-        }
-
-        .footer-top {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 48px;
-          margin-bottom: 40px;
-        }
-
-        .footer-brand-desc {
-          font-size: 13px;
-          color: var(--text-muted);
-          line-height: 1.6;
-          max-width: 260px;
-          margin: 0;
-        }
-
-        .footer-col-title {
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--terra);
-          margin-bottom: 16px;
-        }
-
-        .footer-links-horizontal {
-          list-style: none;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          margin: 0;
-          padding: 0;
-        }
-        .footer-links-horizontal a {
-          font-size: 13px;
-          color: var(--text-muted);
-          transition: color 0.2s;
-          text-decoration: none;
-        }
-        .footer-links-horizontal a:hover {
-          color: var(--green);
-        }
-
-        .footer-contact-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 13px;
-          color: var(--text-muted);
-          margin-bottom: 8px;
-        }
-        .footer-contact-item a {
-          color: var(--text-muted);
-          text-decoration: none;
-        }
-        .footer-contact-item a:hover {
-          color: var(--green);
-        }
-        .footer-wa-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          background: var(--green);
-          color: #ffffff !important;
-          padding: 7px 14px;
-          border-radius: 99px;
-          font-size: 12px;
-          font-weight: 500;
-          margin-top: 8px;
-          text-decoration: none;
-        }
-        .footer-wa-link:hover {
-          background: #0a5a44;
-        }
-
-        .footer-bottom {
-          border-top: 1px solid var(--border);
-          padding-top: 24px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 16px;
-          flex-wrap: wrap;
-        }
-        .footer-copy,
-        .footer-piva {
-          font-size: 12px;
-          color: var(--text-light);
-        }
-
-        @media (max-width: 640px) {
-          .footer-top {
-            gap: 32px;
-          }
-          .footer-brand-desc {
-            max-width: 100%;
-          }
-          .footer-links-horizontal {
-            gap: 16px;
-          }
-        }
-      `}</style>
     </footer>
   );
 }

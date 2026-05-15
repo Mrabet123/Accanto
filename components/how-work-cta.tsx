@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 const steps = [
-  { n: "1", title: "Request", subtitle: "Online form", active: "green" },
-  { n: "2", title: "Assessment", subtitle: "Evaluation", active: "blue" },
-  { n: "3", title: "Interview", subtitle: "Discovery call" },
-  { n: "4", title: "Contract", subtitle: "Signature" },
-  { n: "5", title: "Onboarding", subtitle: "First week" },
-  { n: "6", title: "Execution", subtitle: "Assistance" },
-  { n: "7", title: "Continuity", subtitle: "Report" },
+  { n: "1", title: "Richiesta", subtitle: "Modulo online", active: "green" },
+  { n: "2", title: "Valutazione", subtitle: "Analisi", active: "blue" },
+  { n: "3", title: "Colloquio", subtitle: "Chiamata conoscitiva" },
+  { n: "4", title: "Contratto", subtitle: "Firma" },
+  { n: "5", title: "Avvio", subtitle: "Prima settimana" },
+  { n: "6", title: "Erogazione", subtitle: "Assistenza" },
+  { n: "7", title: "Continuità", subtitle: "Report" },
 ];
 
 export default function HowWorkCta() {
@@ -17,7 +17,7 @@ export default function HowWorkCta() {
         <div className="mx-auto max-w-[1060px]">
           <div className="mb-5">
             <p className="text-[13px] uppercase tracking-[0.22em] text-[#8d8176]">
-              How I work
+              Come lavoro
             </p>
           </div>
 
@@ -30,7 +30,10 @@ export default function HowWorkCta() {
                 const isBlue = step.active === "blue";
 
                 return (
-                  <div key={step.n} className="relative z-10 flex flex-col items-center text-center">
+                  <div
+                    key={step.n}
+                    className="relative z-10 flex flex-col items-center text-center"
+                  >
                     <div
                       className={[
                         "flex h-11 w-11 items-center justify-center rounded-full border text-[16px] font-medium",
@@ -59,31 +62,29 @@ export default function HowWorkCta() {
           <div className="rounded-[18px] bg-[#f4efe7] px-6 py-14 md:px-10 md:py-16">
             <div className="text-center">
               <p className="text-[13px] uppercase tracking-[0.22em] text-[#8d8176]">
-                Ready to evaluate your request
+                Pronto a valutare la tua richiesta
               </p>
 
               <h2 className="mt-5 font-serif text-[30px] leading-[1.15] text-[#111] md:text-[42px]">
-                Tell me your needs, I’ll carefully assess how I can 
-best support you.
+                Raccontami le tue esigenze, valuto con attenzione come aiutarti al meglio.
               </h2>
 
               <p className="mx-auto mt-5 max-w-[900px] text-[17px] leading-8 text-[#3f3a35]">
-                Please fill out the application carefully. I evaluate each case individually—
-                distance, profile, needs, and compatibility.
+                Compila il modulo con cura. Valuto ogni caso in modo individuale:
+                distanza, profilo, bisogni e compatibilità.
               </p>
-
 
               <div className="mt-8">
                 <Link
                   href="/request"
                   className="inline-flex items-center justify-center rounded-[12px] border border-[#2a2a2a] bg-transparent px-8 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-white"
                 >
-                  Submit your request →
+                  Invia la richiesta →
                 </Link>
               </div>
 
               <p className="mt-6 text-[15px] text-[#8d8176]">
-                No obligation. No automatic responses. Just a professional assessment.
+                Nessun obbligo. Nessuna risposta automatica. Solo una valutazione professionale.
               </p>
             </div>
           </div>

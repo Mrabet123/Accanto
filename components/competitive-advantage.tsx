@@ -4,57 +4,65 @@ export default function CompetitiveAdvantage() {
       <div className="mx-auto max-w-[1060px]">
         <div className="mb-5">
           <p className="text-[13px] uppercase tracking-[0.22em] text-[#8d8176]">
-            Competitive advantage
+            Vantaggi concreti
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           <article className="rounded-[20px] border border-[#d9d3c8] bg-white p-6">
             <h2 className="font-serif text-[32px] leading-tight text-[#111]">
-              Social and healthcare assistance
+              Assistenza socio-sanitaria
             </h2>
             <p className="mt-4 text-[18px] text-[#111]">
-              Certified professional Healthcare Support
+              Professionista OSS certificato
             </p>
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              On-call services in personal care activities.
+              Supporto nelle attività di cura personalizzata a domicilio.
             </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
-              Hospital · RSA · RSD · Sheltered housing
+              Ospedale · RSA · RSD · Comunità protetta
             </p>
           </article>
 
           <article className="rounded-[20px] border border-[#d9d3c8] bg-white p-6">
-            <h2 className="font-serif text-[32px] leading-tight text-[#111]">CX</h2>
-            <p className="mt-4 text-[18px] text-[#111]">Customer experience</p>
-            <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              Over a decade in environments with high international relational standards.
+            <h2 className="font-serif text-[32px] leading-tight text-[#111]">
+              Hospitality & CX
+            </h2>
+            <p className="mt-4 text-[18px] text-[#111]">
+              Esperienza cliente
             </p>
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              Customer-oriented services.
+              Oltre dieci anni in contesti con standard relazionali internazionali.
+            </p>
+            <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
+              Servizio orientato alla persona e alla qualità dell’esperienza.
             </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
-              Cruise lines · Luxury brand shops · Travel &amp; Leisure
+              Crociere · Luxury retail · Viaggi e leisure
             </p>
           </article>
 
           <article className="rounded-[20px] border border-[#d9d3c8] bg-white p-6">
-            <h2 className="font-serif text-[32px] leading-tight text-[#111]">×5</h2>
-            <p className="mt-4 text-[18px] text-[#111]">Multilingual communication</p>
-            <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              IT · EN · FR · AR · DE. 
+            <h2 className="font-serif text-[32px] leading-tight text-[#111]">
+              ×5
+            </h2>
+            <p className="mt-4 text-[18px] text-[#111]">
+              Comunicazione multilingue
             </p>
             <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
-              No language barrier.
+              IT · EN · FR · AR · DE.
+            </p>
+            <p className="mt-3 text-[16px] leading-7 text-[#3f3a35]">
+              Nessuna barriera linguistica.
             </p>
             <p className="mt-5 text-[15px] text-[#7f7367]">
-              18 years in multicultural environments
+              18 anni in contesti multiculturali
             </p>
           </article>
         </div>
 
         <p className="mt-8 text-center font-serif text-[22px] italic text-[#2f2b27] md:text-[24px]">
-          &quot;Human approach. Professional structure. No compromise.&quot;
+          &quot;Approccio umano. Struttura professionale. Nessun compromesso.&quot;
         </p>
       </div>
     </section>

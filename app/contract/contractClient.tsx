@@ -5,123 +5,123 @@ import Link from "next/link";
 
 const cards = [
   {
-    num: "Section 1",
-    title: "Who I am and how I work",
-    desc: "I operate as a fully autonomous independent professional — not an employee. I am a certified OSS with P.IVA, providing structured home care within a defined professional scope. Sessions are planned flexibly between us, but the duration per session is fixed contractually. The minimum is always 5 consecutive hours.",
-    tags: ["Autonomous professional", "OSS certified", "5h minimum", "Flexible calendar"],
+    num: "Sezione 1",
+    title: "Chi sono e come lavoro",
+    desc: "Opero come professionista indipendente pienamente autonomo — non come dipendente. Sono un OSS certificato con P.IVA, e fornisco assistenza domiciliare strutturata entro un perimetro professionale definito. Le sessioni vengono pianificate in modo flessibile tra noi, ma la durata per sessione è fissata contrattualmente. Il minimo è sempre di 5 ore consecutive.",
+    tags: ["Professionista autonomo", "OSS certificato", "Minimo 5 ore", "Calendario flessibile"],
     green: true,
   },
   {
-    num: "Section 2",
-    title: "Compensation and payment",
-    desc: "My rates are agreed and documented before any contract is signed. Payment is made in advance — before the sessions of the agreed period begin. No advance payment means no confirmed collaboration. I invoice electronically via Aruba within 12 days of receiving payment. Only bank transfer or cash are accepted.",
-    tags: ["Advance payment", "Bank transfer · Cash", "Electronic invoice", "€ only"],
+    num: "Sezione 2",
+    title: "Compenso e pagamento",
+    desc: "Le mie tariffe vengono concordate e documentate prima della firma di qualsiasi contratto. Il pagamento avviene in anticipo — prima dell'inizio delle sessioni del periodo concordato. Senza pagamento anticipato non esiste una collaborazione confermata. Emmetto fattura elettronica tramite Aruba entro 12 giorni dal ricevimento del pagamento. Sono accettati solo bonifico bancario o contanti.",
+    tags: ["Pagamento anticipato", "Bonifico · Contanti", "Fattura elettronica", "Solo €"],
     terra: true,
   },
   {
-    num: "Section 3",
-    title: "Cancellations and withdrawal",
-    desc: "Cancellations are governed by a single clear threshold. More than 7 days notice before the start of the period: full reimbursement. Less than 7 days: the full advance payment is retained. No exceptions. Withdrawal by the client requires 15 days written notice. I can withdraw only for serious cause, completing all already-paid sessions first.",
-    tags: ["7-day threshold", "15-day notice", "Written only", "No exceptions"],
+    num: "Sezione 3",
+    title: "Cancellazioni e rinuncia",
+    desc: "Le cancellazioni sono regolate da una soglia unica e chiara. Più di 7 giorni di preavviso prima dell'inizio del periodo: rimborso completo. Meno di 7 giorni: l'intero pagamento anticipato viene trattenuto. Nessuna eccezione. La rinuncia da parte del cliente richiede 15 giorni di preavviso scritto. Io posso rinunciare solo per giusta causa, completando prima tutte le sessioni già pagate.",
+    tags: ["Soglia 7 giorni", "Preavviso 15 giorni", "Solo scritto", "Nessuna eccezione"],
     terra: true,
   },
   {
-    num: "Section 4",
-    title: "My OSS professional scope",
-    desc: "I operate exclusively within the certified OSS perimeter defined by Italian law (Legge 42/1999, D.M. 520/2001). The following are outside my scope and will always be declined: medication administration, medical procedures, clinical diagnosis, wound care, psychological sessions, and 24h live-in care. Refusal of out-of-scope requests is never non-compliance.",
-    tags: ["No medication", "No clinical acts", "No 24h live-in", "OSS certified scope only"],
+    num: "Sezione 4",
+    title: "Il mio perimetro professionale OSS",
+    desc: "Opero esclusivamente entro il perimetro OSS certificato definito dalla legge italiana (Legge 42/1999, D.M. 520/2001). Sono fuori dal mio ambito e verranno sempre rifiutate: somministrazione dei farmaci, procedure mediche, diagnosi cliniche, cura delle ferite, sedute psicologiche e assistenza domiciliare 24 ore su 24. Il rifiuto di richieste fuori perimetro non costituisce mai un inadempimento.",
+    tags: ["No farmaci", "No atti clinici", "No 24h live-in", "Solo ambito OSS"],
     terra: true,
   },
   {
-    num: "Section 5",
-    title: "Confidentiality and personal data",
-    desc: "All information relating to the assisted person and the family is treated with absolute professional confidentiality, in compliance with Italian professional secrecy law (art. 622 c.p.) and EU GDPR Regulation 2016/679. Data is processed exclusively for the purpose of the collaboration and never shared with third parties. The confidentiality obligation extends 3 years beyond the end of the contract.",
-    tags: ["GDPR compliant", "No third-party sharing", "Art. 622 c.p.", "3-year obligation"],
+    num: "Sezione 5",
+    title: "Riservatezza e dati personali",
+    desc: "Tutte le informazioni relative alla persona assistita e alla famiglia sono trattate con assoluta riservatezza professionale, in conformità alla normativa italiana sul segreto professionale (art. 622 c.p.) e al Regolamento UE GDPR 2016/679. I dati vengono trattati esclusivamente per le finalità della collaborazione e non sono mai condivisi con terzi. L'obbligo di riservatezza si estende per 3 anni dopo la fine del contratto.",
+    tags: ["Conforme al GDPR", "Nessuna condivisione", "Art. 622 c.p.", "Obbligo 3 anni"],
     green: true,
   },
   {
-    num: "Section 6",
-    title: "Applicable law and disputes",
-    desc: "This contract is governed exclusively by Italian law under artt. 2229–2237 of the Codice Civile. Before any legal action, both parties commit to an amicable resolution attempt and, if needed, civil mediation (D.Lgs. 28/2010). The competent court for any unresolved dispute is the Tribunale di Lecco.",
-    tags: ["Italian law", "Mandatory conciliation", "Tribunale di Lecco", "Art. 2229–2237 c.c."],
+    num: "Sezione 6",
+    title: "Legge applicabile e controversie",
+    desc: "Il presente contratto è regolato esclusivamente dalla legge italiana ai sensi degli artt. 2229–2237 del Codice Civile. Prima di qualsiasi azione legale, entrambe le parti si impegnano a tentare una soluzione amichevole e, se necessario, una mediazione civile (D.Lgs. 28/2010). Il tribunale competente per qualsiasi controversia non risolta è il Tribunale di Lecco.",
+    tags: ["Legge italiana", "Conciliazione", "Tribunale di Lecco", "Art. 2229–2237 c.c."],
   },
 ];
 
 const articles = [
   {
     label: "Art. 1",
-    title: "Scope of the professional service",
-    text: "I operate as a fully autonomous professional under artt. 2222 and 2230 c.c. — with no bond of subordination to the client and no employment relationship of any kind. I am a certified OSS with P.IVA 01103920144, providing home care assistance within the agreed professional scope, documented in the attached Task Schedule (Annex A). The specific care category applicable to this contract is: [Category A — Elderly care / Category B — Disability support / Category C — Children with special needs]. The Task Schedule may be updated by mutual written consent without requiring a full contract reissue.",
+    title: "Ambito del servizio professionale",
+    text: "Opero come professionista pienamente autonomo ai sensi degli artt. 2222 e 2230 c.c. — senza alcun vincolo di subordinazione verso il cliente e senza alcun rapporto di lavoro subordinato. Sono un OSS certificato con P.IVA 01103920144, e fornisco assistenza domiciliare entro il perimetro professionale concordato, documentato nel Programma delle attività allegato (Allegato A). La categoria di assistenza applicabile al presente contratto è: [Categoria A — Assistenza anziani / Categoria B — Supporto disabilità / Categoria C — Minori con bisogni speciali]. Il Programma delle attività può essere aggiornato con consenso scritto reciproco senza richiedere la riemissione completa del contratto.",
   },
   {
     label: "Art. 3",
-    title: "Minimum session and scheduling",
-    text: "The minimum duration per support session is 5 consecutive hours — no exceptions, regardless of care profile or session type. The agreed duration for this contract is [___] hours per session. The session calendar is flexible and agreed between both parties. What is contractually fixed is the session length, the number of sessions per period, and the session type (daytime 07:00–22:00 / passive night / active night). Changes to the time slot require 48 hours notice and my explicit agreement.",
+    title: "Durata minima della sessione e pianificazione",
+    text: "La durata minima di ogni sessione di assistenza è di 5 ore consecutive — senza eccezioni, indipendentemente dal profilo assistito o dal tipo di sessione. La durata concordata per il presente contratto è [___] ore per sessione. Il calendario delle sessioni è flessibile e concordato tra le parti. Ciò che è fissato contrattualmente è la durata della sessione, il numero di sessioni per periodo e il tipo di sessione (diurna 07:00–22:00 / notturna passiva / notturna attiva). Le modifiche della fascia oraria richiedono 48 ore di preavviso e il mio consenso esplicito.",
   },
   {
     label: "Art. 2",
-    title: "Hourly rate and advance payment",
-    text: "Agreed hourly rate: € [___] / hour · Session type: [diurna / notturna passiva / notturna attiva]. Any complexity or distance supplement: € [___] / hour — [motivation]. Payment of the full compensation for the agreed period is due before the sessions begin — weekly by the Monday prior, or monthly by the first of the month. No advance payment = no confirmed collaboration. I accept payment exclusively by bank transfer (IBAN: [___]) or cash within legal limits. I issue electronic invoices via SDI within 12 days of receiving payment. All payments in Euro — international transfer fees are exclusively at the client's expense.",
+    title: "Tariffa oraria e pagamento anticipato",
+    text: "Tariffa oraria concordata: € [___] / ora · Tipo di sessione: [diurna / notturna passiva / notturna attiva]. Eventuale supplemento per complessità o distanza: € [___] / ora — [motivazione]. Il pagamento dell'intero compenso per il periodo concordato è dovuto prima dell'inizio delle sessioni — settimanalmente entro il lunedì precedente, oppure mensilmente entro il primo del mese. Nessun pagamento anticipato = nessuna collaborazione confermata. Accetto il pagamento esclusivamente tramite bonifico bancario (IBAN: [___]) o contanti entro i limiti di legge. Emmetto fattura elettronica tramite SDI entro 12 giorni dal ricevimento del pagamento. Tutti i pagamenti sono in Euro — eventuali commissioni di bonifico internazionale sono esclusivamente a carico del cliente.",
   },
   {
     label: "Art. 8",
-    title: "Travel expense reimbursement",
-    text: "No travel supplement is applied within the primary operational zone (Dervio / province of Lecco and surrounding areas). For interventions outside the primary zone — including Milan — a distance supplement is agreed in writing before the collaboration begins and stated in Art. 2 above.",
+    title: "Rimborso spese di trasferta",
+    text: "Nessun supplemento di trasferta viene applicato all'interno della zona operativa primaria (Dervio / provincia di Lecco e aree limitrofe). Per interventi fuori dalla zona primaria — Milano inclusa — un supplemento di distanza viene concordato per iscritto prima dell'inizio della collaborazione e indicato nell'Art. 2 sopra.",
   },
   {
     label: "Art. 9",
-    title: "Rate revision",
-    text: "The agreed rate remains fixed unless the care profile changes significantly — increased dependency, new care needs, change of session type, or geographic extension. I communicate any proposed rate revision in writing with a minimum of 7 days notice. The client may accept or refuse. If refused, the collaboration ends at the close of the current paid period with no penalty for either party.",
+    title: "Revisione della tariffa",
+    text: "La tariffa concordata resta fissa salvo modifiche significative del profilo di assistenza — maggiore dipendenza, nuovi bisogni di cura, cambio del tipo di sessione o estensione geografica. Comunico ogni proposta di revisione tariffaria per iscritto con un preavviso minimo di 7 giorni. Il cliente può accettare o rifiutare. Se rifiutata, la collaborazione termina alla fine del periodo già pagato senza penali per nessuna delle parti.",
   },
   {
     label: "Art. 4",
-    title: "Cancellation policy",
-    text: "Cancellation policy — one threshold, no exceptions, regardless of the reason (including medical emergency or hospitalisation): More than 7 days notice before the start of the period → full reimbursement of the advance payment. Less than 7 days notice before the start of the period → the full advance payment is retained by me. Cancellation must be communicated in writing via email or WhatsApp. Verbal notice has no legal validity under this contract. Reimbursements due are returned within 5 working days by bank transfer.",
+    title: "Politica di cancellazione",
+    text: "Politica di cancellazione — una sola soglia, nessuna eccezione, indipendentemente dalla motivazione (inclusi emergenza medica o ricovero ospedaliero): più di 7 giorni di preavviso prima dell'inizio del periodo → rimborso completo del pagamento anticipato. Meno di 7 giorni di preavviso prima dell'inizio del periodo → l'intero pagamento anticipato viene trattenuto da me. La cancellazione deve essere comunicata per iscritto via email o WhatsApp. La comunicazione verbale non ha validità legale ai sensi del presente contratto. Gli eventuali rimborsi sono restituiti entro 5 giorni lavorativi tramite bonifico bancario.",
   },
   {
     label: "Art. 5",
-    title: "Withdrawal from the contract",
-    text: "Client withdrawal: The client may withdraw at any time with a minimum of 15 calendar days written notice. During the notice period, sessions of the current paid period continue as normal. Advance payment already received for sessions performed is retained. Unpaid future periods generate no obligation for either party. My withdrawal: I may withdraw only for serious cause (non-payment, dangerous behaviour, persistent out-of-scope requests, force majeure). I complete all sessions of the already-paid period before withdrawal takes effect, except in cases of immediate serious cause. Future unpaid periods require no notice — they were never activated.",
+    title: "Rinuncia al contratto",
+    text: "Rinuncia del cliente: il cliente può rinunciare in qualsiasi momento con un preavviso scritto minimo di 15 giorni di calendario. Durante il periodo di preavviso, le sessioni del periodo già pagato proseguono normalmente. Il pagamento anticipato già ricevuto per le sessioni svolte viene trattenuto. I periodi futuri non ancora pagati non generano alcun obbligo per nessuna delle parti. La mia rinuncia: posso rinunciare solo per giusta causa (mancato pagamento, comportamento pericoloso, richieste persistenti fuori perimetro, forza maggiore). Completo tutte le sessioni del periodo già pagato prima che la rinuncia produca effetto, salvo casi di giusta causa immediata e grave. I periodi futuri non ancora pagati non richiedono alcun preavviso — non sono mai stati attivati.",
   },
   {
     label: "Art. 6",
-    title: "Automatic termination clause",
-    text: "The contract resolves automatically upon my written notice in the event of: non-payment after 5 working days, repeated out-of-scope requests after formal refusal, behaviour putting my safety at risk, false declarations at signing, serious confidentiality breach, or systematic unavailability by the client for two or more consecutive periods. No court judgment is required. The resolution is effective upon receipt of my written communication (art. 1456 c.c.).",
+    title: "Clausola di risoluzione automatica",
+    text: "Il contratto si risolve automaticamente con mia comunicazione scritta in caso di: mancato pagamento dopo 5 giorni lavorativi, richieste fuori perimetro ripetute dopo un rifiuto formale, comportamento che metta a rischio la mia sicurezza, false dichiarazioni alla firma, grave violazione della riservatezza, o indisponibilità sistematica del cliente per due o più periodi consecutivi. Non è richiesta alcuna sentenza del giudice. La risoluzione ha effetto al ricevimento della mia comunicazione scritta (art. 1456 c.c.).",
   },
   {
     label: "Art. 10",
-    title: "OSS scope and liability limitation",
-    text: "I operate exclusively within the certified OSS scope (Legge 42/1999, D.M. 520/2001). The following are permanently excluded and will always be declined — regardless of urgency or client request: medication administration or management, medical procedures of any kind, clinical diagnosis or health assessment, wound care or post-surgical treatment, psychological or therapeutic sessions, and 24h live-in care — this service falls outside my professional scope and is not offered. Any clinical situation I identify during a session is immediately reported to the family and redirected to the appropriate medical professional. I am not liable for outcomes requiring clinical intervention beyond my certified scope. I am also not responsible for damage caused by incomplete or incorrect information provided by the client at evaluation stage.",
+    title: "Perimetro OSS e limitazione di responsabilità",
+    text: "Opero esclusivamente entro il perimetro OSS certificato (Legge 42/1999, D.M. 520/2001). Le seguenti attività sono permanentemente escluse e verranno sempre rifiutate — indipendentemente dall'urgenza o dalla richiesta del cliente: somministrazione o gestione dei farmaci, procedure mediche di qualsiasi tipo, diagnosi cliniche o valutazioni sanitarie, cura delle ferite o trattamenti post-operatori, sedute psicologiche o terapeutiche e assistenza domiciliare 24 ore su 24 — servizio fuori dal mio ambito professionale e non offerto. Qualsiasi situazione clinica che individui durante una sessione viene immediatamente segnalata alla famiglia e indirizzata al professionista sanitario appropriato. Non sono responsabile per esiti che richiedono intervento clinico oltre il mio ambito certificato. Inoltre non sono responsabile per danni causati da informazioni incomplete o errate fornite dal cliente in fase di valutazione.",
   },
   {
     label: "Art. 7",
-    title: "Service suspension",
-    text: "I may suspend sessions temporarily — without being in breach — in cases of: non-payment (automatic, no notice required), unsafe environmental conditions at the client's home, my own temporary incapacity (notified as early as possible), or force majeure. Sessions suspended due to my incapacity are reimbursed or credited to the next period. Sessions suspended due to non-payment are governed by Art. 4.",
+    title: "Sospensione del servizio",
+    text: "Posso sospendere temporaneamente le sessioni — senza essere inadempiente — nei seguenti casi: mancato pagamento (automatico, senza preavviso), condizioni ambientali non sicure presso il domicilio del cliente, mia temporanea incapacità (notificata il prima possibile) o forza maggiore. Le sessioni sospese per mia incapacità vengono rimborsate o accreditate al periodo successivo. Le sessioni sospese per mancato pagamento sono regolate dall'Art. 4.",
   },
   {
     label: "Art. 11",
-    title: "Confidentiality and professional secrecy",
-    text: "I maintain absolute confidentiality over all information relating to the assisted person, the family, health conditions, habits, and any other information I acquire in the course of my work. This information will never be shared in any form without the client's explicit written consent, except where required by law (e.g. emergency reporting). The confidentiality obligation applies to both parties and remains in force for 3 years after the end of the contract for any reason.",
+    title: "Riservatezza e segreto professionale",
+    text: "Mantengo la massima riservatezza su tutte le informazioni relative alla persona assistita, alla famiglia, alle condizioni di salute, alle abitudini e a qualsiasi altra informazione acquisita nel corso del mio lavoro. Tali informazioni non saranno mai condivise in alcuna forma senza il consenso scritto esplicito del cliente, salvo i casi previsti dalla legge (ad es. segnalazioni di emergenza). L'obbligo di riservatezza si applica a entrambe le parti e resta in vigore per 3 anni dopo la fine del contratto per qualsiasi motivo.",
   },
   {
     label: "Art. 12",
-    title: "Personal data processing — GDPR",
-    text: "Personal and sensitive data is processed exclusively for the purposes of this collaboration, in compliance with EU Regulation 2016/679 (GDPR) and D.Lgs. 101/2018. I am the Data Controller. Health data (special category under art. 9 GDPR) is processed only with the client's explicit consent. Data is retained for the duration of the collaboration, plus 10 years for fiscal obligations and 3 years for contractual disputes. The client has the right to access, rectify, and request erasure of their data at any time by contacting me in writing.",
+    title: "Trattamento dei dati personali — GDPR",
+    text: "I dati personali e sensibili sono trattati esclusivamente per le finalità della presente collaborazione, in conformità al Regolamento UE 2016/679 (GDPR) e al D.Lgs. 101/2018. Io sono il Titolare del trattamento. I dati sanitari (categoria particolare ai sensi dell'art. 9 GDPR) sono trattati solo con il consenso esplicito del cliente. I dati vengono conservati per la durata della collaborazione, più 10 anni per obblighi fiscali e 3 anni per eventuali controversie contrattuali. Il cliente ha il diritto di accedere, rettificare e chiedere la cancellazione dei propri dati in qualsiasi momento contattandomi per iscritto.",
   },
   {
     label: "Art. 13",
-    title: "Force majeure and unforeseen events",
-    text: "Force majeure events (natural disasters, declared pandemics, government restrictions, sudden documented illness) suspend my obligation to perform without constituting breach. I notify the client in writing as soon as possible. Advance payment for sessions not delivered during force majeure is fully reimbursed within 5 working days. If the event exceeds 30 days, either party may withdraw without penalty.",
+    title: "Forza maggiore ed eventi imprevisti",
+    text: "Gli eventi di forza maggiore (catastrofi naturali, pandemie dichiarate, restrizioni governative, malattia improvvisa documentata) sospendono il mio obbligo di esecuzione senza costituire inadempimento. Avviso il cliente per iscritto non appena possibile. Il pagamento anticipato per le sessioni non erogate durante la forza maggiore viene interamente rimborsato entro 5 giorni lavorativi. Se l'evento supera i 30 giorni, ciascuna delle parti può recedere senza penali.",
   },
   {
     label: "Art. 14–15",
-    title: "Competent court and conciliation",
-    text: "This contract is governed exclusively by Italian law (artt. 2229–2237 c.c.). Before any legal action, both parties commit to an amicable resolution attempt (15 days) and, if needed, civil mediation under D.Lgs. 28/2010. The competent court for any unresolved dispute is exclusively the Tribunale di Lecco. This clause is expressly approved pursuant to artt. 1341–1342 c.c.",
+    title: "Foro competente e conciliazione",
+    text: "Il presente contratto è regolato esclusivamente dalla legge italiana (artt. 2229–2237 c.c.). Prima di ogni azione legale, entrambe le parti si impegnano a tentare una risoluzione amichevole (15 giorni) e, se necessario, una mediazione civile ai sensi del D.Lgs. 28/2010. Il foro competente per eventuali controversie non risolte è esclusivamente il Tribunale di Lecco. La presente clausola è espressamente approvata ai sensi degli artt. 1341–1342 c.c.",
   },
   {
     label: "Art. 17",
-    title: "Specific approval of onerous clauses",
-    text: "The client expressly and specifically approves the following clauses under artt. 1341–1342 c.c.: advance payment as activation condition (Art. 2) · cancellation policy — full retention under 7 days (Art. 4) · 15-day withdrawal notice (Art. 5) · automatic termination clause (Art. 6) · OSS scope exclusions (Art. 10) · exclusive jurisdiction — Tribunale di Lecco (Art. 14).",
+    title: "Approvazione specifica delle clausole onerose",
+    text: "Il cliente approva espressamente e specificamente le seguenti clausole ai sensi degli artt. 1341–1342 c.c.: pagamento anticipato come condizione di attivazione (Art. 2) · politica di cancellazione — trattenuta integrale sotto i 7 giorni (Art. 4) · preavviso di recesso di 15 giorni (Art. 5) · clausola di risoluzione automatica (Art. 6) · esclusioni del perimetro OSS (Art. 10) · foro esclusivo — Tribunale di Lecco (Art. 14).",
   },
 ];
 
@@ -130,16 +130,16 @@ export default function ContractPage() {
     <main className="contract-page">
       <div className="page-hero">
         <div className="page-hero-inner">
-          <div className="eyebrow">Contract & Conditions</div>
+          <div className="eyebrow">Contratto e condizioni</div>
           <h1 className="page-title">
-            Legal transparency.
+            Trasparenza legale.
             <br />
-            Before anything begins.
+            Prima di iniziare.
           </h1>
           <p className="page-sub">
-            Before starting any collaboration, a written contract is signed that defines precisely what I do, how I
-            do it, how much it costs, and what happens if anything changes. It protects you as a client. It protects me
-            as a professional.
+            Prima di iniziare qualsiasi collaborazione, viene firmato un contratto scritto che definisce con precisione
+            cosa faccio, come lo faccio, quanto costa e cosa succede se qualcosa cambia. Protegge te come cliente.
+            Protegge me come professionista.
           </p>
         </div>
       </div>
@@ -147,11 +147,11 @@ export default function ContractPage() {
       <section className="section">
         <div className="inner">
           <div className="framing">
-            <div className="framing-title">Transparency first and foremost</div>
+            <div className="framing-title">Trasparenza prima di tutto</div>
             <p className="framing-text">
-              This is not a bureaucratic formality — it is the foundation of a serious professional relationship. The
-              contract is signed only after your request has been evaluated and we have spoken to each other. No
-              contract is issued to an unqualified or unapproved request.
+              Non si tratta di una formalità burocratica — è il fondamento di un rapporto professionale serio. Il
+              contratto viene firmato solo dopo che la tua richiesta è stata valutata e dopo un confronto diretto.
+              Nessun contratto viene emesso per richieste non qualificate o non approvate.
             </p>
           </div>
 
@@ -186,19 +186,19 @@ export default function ContractPage() {
       <section className="section section-sand">
         <div className="inner">
           <div className="draft-heading">
-            <div className="eyebrow eyebrow-terra">Contract draft — read only</div>
+            <div className="eyebrow eyebrow-terra">Bozza di contratto — sola lettura</div>
             <h2 className="draft-main-title">
-              An example of what is signed
+              Un esempio di ciò che viene firmato
               <br />
-              before I begin.
+              prima che io inizi.
             </h2>
           </div>
 
           <div className="draft-wrapper">
             <div className="draft-header">
               <div>
-                <div className="draft-title">Professional Service Contract — Home Care OSS</div>
-                <div className="draft-sub">Under artt. 2229–2237 of the Italian Civil Code · Standard Model 2025</div>
+                <div className="draft-title">Contratto di prestazione professionale — Assistenza domiciliare OSS</div>
+                <div className="draft-sub">Ai sensi degli artt. 2229–2237 del Codice Civile italiano · Modello standard 2025</div>
               </div>
 
               <div className="draft-readonly-badge">
@@ -211,41 +211,41 @@ export default function ContractPage() {
                     strokeLinecap="round"
                   />
                 </svg>
-                Read only — example
+                Sola lettura — esempio
               </div>
             </div>
 
             <div className="draft-parties">
               <div className="party">
-                <div className="party-label">The Professional</div>
+                <div className="party-label">Il professionista</div>
                 <div className="party-name">Ghassen Mansouri</div>
                 <div className="party-detail">
-                  OSS Independent Professional · P.IVA 01103920144
+                  Professionista OSS indipendente · P.IVA 01103920144
                   <br />
-                  Dervio (LC) · Lake Como · Lecco · Sondrio · Milan
+                  Dervio (LC) · Lago di Como · Lecco · Sondrio · Milano
                   <br />
                   hello@accanto.care · +39 379 230 6809
                 </div>
               </div>
 
               <div className="party">
-                <div className="party-label">The Client / Legal Representative</div>
-                <div className="party-field">[Client full name]</div>
-                <div className="party-field">[Address · Tax identification number]</div>
-                <div className="party-field">Acting as: [legal role]</div>
-                <div className="party-field">Assisted person: [Full name]</div>
+                <div className="party-label">Il cliente / rappresentante legale</div>
+                <div className="party-field">[Nome completo del cliente]</div>
+                <div className="party-field">[Indirizzo · Codice fiscale]</div>
+                <div className="party-field">In qualità di: [ruolo legale]</div>
+                <div className="party-field">Persona assistita: [Nome completo]</div>
               </div>
             </div>
 
             <div className="draft-articles">
               <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Section 1 — Who I am and how I work</div>
+                <div className="draft-section-divider-label">Sezione 1 — Chi sono e come lavoro</div>
               </div>
 
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 1</span>
-                  <span className="art-title">Scope of the professional service</span>
+                  <span className="art-title">Ambito del servizio professionale</span>
                 </div>
                 <p className="art-text">{articles[0].text}</p>
               </div>
@@ -253,19 +253,19 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 3</span>
-                  <span className="art-title">Minimum session and scheduling</span>
+                  <span className="art-title">Durata minima della sessione e pianificazione</span>
                 </div>
                 <p className="art-text">{articles[1].text}</p>
               </div>
 
               <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Section 2 — Compensation and payment</div>
+                <div className="draft-section-divider-label">Sezione 2 — Compenso e pagamento</div>
               </div>
 
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 2</span>
-                  <span className="art-title">Hourly rate and advance payment</span>
+                  <span className="art-title">Tariffa oraria e pagamento anticipato</span>
                 </div>
                 <p className="art-text">{articles[2].text}</p>
               </div>
@@ -273,7 +273,7 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 8</span>
-                  <span className="art-title">Travel expense reimbursement</span>
+                  <span className="art-title">Rimborso spese di trasferta</span>
                 </div>
                 <p className="art-text">{articles[3].text}</p>
               </div>
@@ -281,19 +281,19 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 9</span>
-                  <span className="art-title">Rate revision</span>
+                  <span className="art-title">Revisione della tariffa</span>
                 </div>
                 <p className="art-text">{articles[4].text}</p>
               </div>
 
               <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Section 3 — Cancellations and withdrawal</div>
+                <div className="draft-section-divider-label">Sezione 3 — Cancellazioni e rinuncia</div>
               </div>
 
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 4</span>
-                  <span className="art-title">Cancellation policy</span>
+                  <span className="art-title">Politica di cancellazione</span>
                 </div>
                 <p className="art-text">{articles[5].text}</p>
               </div>
@@ -301,7 +301,7 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 5</span>
-                  <span className="art-title">Withdrawal from the contract</span>
+                  <span className="art-title">Rinuncia al contratto</span>
                 </div>
                 <p className="art-text">{articles[6].text}</p>
               </div>
@@ -309,19 +309,19 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 6</span>
-                  <span className="art-title">Automatic termination clause</span>
+                  <span className="art-title">Clausola di risoluzione automatica</span>
                 </div>
                 <p className="art-text">{articles[7].text}</p>
               </div>
 
               <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Section 4 — OSS professional scope</div>
+                <div className="draft-section-divider-label">Sezione 4 — Perimetro professionale OSS</div>
               </div>
 
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 10</span>
-                  <span className="art-title">OSS scope and liability limitation</span>
+                  <span className="art-title">Perimetro OSS e limitazione di responsabilità</span>
                 </div>
                 <p className="art-text">{articles[8].text}</p>
               </div>
@@ -329,19 +329,19 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 7</span>
-                  <span className="art-title">Service suspension</span>
+                  <span className="art-title">Sospensione del servizio</span>
                 </div>
                 <p className="art-text">{articles[9].text}</p>
               </div>
 
               <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Section 5 — Confidentiality and personal data</div>
+                <div className="draft-section-divider-label">Sezione 5 — Riservatezza e dati personali</div>
               </div>
 
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 11</span>
-                  <span className="art-title">Confidentiality and professional secrecy</span>
+                  <span className="art-title">Riservatezza e segreto professionale</span>
                 </div>
                 <p className="art-text">{articles[10].text}</p>
               </div>
@@ -349,19 +349,19 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 12</span>
-                  <span className="art-title">Personal data processing — GDPR</span>
+                  <span className="art-title">Trattamento dei dati personali — GDPR</span>
                 </div>
                 <p className="art-text">{articles[11].text}</p>
               </div>
 
               <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Section 6 — Applicable law and disputes</div>
+                <div className="draft-section-divider-label">Sezione 6 — Legge applicabile e controversie</div>
               </div>
 
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 13</span>
-                  <span className="art-title">Force majeure and unforeseen events</span>
+                  <span className="art-title">Forza maggiore ed eventi imprevisti</span>
                 </div>
                 <p className="art-text">{articles[12].text}</p>
               </div>
@@ -369,7 +369,7 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 14–15</span>
-                  <span className="art-title">Competent court and conciliation</span>
+                  <span className="art-title">Foro competente e conciliazione</span>
                 </div>
                 <p className="art-text">{articles[13].text}</p>
               </div>
@@ -377,7 +377,7 @@ export default function ContractPage() {
               <div className="art-row">
                 <div className="art-row-header">
                   <span className="art-label">Art. 17</span>
-                  <span className="art-title">Specific approval of onerous clauses</span>
+                  <span className="art-title">Approvazione specifica delle clausole onerose</span>
                 </div>
                 <p className="art-text">{articles[14].text}</p>
               </div>
@@ -386,37 +386,37 @@ export default function ContractPage() {
 
           <div className="closing-note">
             <p className="closing-note-text">
-              Il contratto completo, comprensivo degli allegati e delle clausole specifiche, viene trasmesso al Cliente
+              Il contratto completo, comprensivo degli allegati e delle clausole specifiche, viene trasmesso al cliente
               via email in formato PDF firmato, successivamente all'approvazione della richiesta di valutazione.
             </p>
           </div>
 
           <div className="cta-block">
-            <div className="cta-title">Everything clear. Everything transparent.</div>
+            <div className="cta-title">Tutto chiaro. Tutto trasparente.</div>
             <p className="cta-sub">
-              I only send the signed contract after I have evaluated your request and we have spoken to each other. No
-              shortcuts.
+              Invio il contratto firmato solo dopo aver valutato la tua richiesta e dopo un confronto diretto. Nessuna
+              scorciatoia.
             </p>
             <Link
-  href="/request"
-  style={{
-    backgroundColor: "#ffffff",
-    color: "black",
-    padding: "14px 28px",            // bigger
-    borderRadius: "12px",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "8px",
-    fontSize: "14px",               // slightly larger text
-    fontWeight: 500,
-    border: "1.5px solid #0f6e56",  // clean green border
-    textDecoration: "none",
-    transition: "all 0.2s ease",
-  }}
->
-  Submit your request →
-</Link>
-            <p className="cta-note">No obligation. No automatic responses. Just a professional assessment.</p>
+              href="/request"
+              style={{
+                backgroundColor: "#ffffff",
+                color: "black",
+                padding: "14px 28px",
+                borderRadius: "12px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "14px",
+                fontWeight: 500,
+                border: "1.5px solid #0f6e56",
+                textDecoration: "none",
+                transition: "all 0.2s ease",
+              }}
+            >
+              Invia la tua richiesta →
+            </Link>
+            <p className="cta-note">Nessun obbligo. Nessuna risposta automatica. Solo una valutazione professionale.</p>
           </div>
         </div>
       </section>

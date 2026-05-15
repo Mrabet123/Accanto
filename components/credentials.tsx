@@ -1,30 +1,30 @@
 const credentialsCards = [
   {
-    title: "Over 8 years experience",
-    subtitle: "Social-healthcare",
-    details: "Hospital · RSA · RSD · Sheltered housing",
+    title: "Oltre 8 anni",
+    subtitle: "Area socio-sanitaria",
+    details: "Ospedale · RSA · RSD · Comunità protetta",
   },
   {
-    title: "Over a decade",
+    title: "Oltre 10 anni",
     subtitle: "Hospitality & CX",
-    details: "Cruise · Luxury · SaaS · Travel",
+    details: "Crociera · Lusso · SaaS · Viaggi",
   },
   {
     title: "5",
-    subtitle: "Languages spoken",
+    subtitle: "Lingue parlate",
     details: "IT · EN · FR · AR · DE",
   },
   {
     title: "3",
-    subtitle: "Healthcare certifications",
+    subtitle: "Certificazioni sanitarie",
     details: "OSS · BLSD · HACCP",
   },
 ];
 
 const tags = [
-  "OSS — Social Health Worker",
-  "BLSD — Cardiopulmonary resuscitation",
-  "HACCP — Food Safety",
+  "OSS — Operatore Socio-Sanitario",
+  "BLSD — Rianimazione cardiopolmonare",
+  "HACCP — Sicurezza alimentare",
 ];
 
 export default function Credentials() {
@@ -33,7 +33,7 @@ export default function Credentials() {
       <div className="mx-auto max-w-[1060px]">
         <div className="mb-5">
           <p className="text-[13px] uppercase tracking-[0.22em] text-[#8d8176]">
-            Credentials
+            Competenze e qualifiche
           </p>
         </div>
 

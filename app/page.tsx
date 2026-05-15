@@ -6,32 +6,35 @@ import CompetitiveAdvantage from "@/components/competitive-advantage";
 import HowWorkCta from "@/components/how-work-cta";
 
 export const metadata: Metadata = {
-  title: "Accanto — OSS Home Care · Como Lake · Lecco · Milan",
+  metadataBase: new URL("https://accanto.care"),
+  title: "Accanto — Assistenza domiciliare OSS a Lecco, Como e Milano",
   description:
-    "I'm Ghassen Mansouri, certified OSS independent professional. Structured home care for elderly, disabled and children with special needs. 5 languages. Lake Como · Lecco · Milan.",
+    "Sono Ghassen Mansouri, OSS professionista indipendente. Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali nel Lago di Como, a Lecco, Sondrio e Milano.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
+    locale: "it_IT",
+    siteName: "Accanto",
     url: "https://accanto.care/",
-    title: "Accanto — OSS Home Care · Como Lake · Lecco · Milan",
+    title: "Accanto — Assistenza domiciliare OSS a Lecco, Como e Milano",
     description:
-      "Certified OSS independent professional. Structured home care for elderly, disabled and children. 5 languages. Lake Como · Lecco · Milan.",
+      "OSS professionista indipendente. Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali nel Lago di Como, a Lecco, Sondrio e Milano.",
     images: [
       {
         url: "/Images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Accanto — OSS Home Care",
+        alt: "Accanto — Assistenza domiciliare OSS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Accanto — OSS Home Care · Como Lake · Lecco · Milan",
+    title: "Accanto — Assistenza domiciliare OSS a Lecco, Como e Milano",
     description:
-      "Certified OSS independent professional. Structured home care for elderly, disabled and children. 5 languages.",
+      "OSS professionista indipendente. Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali.",
     images: ["/Images/og-image.jpg"],
   },
 };
@@ -45,14 +48,14 @@ const structuredData = {
       name: "Accanto — Assistenza Domiciliare OSS",
       alternateName: "Accanto Home Care",
       description:
-        "Certified OSS independent professional providing structured home care for elderly, disabled and children with special needs. Available in Italian, English, French, Arabic and German.",
-      url: "https://accanto.care",
+        "OSS professionista indipendente che offre assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali.",
+      url: "https://accanto.care/",
       telephone: "+393792306809",
       email: "hello@accanto.care",
       vatID: "01103920144",
       foundingDate: "2024",
       currenciesAccepted: "EUR",
-      paymentAccepted: "Cash, Bank Transfer",
+      paymentAccepted: "Contanti, bonifico bancario",
       priceRange: "€€",
       address: {
         "@type": "PostalAddress",
@@ -74,73 +77,72 @@ const structuredData = {
         { "@type": "AdministrativeArea", name: "Provincia di Milano" },
       ],
       serviceType: [
-        "Elderly home care",
-        "Disability support",
-        "Child care with special needs",
         "Assistenza domiciliare anziani",
-        "Supporto disabilità",
-        "Assistenza minori bisogni speciali",
+        "Supporto persone con disabilità",
+        "Assistenza minori con bisogni speciali",
+        "Igiene personale",
+        "Mobilizzazione",
+        "Compagnia e sorveglianza",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Home Care Services",
+        name: "Servizi di assistenza domiciliare",
         itemListElement: [
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Elderly Care — Daytime session",
+              name: "Assistenza anziani — Intervento diurno",
               description:
-                "Personal hygiene, mobilization, meal preparation, cognitive stimulation, family updates.",
+                "Igiene personale, mobilizzazione, preparazione dei pasti, stimolazione cognitiva e aggiornamento alla famiglia.",
             },
             priceSpecification: {
               "@type": "PriceSpecification",
               price: "28",
               priceCurrency: "EUR",
-              unitText: "per hour",
+              unitText: "all'ora",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Disability Support",
+              name: "Supporto persone con disabilità",
               description:
-                "ADL assistance, mobility support, accompaniment, care diary, family coordination.",
+                "Assistenza nelle attività quotidiane, supporto alla mobilità, accompagnamento, diario di cura e coordinamento con la famiglia.",
             },
             priceSpecification: {
               "@type": "PriceSpecification",
               price: "28",
               priceCurrency: "EUR",
-              unitText: "per hour",
+              unitText: "all'ora",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Child Care — Special Needs",
+              name: "Assistenza minori con bisogni speciali",
               description:
-                "Educational assistance, personal care, supervised activities, school accompaniment.",
+                "Supporto educativo, cura personale, attività supervisionate e accompagnamento a scuola.",
             },
             priceSpecification: {
               "@type": "PriceSpecification",
               price: "28",
               priceCurrency: "EUR",
-              unitText: "per hour",
+              unitText: "all'ora",
             },
           },
         ],
       },
-      sameAs: ["https://accanto.care"],
     },
     {
       "@type": "Person",
       "@id": "https://accanto.care/#person",
       name: "Ghassen Mansouri",
-      jobTitle: "Operatore Socio-Sanitario — OSS Independent Professional",
+      jobTitle: "Operatore Socio-Sanitario — OSS professionista indipendente",
       description:
-        "Certified OSS with 8 years in social healthcare and 10 years in international hospitality. Fluent in Italian, English, French, Arabic and German.",
+        "OSS certificato con 8 anni di esperienza in ambito socio-sanitario e oltre 10 anni in hospitality internazionale.",
       url: "https://accanto.care/profile",
       telephone: "+393792306809",
       email: "hello@accanto.care",
@@ -148,22 +150,22 @@ const structuredData = {
       worksFor: {
         "@id": "https://accanto.care/#business",
       },
-      knowsLanguage: ["it", "en", "fr", "ar", "de"],
+      knowsLanguage: ["it"],
       hasCredential: [
         {
           "@type": "EducationalOccupationalCredential",
           name: "OSS — Operatore Socio-Sanitario",
-          credentialCategory: "Professional Certification",
+          credentialCategory: "Certificazione professionale",
         },
         {
           "@type": "EducationalOccupationalCredential",
-          name: "BLSD — Cardiopulmonary Resuscitation",
-          credentialCategory: "Professional Certification",
+          name: "BLSD — Rianimazione cardiopolmonare",
+          credentialCategory: "Certificazione professionale",
         },
         {
           "@type": "EducationalOccupationalCredential",
-          name: "HACCP — Food Safety",
-          credentialCategory: "Professional Certification",
+          name: "HACCP — Sicurezza alimentare",
+          credentialCategory: "Certificazione professionale",
         },
       ],
       address: {

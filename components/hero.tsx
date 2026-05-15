@@ -1,14 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const WHATSAPP_NUMBER = "39XXXXXXXXXX"; // replace with your real WhatsApp number
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-
 const badges = [
-  { label: "Personal Care professional/OSS", className: "bg-[#e3f5f0] text-[#0b5d50]" },
-  { label: "5 languages", className: "bg-[#eaf0fb] text-[#1f4f9c]" },
-  { label: "Over 18 years experience", className: "bg-[#f7e9cf] text-[#8a5a14]" },
-  { label: "Individual care", className: "bg-[#f2ede4] text-[#4b4b4b]" },
+  { label: "Professionista OSS", className: "bg-[#e3f5f0] text-[#0b5d50]" },
+  { label: "Assistenza domiciliare in Lombardia", className: "bg-[#eaf0fb] text-[#1f4f9c]" },
+  { label: "Oltre 18 anni di esperienza", className: "bg-[#f7e9cf] text-[#8a5a14]" },
+  { label: "Assistenza individuale", className: "bg-[#f2ede4] text-[#4b4b4b]" },
 ];
 
 export default function Hero() {
@@ -19,18 +16,18 @@ export default function Hero() {
           <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-12">
             <div className="max-w-[680px] flex-1">
               <p className="text-[13px] uppercase tracking-[0.24em] text-[#8d8176]">
-                CAREGIVER COMO LAKE / VALTELLINA / MILANO
+                OSS · Lago di Como / Lecco / Valtellina / Milano
               </p>
 
               <h1 className="mt-5 max-w-[720px] font-serif text-[34px] leading-[1.1] text-[#141414] md:text-[48px]">
-                You&apos;re looking for a reliable healthcare professional support you can trust?
+                Cerchi un supporto sanitario affidabile di cui poterti fidare?
                 <br />
-                Not someone who&apos;s just available.
+                Non solo disponibile, ma davvero professionale.
               </h1>
 
               <p className="mt-5 max-w-[690px] text-[17px] leading-8 text-[#3f3a35]">
-                Structured home care for the elderly, disabled, and minors. A human
-                approach, professional methods, and multilingual communication.
+                Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali.
+                Approccio umano, metodo professionale e presenza locale in Lombardia.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -47,20 +44,18 @@ export default function Hero() {
               <div className="mt-8">
                 <Link
                   href="/request"
-                  
-                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-[14px] border border-[#2a2a2a] bg-white px-7 py-4 text-[18px] font-medium text-[#111] transition-colors hover:bg-[#f6f1ea]"
                 >
-                  Send me a request
+                  Richiedi informazioni
                 </Link>
               </div>
             </div>
 
-            <div className="ml-auto flex w-full justify-center md:justify-end md:w-[360px]">
-              <div className="relative h-[400px] w-full max-w-[340px] rounded-[24px] border border-[#d9d3c8] bg-[#f4efe7] overflow-hidden shadow-md">
+            <div className="ml-auto flex w-full justify-center md:w-[360px] md:justify-end">
+              <div className="relative h-[400px] w-full max-w-[340px] overflow-hidden rounded-[24px] border border-[#d9d3c8] bg-[#f4efe7] shadow-md">
                 <Image
                   src="/Images/4.jpg"
-                  alt="Professional caregiver portrait"
+                  alt="Ghassen Mansouri, professionista OSS per assistenza domiciliare a Lecco, Como e Milano"
                   fill
                   className="object-cover"
                   priority

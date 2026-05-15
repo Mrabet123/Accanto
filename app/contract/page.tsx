@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ContractClient from "./contractClient";
 
 export const metadata: Metadata = {
-  title: "Collaboration Terms & Contract — Accanto Home Care OSS",
+  title: "Termini di collaborazione e contratto — Accanto Home Care OSS",
   description:
-    "My professional collaboration terms — advance payment, 7-day cancellation policy, OSS scope boundaries, GDPR compliance. Read before submitting your request.",
+    "I miei termini di collaborazione professionale — pagamento anticipato, politica di cancellazione a 7 giorni, confini del perimetro OSS, conformità GDPR. Leggi prima di inviare la tua richiesta.",
   keywords: [
     "termini collaborazione OSS",
     "contratto assistenza domiciliare",
@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://accanto.care/contract",
-    title: "Collaboration Terms & Contract — Accanto Home Care OSS",
+    title: "Termini di collaborazione e contratto — Accanto Home Care OSS",
     description:
-      "Professional collaboration terms — rates, cancellation policy, OSS scope, GDPR. Everything is clear before we begin.",
+      "Termini di collaborazione professionale — tariffe, politica di cancellazione, perimetro OSS, GDPR. Tutto è chiaro prima di iniziare.",
     siteName: "Accanto",
-    locale: "en_GB",
+    locale: "it_IT",
     images: [
       {
         url: "https://accanto.care/Images/og-image.jpg",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Collaboration Terms & Contract — Accanto Home Care OSS",
+    title: "Termini di collaborazione e contratto — Accanto Home Care OSS",
     description:
-      "Professional collaboration terms — rates, cancellation policy, OSS scope, GDPR.",
+      "Termini di collaborazione professionale — tariffe, politica di cancellazione, perimetro OSS, GDPR.",
     images: ["https://accanto.care/Images/og-image.jpg"],
   },
 
@@ -53,16 +53,16 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      {/* JSON-LD Structured Data */}
+      {/* Dati strutturati JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Collaboration Terms & Contract — Accanto Home Care",
+            name: "Termini di collaborazione e contratto — Accanto Home Care",
             description:
-              "Professional collaboration terms for Accanto home care services — payment, cancellation policy, OSS scope, GDPR.",
+              "Termini di collaborazione professionale per i servizi di assistenza domiciliare Accanto — pagamento, politica di cancellazione, perimetro OSS, GDPR.",
             url: "https://accanto.care/contract",
             mainEntity: {
               "@id": "https://accanto.care/#business",
