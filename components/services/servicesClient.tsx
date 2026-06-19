@@ -58,60 +58,60 @@ export default function ServicesClient({ lang }: Props) {
           </div>
 
           {activeTab === "local" ? (
-  <div className="tab-content active">
-    <div className="services-grid">
-      {copy.local.cards.map((card) => (
-        <div className="service-card" key={card.title}>
-          <div className="service-card-icon">{card.icon}</div>
-          <div className="service-card-label">{card.label}</div>
-          <h3 className="service-card-title">{card.title}</h3>
-          <ul className="service-list">
-            {card.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+            <div className="tab-content active">
+              <div className="services-grid">
+                {copy.local.cards.map((card) => (
+                  <div className="service-card" key={card.title}>
+                    <div className="service-card-icon">{card.icon}</div>
+                    <div className="service-card-label">{card.label}</div>
+                    <h3 className="service-card-title">{card.title}</h3>
+                    <ul className="service-list">
+                      {card.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
 
-    <div className="image-gallery">
-      {copy.local.galleryAlt.slice(0, 2).map((alt, index) => (
-        <div className="gallery-item" key={alt}>
-          <Image
-            src={galleryImages[index]}
-            alt={alt}
-            width={400}
-            height={300}
-            className="gallery-image"
-          />
-        </div>
-      ))}
-    </div>
+              <div className="image-gallery">
+                {galleryImages.map((src, index) => (
+                  <div className="gallery-item" key={src}>
+                    <Image
+                      src={src}
+                      alt={copy.local.galleryAlt[index] ?? ""}
+                      width={400}
+                      height={300}
+                      className="gallery-image"
+                    />
+                  </div>
+                ))}
+              </div>
 
-    <div className="oss-boundary">
-      <div className="oss-boundary-title">
-        {copy.local.boundary.title}
-        <span className="oss-badge">{copy.local.boundary.badge}</span>
-      </div>
-      <p className="oss-intro">{copy.local.boundary.intro}</p>
-      <ul className="oss-list">
-        {copy.local.boundary.items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-      <p className="oss-note">{copy.local.boundary.note}</p>
-    </div>
-  </div>
-) : (
-  <div className="tab-content active">
-    <div className="intl-additions">
-      {copy.intl.additions.map((item) => (
-        <div className="intl-card" key={item.num}>
-          <div className="intl-card-num">{item.num}</div>
-          <div className="intl-card-title">{item.title}</div>
-          <div className="intl-card-desc">{item.desc}</div>
-        </div>
-      ))}
+              <div className="oss-boundary">
+                <div className="oss-boundary-title">
+                  {copy.local.boundary.title}
+                  <span className="oss-badge">{copy.local.boundary.badge}</span>
+                </div>
+                <p className="oss-intro">{copy.local.boundary.intro}</p>
+                <ul className="oss-list">
+                  {copy.local.boundary.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className="oss-note">{copy.local.boundary.note}</p>
+              </div>
+            </div>
+          ) : (
+            <div className="tab-content active">
+              <div className="intl-additions">
+                {copy.intl.additions.map((item) => (
+                  <div className="intl-card" key={item.num}>
+                    <div className="intl-card-num">{item.num}</div>
+                    <div className="intl-card-title">{item.title}</div>
+                    <div className="intl-card-desc">{item.desc}</div>
+                  </div>
+                ))}
               </div>
 
               <div className="services-grid">
@@ -144,11 +144,11 @@ export default function ServicesClient({ lang }: Props) {
               </div>
 
               <div className="image-gallery">
-                {copy.local.galleryAlt.map((alt, index) => (
-                  <div className="gallery-item" key={alt}>
+                {galleryImages.map((src, index) => (
+                  <div className="gallery-item" key={src}>
                     <Image
-                      src={galleryImages[index]}
-                      alt={alt}
+                      src={src}
+                      alt={copy.local.galleryAlt[index] ?? ""}
                       width={400}
                       height={300}
                       className="gallery-image"
@@ -528,7 +528,6 @@ export default function ServicesClient({ lang }: Props) {
 
         .image-gallery {
           display: flex;
-          flex-wrap: wrap;
           gap: 24px;
           justify-content: center;
           margin-top: 32px;
@@ -537,8 +536,8 @@ export default function ServicesClient({ lang }: Props) {
         }
 
         .gallery-item {
-          flex: 1;
-          min-width: 220px;
+          width: calc(50% - 12px);
+          max-width: 480px;
           border-radius: var(--radius-lg);
           overflow: hidden;
           box-shadow: var(--shadow);
@@ -740,8 +739,7 @@ export default function ServicesClient({ lang }: Props) {
 
           .services-grid,
           .intl-additions,
-          .oss-list,
-          .image-gallery {
+          .oss-list {
             grid-template-columns: 1fr;
           }
 
@@ -751,6 +749,7 @@ export default function ServicesClient({ lang }: Props) {
           }
 
           .gallery-item {
+            width: 100%;
             max-width: 100%;
           }
 
