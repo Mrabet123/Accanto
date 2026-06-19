@@ -1,7 +1,6 @@
-// src/components/language-switcher.tsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown, Languages } from "lucide-react";
 import {
@@ -14,7 +13,7 @@ import {
   type Locale,
 } from "@/lib/i18n/config";
 
-export default function LanguageSwitcher() {
+function LanguageSwitcherInner() {
   const pathname = usePathname() || "/";
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -31,14 +30,10 @@ export default function LanguageSwitcher() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -69,7 +64,6 @@ export default function LanguageSwitcher() {
         <div className="absolute right-0 z-50 mt-2 w-40 overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-lg">
           {locales.map((locale) => {
             const active = locale === currentLocale;
-
             return (
               <button
                 key={locale}
@@ -90,5 +84,13 @@ export default function LanguageSwitcher() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function LanguageSwitcher() {
+  return (
+    <Suspense fallback={null}>
+      <LanguageSwitcherInner />
+    </Suspense>
   );
 }
