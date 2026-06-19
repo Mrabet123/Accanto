@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContractClient from "@/components/contract/contractClient";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Termini di collaborazione e contratto — Accanto Home Care OSS",
@@ -75,7 +76,9 @@ export default function Page() {
           ).replace(/</g, "\\u003c"),
         }}
       />
-      <ContractClient lang="it" />
+      <Suspense fallback={null}>
+        <ContractClient lang="it" />
+      </Suspense>
     </>
   );
 }
