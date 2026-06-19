@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import RequestClient from "./requestClient";
+import RequestClient from "@/components/request/requestClient";
 
 export const metadata: Metadata = {
   title: "Invia una richiesta — Accanto Home Care",
@@ -64,10 +64,10 @@ export default function RequestPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <RequestClient />
+      <RequestClient lang="it" />
     </>
   );
 }

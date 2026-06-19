@@ -3,7 +3,180 @@
 import React from "react";
 import Link from "next/link";
 
-const cards = [
+type Lang = "it" | "fr" | "en" | "ar";
+
+type Props = {
+  lang: Lang;
+};
+
+type ContractCard = {
+  num: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  green?: boolean;
+  terra?: boolean;
+};
+
+const copy = {
+  it: {
+    eyebrow: "Contratto e condizioni",
+    title: (
+      <>
+        Trasparenza legale.
+        <br />
+        Prima di iniziare.
+      </>
+    ),
+    subtitle:
+      "Prima di iniziare qualsiasi collaborazione, viene firmato un contratto scritto che definisce con precisione cosa faccio, come lo faccio, quanto costa e cosa succede se qualcosa cambia. Protegge te come cliente. Protegge me come professionista.",
+    framingTitle: "Trasparenza prima di tutto",
+    framingText:
+      "Non si tratta di una formalità burocratica — è il fondamento di un rapporto professionale serio. Il contratto viene firmato solo dopo che la tua richiesta è stata valutata e dopo un confronto diretto. Nessun contratto viene emesso per richieste non qualificate o non approvate.",
+    draftEyebrow: "Bozza di contratto — sola lettura",
+    draftTitle: (
+      <>
+        Un esempio di ciò che viene firmato
+        <br />
+        prima che io inizi.
+      </>
+    ),
+    draftSubtitle: "Sola lettura — esempio",
+    professional: "Il professionista",
+    client: "Il cliente / rappresentante legale",
+    ctaTitle: "Tutto chiaro. Tutto trasparente.",
+    ctaSub:
+      "Invio il contratto firmato solo dopo aver valutato la tua richiesta e dopo un confronto diretto. Nessuna scorciatoia.",
+    ctaLink: "Invia la tua richiesta →",
+    ctaNote: "Nessun obbligo. Nessuna risposta automatica. Solo una valutazione professionale.",
+    sectionLabels: [
+      "Sezione 1 — Chi sono e come lavoro",
+      "Sezione 2 — Compenso e pagamento",
+      "Sezione 3 — Cancellazioni e rinuncia",
+      "Sezione 4 — Perimetro professionale OSS",
+      "Sezione 5 — Riservatezza e dati personali",
+      "Sezione 6 — Legge applicabile e controversie",
+    ],
+  },
+  fr: {
+    eyebrow: "Contrat et conditions",
+    title: (
+      <>
+        Transparence légale.
+        <br />
+        Avant de commencer.
+      </>
+    ),
+    subtitle:
+      "Avant toute collaboration, un contrat écrit est signé afin de définir précisément ce que je fais, comment je le fais, combien cela coûte et ce qui se passe si quelque chose change. Il vous protège en tant que client. Il me protège en tant que professionnel.",
+    framingTitle: "La transparence d’abord",
+    framingText:
+      "Ce n’est pas une formalité administrative — c’est la base d’une relation professionnelle sérieuse. Le contrat n’est signé qu’après l’évaluation de votre demande et un échange direct. Aucun contrat n’est émis pour des demandes non qualifiées ou non approuvées.",
+    draftEyebrow: "Projet de contrat — lecture seule",
+    draftTitle: (
+      <>
+        Un exemple de ce qui est signé
+        <br />
+        avant mon intervention.
+      </>
+    ),
+    draftSubtitle: "Lecture seule — exemple",
+    professional: "Le professionnel",
+    client: "Le client / représentant légal",
+    ctaTitle: "Tout est clair. Tout est transparent.",
+    ctaSub:
+      "J’envoie le contrat signé uniquement après avoir évalué votre demande et après un échange direct. Aucune étape inutile.",
+    ctaLink: "Envoyer ma demande →",
+    ctaNote: "Aucune obligation. Aucune réponse automatique. Seulement une évaluation professionnelle.",
+    sectionLabels: [
+      "Section 1 — Qui je suis et comment je travaille",
+      "Section 2 — Rémunération et paiement",
+      "Section 3 — Annulations et renonciation",
+      "Section 4 — Périmètre professionnel OSS",
+      "Section 5 — Confidentialité et données personnelles",
+      "Section 6 — Droit applicable et litiges",
+    ],
+  },
+  en: {
+    eyebrow: "Contract and terms",
+    title: (
+      <>
+        Legal clarity.
+        <br />
+        Before starting.
+      </>
+    ),
+    subtitle:
+      "Before any collaboration begins, a written contract is signed to define exactly what I do, how I do it, how much it costs, and what happens if something changes. It protects you as the client. It protects me as the professional.",
+    framingTitle: "Transparency first",
+    framingText:
+      "This is not a bureaucratic formality — it is the foundation of a serious professional relationship. The contract is signed only after your request has been reviewed and after a direct discussion. No contract is issued for unqualified or unapproved requests.",
+    draftEyebrow: "Contract draft — read only",
+    draftTitle: (
+      <>
+        An example of what is signed
+        <br />
+        before I begin.
+      </>
+    ),
+    draftSubtitle: "Read only — example",
+    professional: "The professional",
+    client: "The client / legal representative",
+    ctaTitle: "Everything is clear. Everything is transparent.",
+    ctaSub:
+      "I send the signed contract only after reviewing your request and after a direct discussion. No shortcuts.",
+    ctaLink: "Send my request →",
+    ctaNote: "No obligation. No automatic reply. Only a professional review.",
+    sectionLabels: [
+      "Section 1 — Who I am and how I work",
+      "Section 2 — Fees and payment",
+      "Section 3 — Cancellations and withdrawal",
+      "Section 4 — OSS professional scope",
+      "Section 5 — Confidentiality and personal data",
+      "Section 6 — Applicable law and disputes",
+    ],
+  },
+  ar: {
+    eyebrow: "العقد والشروط",
+    title: (
+      <>
+        وضوح قانوني.
+        <br />
+        قبل البدء.
+      </>
+    ),
+    subtitle:
+      "قبل بدء أي تعاون، يتم توقيع عقد مكتوب يحدد بدقة ما أقدمه، وكيف أقدمه، وكم يكلف، وماذا يحدث إذا تغير شيء ما. وهو يحميك كعميل، ويحمني كمحترف.",
+    framingTitle: "الشفافية أولاً",
+    framingText:
+      "هذا ليس إجراءً بيروقراطياً — بل هو أساس العلاقة المهنية الجدية. لا يتم توقيع العقد إلا بعد مراجعة طلبك وبعد نقاش مباشر. لا يتم إصدار أي عقد للطلبات غير المؤهلة أو غير المعتمدة.",
+    draftEyebrow: "مسودة العقد — للقراءة فقط",
+    draftTitle: (
+      <>
+        مثال لما يتم توقيعه
+        <br />
+        قبل أن أبدأ.
+      </>
+    ),
+    draftSubtitle: "للقراءة فقط — مثال",
+    professional: "المحترف",
+    client: "العميل / الممثل القانوني",
+    ctaTitle: "كل شيء واضح. كل شيء شفاف.",
+    ctaSub: "أرسل العقد الموقع فقط بعد مراجعة طلبك وبعد نقاش مباشر. لا توجد اختصارات.",
+    ctaLink: "إرسال طلبي →",
+    ctaNote: "لا التزام. لا رد تلقائي. فقط تقييم مهني.",
+    sectionLabels: [
+      "القسم 1 — من أنا وكيف أعمل",
+      "القسم 2 — الأتعاب والدفع",
+      "القسم 3 — الإلغاء والتنازل",
+      "القسم 4 — النطاق المهني لـ OSS",
+      "القسم 5 — السرية والبيانات الشخصية",
+      "القسم 6 — القانون المطبق والنزاعات",
+    ],
+  },
+} as const;
+
+const cards: ContractCard[] = [
   {
     num: "Sezione 1",
     title: "Chi sono e come lavoro",
@@ -125,34 +298,25 @@ const articles = [
   },
 ];
 
-export default function ContractPage() {
+export default function ContractClient({ lang }: Props) {
+  const t = copy[lang];
+  const requestHref = lang === "it" ? "/request" : `/${lang}/request`;
+
   return (
-    <main className="contract-page">
+    <main className="contract-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="page-hero">
         <div className="page-hero-inner">
-          <div className="eyebrow">Contratto e condizioni</div>
-          <h1 className="page-title">
-            Trasparenza legale.
-            <br />
-            Prima di iniziare.
-          </h1>
-          <p className="page-sub">
-            Prima di iniziare qualsiasi collaborazione, viene firmato un contratto scritto che definisce con precisione
-            cosa faccio, come lo faccio, quanto costa e cosa succede se qualcosa cambia. Protegge te come cliente.
-            Protegge me come professionista.
-          </p>
+          <div className="eyebrow">{t.eyebrow}</div>
+          <h1 className="page-title">{t.title}</h1>
+          <p className="page-sub">{t.subtitle}</p>
         </div>
       </div>
 
       <section className="section">
         <div className="inner">
           <div className="framing">
-            <div className="framing-title">Trasparenza prima di tutto</div>
-            <p className="framing-text">
-              Non si tratta di una formalità burocratica — è il fondamento di un rapporto professionale serio. Il
-              contratto viene firmato solo dopo che la tua richiesta è stata valutata e dopo un confronto diretto.
-              Nessun contratto viene emesso per richieste non qualificate o non approvate.
-            </p>
+            <div className="framing-title">{t.framingTitle}</div>
+            <p className="framing-text">{t.framingText}</p>
           </div>
 
           <div className="blocks-grid">
@@ -186,19 +350,17 @@ export default function ContractPage() {
       <section className="section section-sand">
         <div className="inner">
           <div className="draft-heading">
-            <div className="eyebrow eyebrow-terra">Bozza di contratto — sola lettura</div>
-            <h2 className="draft-main-title">
-              Un esempio di ciò che viene firmato
-              <br />
-              prima che io inizi.
-            </h2>
+            <div className="eyebrow eyebrow-terra">{t.draftEyebrow}</div>
+            <h2 className="draft-main-title">{t.draftTitle}</h2>
           </div>
 
           <div className="draft-wrapper">
             <div className="draft-header">
               <div>
                 <div className="draft-title">Contratto di prestazione professionale — Assistenza domiciliare OSS</div>
-                <div className="draft-sub">Ai sensi degli artt. 2229–2237 del Codice Civile italiano · Modello standard 2025</div>
+                <div className="draft-sub">
+                  Ai sensi degli artt. 2229–2237 del Codice Civile italiano · Modello standard 2025
+                </div>
               </div>
 
               <div className="draft-readonly-badge">
@@ -211,13 +373,13 @@ export default function ContractPage() {
                     strokeLinecap="round"
                   />
                 </svg>
-                Sola lettura — esempio
+                {t.draftSubtitle}
               </div>
             </div>
 
             <div className="draft-parties">
               <div className="party">
-                <div className="party-label">Il professionista</div>
+                <div className="party-label">{t.professional}</div>
                 <div className="party-name">Ghassen Mansouri</div>
                 <div className="party-detail">
                   Professionista OSS indipendente · P.IVA 01103920144
@@ -229,7 +391,7 @@ export default function ContractPage() {
               </div>
 
               <div className="party">
-                <div className="party-label">Il cliente / rappresentante legale</div>
+                <div className="party-label">{t.client}</div>
                 <div className="party-field">[Nome completo del cliente]</div>
                 <div className="party-field">[Indirizzo · Codice fiscale]</div>
                 <div className="party-field">In qualità di: [ruolo legale]</div>
@@ -238,167 +400,63 @@ export default function ContractPage() {
             </div>
 
             <div className="draft-articles">
-              <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Sezione 1 — Chi sono e come lavoro</div>
-              </div>
+              {articles.map((article, index) => (
+                <React.Fragment key={article.label}>
+                  {index === 0 && (
+                    <div className="draft-section-divider">
+                      <div className="draft-section-divider-label">{t.sectionLabels[0]}</div>
+                    </div>
+                  )}
+                  {index === 2 && (
+                    <div className="draft-section-divider">
+                      <div className="draft-section-divider-label">{t.sectionLabels[1]}</div>
+                    </div>
+                  )}
+                  {index === 5 && (
+                    <div className="draft-section-divider">
+                      <div className="draft-section-divider-label">{t.sectionLabels[2]}</div>
+                    </div>
+                  )}
+                  {index === 8 && (
+                    <div className="draft-section-divider">
+                      <div className="draft-section-divider-label">{t.sectionLabels[3]}</div>
+                    </div>
+                  )}
+                  {index === 10 && (
+                    <div className="draft-section-divider">
+                      <div className="draft-section-divider-label">{t.sectionLabels[4]}</div>
+                    </div>
+                  )}
+                  {index === 12 && (
+                    <div className="draft-section-divider">
+                      <div className="draft-section-divider-label">{t.sectionLabels[5]}</div>
+                    </div>
+                  )}
 
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 1</span>
-                  <span className="art-title">Ambito del servizio professionale</span>
-                </div>
-                <p className="art-text">{articles[0].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 3</span>
-                  <span className="art-title">Durata minima della sessione e pianificazione</span>
-                </div>
-                <p className="art-text">{articles[1].text}</p>
-              </div>
-
-              <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Sezione 2 — Compenso e pagamento</div>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 2</span>
-                  <span className="art-title">Tariffa oraria e pagamento anticipato</span>
-                </div>
-                <p className="art-text">{articles[2].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 8</span>
-                  <span className="art-title">Rimborso spese di trasferta</span>
-                </div>
-                <p className="art-text">{articles[3].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 9</span>
-                  <span className="art-title">Revisione della tariffa</span>
-                </div>
-                <p className="art-text">{articles[4].text}</p>
-              </div>
-
-              <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Sezione 3 — Cancellazioni e rinuncia</div>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 4</span>
-                  <span className="art-title">Politica di cancellazione</span>
-                </div>
-                <p className="art-text">{articles[5].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 5</span>
-                  <span className="art-title">Rinuncia al contratto</span>
-                </div>
-                <p className="art-text">{articles[6].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 6</span>
-                  <span className="art-title">Clausola di risoluzione automatica</span>
-                </div>
-                <p className="art-text">{articles[7].text}</p>
-              </div>
-
-              <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Sezione 4 — Perimetro professionale OSS</div>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 10</span>
-                  <span className="art-title">Perimetro OSS e limitazione di responsabilità</span>
-                </div>
-                <p className="art-text">{articles[8].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 7</span>
-                  <span className="art-title">Sospensione del servizio</span>
-                </div>
-                <p className="art-text">{articles[9].text}</p>
-              </div>
-
-              <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Sezione 5 — Riservatezza e dati personali</div>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 11</span>
-                  <span className="art-title">Riservatezza e segreto professionale</span>
-                </div>
-                <p className="art-text">{articles[10].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 12</span>
-                  <span className="art-title">Trattamento dei dati personali — GDPR</span>
-                </div>
-                <p className="art-text">{articles[11].text}</p>
-              </div>
-
-              <div className="draft-section-divider">
-                <div className="draft-section-divider-label">Sezione 6 — Legge applicabile e controversie</div>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 13</span>
-                  <span className="art-title">Forza maggiore ed eventi imprevisti</span>
-                </div>
-                <p className="art-text">{articles[12].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 14–15</span>
-                  <span className="art-title">Foro competente e conciliazione</span>
-                </div>
-                <p className="art-text">{articles[13].text}</p>
-              </div>
-
-              <div className="art-row">
-                <div className="art-row-header">
-                  <span className="art-label">Art. 17</span>
-                  <span className="art-title">Approvazione specifica delle clausole onerose</span>
-                </div>
-                <p className="art-text">{articles[14].text}</p>
-              </div>
+                  <div className="art-row">
+                    <div className="art-row-header">
+                      <span className="art-label">{article.label}</span>
+                      <span className="art-title">{article.title}</span>
+                    </div>
+                    <p className="art-text">{article.text}</p>
+                  </div>
+                </React.Fragment>
+              ))}
             </div>
           </div>
 
           <div className="closing-note">
             <p className="closing-note-text">
               Il contratto completo, comprensivo degli allegati e delle clausole specifiche, viene trasmesso al cliente
-              via email in formato PDF firmato, successivamente all'approvazione della richiesta di valutazione.
+              via email in formato PDF firmato, successivamente all&apos;approvazione della richiesta di valutazione.
             </p>
           </div>
 
           <div className="cta-block">
-            <div className="cta-title">Tutto chiaro. Tutto trasparente.</div>
-            <p className="cta-sub">
-              Invio il contratto firmato solo dopo aver valutato la tua richiesta e dopo un confronto diretto. Nessuna
-              scorciatoia.
-            </p>
+            <div className="cta-title">{t.ctaTitle}</div>
+            <p className="cta-sub">{t.ctaSub}</p>
             <Link
-              href="/request"
+              href={requestHref}
               style={{
                 backgroundColor: "#ffffff",
                 color: "black",
@@ -414,9 +472,9 @@ export default function ContractPage() {
                 transition: "all 0.2s ease",
               }}
             >
-              Invia la tua richiesta →
+              {t.ctaLink}
             </Link>
-            <p className="cta-note">Nessun obbligo. Nessuna risposta automatica. Solo una valutazione professionale.</p>
+            <p className="cta-note">{t.ctaNote}</p>
           </div>
         </div>
       </section>
@@ -799,25 +857,6 @@ export default function ContractPage() {
           color: rgba(255, 255, 255, 0.65);
           margin-bottom: 22px;
           line-height: 1.7;
-        }
-
-        .btn-white {
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
-          background: var(--white) !important;
-          color: var(--green);
-          padding: 12px 24px;
-          border-radius: var(--radius);
-          font-size: 13px;
-          font-weight: 500;
-          transition: all 0.2s;
-          border: none;
-          cursor: pointer;
-        }
-
-        .btn-white:hover {
-          background: var(--green-light);
         }
 
         .cta-note {

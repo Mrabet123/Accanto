@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ProfileClient from "./profileClient";
+import ProfileClient from "@/components/profile/profileClient";
 
 export const metadata: Metadata = {
   title: "Ghassen Mansouri — Professionista OSS certificato · Accanto",
@@ -66,10 +66,10 @@ export default function ProfilePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <ProfileClient />
+      <ProfileClient lang="it" />
     </>
   );
 }

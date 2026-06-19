@@ -1,25 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
-
-const leftTags = [
-  "Anziani",
-  "Persone con disabilità",
-  "Minori",
-  "Igiene",
-  "Mobilizzazione",
-  "Compagnia",
-  "Sorveglianza",
-];
-
-const rightTags = [
-  "Genitori anziani",
-  "Disabilità",
-  "Bambini",
-  "Soggiorni temporanei",
-  "Report alla famiglia",
-  "Italiano",
-];
+import { defaultLocale, localizedPath, type Locale } from "@/lib/i18n/config";
+import { getHomepageCopy } from "@/lib/i18n/homepage";
 
 function Tag({ children }: { children: ReactNode }) {
   return (
@@ -36,6 +19,7 @@ function AudienceCard({
   tags,
   linkText,
   accentClassName,
+  lang,
 }: {
   badge: string;
   title: string;
@@ -43,6 +27,7 @@ function AudienceCard({
   tags: string[];
   linkText: string;
   accentClassName: string;
+  lang: Locale;
 }) {
   return (
     <article
@@ -67,7 +52,7 @@ function AudienceCard({
       </div>
 
       <Link
-        href="/services"
+        href={localizedPath(lang, "/services")}
         className="mt-6 inline-flex text-[17px] text-[#111] transition-colors hover:text-[#176b48]"
       >
         {linkText}
@@ -76,32 +61,36 @@ function AudienceCard({
   );
 }
 
-export default function AudienceSection() {
+export default function AudienceSection({ lang = defaultLocale }: { lang?: Locale }) {
+  const t = getHomepageCopy(lang);
+
   return (
     <section className="bg-white px-4 py-6 md:px-8 md:py-8">
       <div className="mx-auto max-w-[1060px]">
         <div className="mb-5">
           <p className="text-[13px] uppercase tracking-[0.22em] text-[#8d8176]">
-            A chi mi rivolgo
+            {t.audience.eyebrow}
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
           <AudienceCard
-            badge="Famiglie del territorio — Lago di Como / Lecco / Valtellina"
-            title="Famiglie italiane sul territorio"
-            description="Per famiglie italiane che cercano un professionista dedicato per assistere anziani, persone con disabilità o minori con bisogni speciali nelle attività quotidiane."
-            tags={leftTags}
-            linkText="Scopri i servizi →"
+            lang={lang}
+            badge={t.audience.left.badge}
+            title={t.audience.left.title}
+            description={t.audience.left.description}
+            tags={t.audience.left.tags}
+            linkText={t.audience.left.linkText}
             accentClassName="border-t-[3px] border-t-[#15a16b]"
           />
 
           <AudienceCard
-            badge="Clienti internazionali — expat e soggiorni temporanei"
-            title="Assistenza strutturata senza barriere linguistiche"
-            description="Per famiglie expat che cercano un professionista attento e affidabile per un supporto domiciliare sul Lago di Como, a Lecco o a Milano."
-            tags={rightTags}
-            linkText="Vai ai servizi →"
+            lang={lang}
+            badge={t.audience.right.badge}
+            title={t.audience.right.title}
+            description={t.audience.right.description}
+            tags={t.audience.right.tags}
+            linkText={t.audience.right.linkText}
             accentClassName="border-t-[3px] border-t-[#2f78d6]"
           />
         </div>
@@ -110,7 +99,7 @@ export default function AudienceSection() {
           <div className="h-[260px] w-[380px] overflow-hidden rounded-2xl border border-[#d9d3c8] shadow-md">
             <Image
               src="/Images/1.jpg"
-              alt="Assistenza domiciliare per anziani sul Lago di Como"
+              alt={t.audience.images.leftAlt}
               width={380}
               height={260}
               className="h-full w-full object-cover"
@@ -121,7 +110,7 @@ export default function AudienceSection() {
           <div className="h-[260px] w-[380px] overflow-hidden rounded-2xl border border-[#d9d3c8] shadow-md">
             <Image
               src="/Images/3.jpg"
-              alt="Professionista OSS per supporto familiare e assistenza domiciliare"
+              alt={t.audience.images.rightAlt}
               width={380}
               height={260}
               className="h-full w-full object-cover"

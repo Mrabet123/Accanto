@@ -4,6 +4,11 @@ import Credentials from "@/components/credentials";
 import AudienceSection from "@/components/audience";
 import CompetitiveAdvantage from "@/components/competitive-advantage";
 import HowWorkCta from "@/components/how-work-cta";
+import { getHomepageCopy } from "@/lib/i18n/homepage";
+import type { Locale } from "@/lib/i18n/config";
+
+const lang: Locale = "it";
+const copy = getHomepageCopy(lang);
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://accanto.care"),
@@ -187,12 +192,16 @@ export default function Home() {
           __html: JSON.stringify(structuredData),
         }}
       />
-      <main className="min-h-screen bg-[var(--sand)] text-[var(--ink)]">
-        <Hero />
-        <Credentials />
-        <AudienceSection />
-        <CompetitiveAdvantage />
-        <HowWorkCta />
+      <main
+        lang={lang}
+        dir={copy.dir}
+        className="min-h-screen bg-[var(--sand)] text-[var(--ink)]"
+      >
+        <Hero lang={lang} />
+        <Credentials lang={lang} />
+        <AudienceSection lang={lang} />
+        <CompetitiveAdvantage lang={lang} />
+        <HowWorkCta lang={lang} />
       </main>
     </>
   );

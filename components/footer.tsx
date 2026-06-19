@@ -1,15 +1,29 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { defaultLocale, localizedPath, type Locale } from "@/lib/i18n/config";
+import { getHomepageCopy } from "@/lib/i18n/homepage";
 
 const footerLinks = [
-  { label: "Home", href: "/" },
-  { label: "Servizi", href: "/services" },
-  { label: "Profilo", href: "/profile" },
-  { label: "Richiesta", href: "/request" },
-  { label: "Contratto", href: "/contract" },
-];
+  { key: "home", href: "/" },
+  { key: "services", href: "/services" },
+  { key: "profile", href: "/profile" },
+  { key: "request", href: "/request" },
+  { key: "contract", href: "/contract" },
+] as const;
+
+type FooterKey = (typeof footerLinks)[number]["key"];
 
 export default function Footer() {
+  const pathname = usePathname() || "/";
+  const currentLocale: Locale = (() => {
+    const first = pathname.split("/")[1];
+    return ["it", "en", "fr", "ar"].includes(first) ? (first as Locale) : defaultLocale;
+  })();
+
+  const t = getHomepageCopy(currentLocale);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,10 +31,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1100px]">
         <div className="mb-10 grid gap-12 md:grid-cols-3">
           <div>
-            <Link
-              href="/"
-              className="mb-6 inline-block"
-            >
+            <Link href={localizedPath(currentLocale, "/")} className="mb-6 inline-block">
               <Image
                 src="/Images/logo.png"
                 alt="Logo Accanto"
@@ -32,23 +43,23 @@ export default function Footer() {
             </Link>
 
             <p className="max-w-[260px] text-[13px] leading-7 text-[var(--text-muted)]">
-              Professionista OSS indipendente · Lago di Como – Lecco / Valtellina / Milano
+              {t.footer.description}
             </p>
           </div>
 
           <div>
             <div className="mb-4 text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--terra)]">
-              Navigazione
+              {t.footer.navigationTitle}
             </div>
 
             <ul className="flex flex-wrap gap-5">
               {footerLinks.map((link) => (
-                <li key={link.label}>
+                <li key={link.key}>
                   <Link
-                    href={link.href}
+                    href={localizedPath(currentLocale, link.href)}
                     className="text-[13px] text-[var(--text-muted)] transition-colors hover:text-[var(--green)]"
                   >
-                    {link.label}
+                    {t.nav[link.key as FooterKey]}
                   </Link>
                 </li>
               ))}
@@ -57,15 +68,15 @@ export default function Footer() {
 
           <div>
             <div className="mb-4 text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--terra)]">
-              Contatti
+              {t.footer.contactTitle}
             </div>
 
             <div className="mb-2 text-[13px] text-[var(--text-muted)]">
               <a
-                href="mailto:ghassenmansouri@mail.com"
+                href="mailto:hello@accanto.care"
                 className="transition-colors hover:text-[var(--green)]"
               >
-                ghassenmansouri@mail.com
+                hello@accanto.care
               </a>
             </div>
 
@@ -84,18 +95,18 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="mt-2 inline-flex items-center rounded-full bg-[var(--green)] px-4 py-2 text-[12px] font-medium text-white transition-colors hover:bg-[#0a5a44]"
             >
-              WhatsApp →
+              {t.nav.whatsapp} →
             </a>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--border)] pt-6">
           <span className="text-[12px] text-[var(--text-light)]">
-            © {currentYear} Accanto. Tutti i diritti riservati.
+            {t.footer.copyright.replace("{year}", String(currentYear))}
           </span>
 
           <span className="text-[12px] text-[var(--text-light)]">
-            P.IVA 01103920144
+            {t.footer.vat}
           </span>
         </div>
       </div>

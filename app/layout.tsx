@@ -1,9 +1,11 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { DM_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import LanguagePreferenceModal from "@/components/language-preference-modal";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -82,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="it" suppressHydrationWarning>
       <body
         className={`${dmSans.variable} ${cormorant.variable} bg-[var(--sand)] text-[var(--ink)] antialiased`}
       >
@@ -92,6 +94,8 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+
+          <LanguagePreferenceModal />
         </ThemeProvider>
       </body>
     </html>

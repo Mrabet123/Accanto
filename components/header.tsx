@@ -1,19 +1,37 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import LanguageSwitcher from "./language-switcher";
+import {
+  defaultLocale,
+  localizedPath,
+  type Locale,
+} from "@/lib/i18n/config";
+import { getHomepageCopy } from "@/lib/i18n/homepage";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Servizi", href: "/services" },
-  { label: "Profilo", href: "/profile" },
-  { label: "Richiesta", href: "/request" },
-  { label: "Contratto", href: "/contract" },
-];
+  { key: "home", href: "/" },
+  { key: "services", href: "/services" },
+  { key: "profile", href: "/profile" },
+  { key: "request", href: "/request" },
+  { key: "contract", href: "/contract" },
+] as const;
+
+type NavKey = (typeof navItems)[number]["key"];
 
 export default function Header() {
+  const pathname = usePathname() || "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const currentLocale: Locale = (() => {
+    const first = pathname.split("/")[1];
+    return ["it", "en", "fr", "ar"].includes(first) ? (first as Locale) : defaultLocale;
+  })();
+
+  const t = getHomepageCopy(currentLocale);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,11 +44,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -42,7 +56,11 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 h-[92px] overflow-visible bg-[rgba(246,241,232,0.92)] shadow-sm backdrop-blur-md">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex shrink-0 items-center" onClick={closeMenu}>
+          <Link
+            href={localizedPath(currentLocale, "/")}
+            className="flex shrink-0 items-center"
+            onClick={closeMenu}
+          >
             <Image
               src="/Images/logo.png"
               alt="Logo Accanto"
@@ -56,23 +74,26 @@ export default function Header() {
           <nav className="hidden items-center gap-6 md:flex">
             {navItems.map((item) => (
               <Link
-                key={item.label}
-                href={item.href}
+                key={item.key}
+                href={localizedPath(currentLocale, item.href)}
                 className="text-sm font-medium text-[var(--ink)]/75 transition-colors hover:text-[var(--green)]"
               >
-                {item.label}
+                {t.nav[item.key as NavKey]}
               </Link>
             ))}
           </nav>
 
-          <a
-            href="https://wa.me/393792306809"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center justify-center rounded-full border border-transparent bg-[var(--green)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[var(--green)] hover:bg-[var(--sand)] hover:text-[var(--green)] md:inline-flex"
-          >
-            WhatsApp →
-          </a>
+          <div className="hidden items-center gap-3 md:flex">
+            <LanguageSwitcher />
+            <a
+              href="https://wa.me/393792306809"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-transparent bg-[var(--green)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[var(--green)] hover:bg-[var(--sand)] hover:text-[var(--green)]"
+            >
+              {t.nav.whatsapp} →
+            </a>
+          </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -108,16 +129,21 @@ export default function Header() {
         style={{ maxHeight: "calc(100vh - 92px)", overflowY: "auto" }}
       >
         <nav className="flex flex-col p-6">
+          <div className="mb-5">
+            <LanguageSwitcher />
+          </div>
+
           {navItems.map((item) => (
             <Link
-              key={item.label}
-              href={item.href}
+              key={item.key}
+              href={localizedPath(currentLocale, item.href)}
               onClick={closeMenu}
               className="border-b border-gray-100 py-4 text-base font-medium text-[var(--ink)] transition-colors hover:text-[var(--green)]"
             >
-              {item.label}
+              {t.nav[item.key as NavKey]}
             </Link>
           ))}
+
           <a
             href="https://wa.me/393792306809"
             target="_blank"
@@ -125,7 +151,7 @@ export default function Header() {
             onClick={closeMenu}
             className="mt-6 inline-flex items-center justify-center rounded-full bg-[var(--green)] px-6 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-[var(--sand)] hover:text-[var(--green)]"
           >
-            WhatsApp →
+            {t.nav.whatsapp} →
           </a>
         </nav>
       </div>

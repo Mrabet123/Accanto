@@ -2,25 +2,32 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
+import { getRequestCopy } from "@/lib/i18n/request";
+import type { Locale } from "@/lib/i18n/config";
 
 type Step = 1 | 2 | 3 | 4;
 type ErrorState = Record<string, string>;
 
 const countryCodes = [
-  { code: "+216", name: "Tunisia", flagCode: "tn" },
-  { code: "+39", name: "Italia", flagCode: "it" },
-  { code: "+33", name: "Francia", flagCode: "fr" },
-  { code: "+44", name: "Regno Unito", flagCode: "gb" },
-  { code: "+1", name: "Stati Uniti", flagCode: "us" },
-  { code: "+49", name: "Germania", flagCode: "de" },
-  { code: "+34", name: "Spagna", flagCode: "es" },
-  { code: "+41", name: "Svizzera", flagCode: "ch" },
-  { code: "+971", name: "Emirati Arabi Uniti", flagCode: "ae" },
-  { code: "+213", name: "Algeria", flagCode: "dz" },
-  { code: "+212", name: "Marocco", flagCode: "ma" },
+  { code: "+216", flagCode: "tn" },
+  { code: "+39", flagCode: "it" },
+  { code: "+33", flagCode: "fr" },
+  { code: "+44", flagCode: "gb" },
+  { code: "+1", flagCode: "us" },
+  { code: "+49", flagCode: "de" },
+  { code: "+34", flagCode: "es" },
+  { code: "+41", flagCode: "ch" },
+  { code: "+971", flagCode: "ae" },
+  { code: "+213", flagCode: "dz" },
+  { code: "+212", flagCode: "ma" },
 ];
 
-export default function RequestPage() {
+type Props = {
+  lang: Locale;
+};
+
+export default function RequestPage({ lang }: Props) {
+  const copy = getRequestCopy(lang);
   const formRef = useRef<HTMLFormElement | null>(null);
   const phoneHiddenRef = useRef<HTMLInputElement | null>(null);
   const modalBodyRef = useRef<HTMLDivElement | null>(null);
@@ -34,6 +41,8 @@ export default function RequestPage() {
   const [selectedCountryCode, setSelectedCountryCode] = useState("+216");
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   // Valori "Altro" e stati di selezione
   const [roleOther, setRoleOther] = useState("");
@@ -89,15 +98,15 @@ export default function RequestPage() {
     if (!form) return false;
 
     const requiredFields = [
-      { name: "who", label: "Chi sei?" },
-      { name: "role", label: "Ruolo del richiedente" },
-      { name: "name", label: "Nome e cognome" },
-      { name: "phoneCountryCode", label: "Prefisso internazionale" },
-      { name: "phoneNumber", label: "Numero di telefono" },
-      { name: "email", label: "Email" },
-      { name: "lang", label: "Lingua preferita" },
-      { name: "municipality", label: "Comune di residenza" },
-      { name: "zip", label: "CAP" },
+      { name: "who", label: copy.requester.who },
+      { name: "role", label: copy.requester.role },
+      { name: "name", label: copy.requester.name },
+      { name: "phoneCountryCode", label: copy.requester.phonePlaceholder },
+      { name: "phoneNumber", label: copy.requester.phone },
+      { name: "email", label: copy.requester.email },
+      { name: "lang", label: copy.requester.preferredLanguage },
+      { name: "municipality", label: copy.requester.municipality },
+      { name: "zip", label: copy.requester.zip },
     ];
 
     let ok = true;
@@ -105,27 +114,27 @@ export default function RequestPage() {
     for (const item of requiredFields) {
       if (item.name === "role") {
         if (!selectedRole) {
-          setFieldError("role", "Compila questo campo.");
+          setFieldError("role", copy.validation.required);
           ok = false;
         } else if (selectedRole === "Other" && !roleOther.trim()) {
-          setFieldError("role", "Specifica il tuo ruolo.");
+          setFieldError("role", copy.validation.roleOtherRequired);
           ok = false;
         }
       } else if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Compila questo campo.");
+        setFieldError(item.name, copy.validation.required);
         ok = false;
       }
     }
 
     const emailInput = form.elements.namedItem("email") as HTMLInputElement | null;
     if (emailInput && emailInput.value && !emailInput.checkValidity()) {
-      setFieldError("email", "Inserisci un indirizzo email valido.");
+      setFieldError("email", copy.validation.emailInvalid);
       ok = false;
     }
 
     const phoneInput = form.elements.namedItem("phoneNumber") as HTMLInputElement | null;
     if (phoneInput && phoneInput.value && !phoneInput.checkValidity()) {
-      setFieldError("phoneNumber", "Inserisci un numero di telefono valido.");
+      setFieldError("phoneNumber", copy.validation.phoneInvalid);
       ok = false;
     }
 
@@ -136,28 +145,28 @@ export default function RequestPage() {
     let ok = true;
 
     if (!selectedType) {
-      setFieldError("type", "Compila questo campo.");
+      setFieldError("type", copy.validation.required);
       ok = false;
     } else if (selectedType === "Other" && !typeOther.trim()) {
-      setFieldError("type", "Specifica il tipo di persona assistita.");
+      setFieldError("type", copy.validation.typeOtherRequired);
       ok = false;
     }
 
     const requiredFields = [
-      { name: "age", label: "Fascia d'età" },
-      { name: "autonomy", label: "Livello di autonomia" },
-      { name: "description", label: "Descrizione delle attività e delle aspettative" },
+      { name: "age", label: copy.assistedProfile.age },
+      { name: "autonomy", label: copy.assistedProfile.autonomy },
+      { name: "description", label: copy.assistedProfile.description },
     ];
 
     for (const item of requiredFields) {
       if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Compila questo campo.");
+        setFieldError(item.name, copy.validation.required);
         ok = false;
       }
     }
 
     if (checkboxCount("activities") === 0) {
-      setFieldError("activities", "Seleziona almeno un'attività richiesta.");
+      setFieldError("activities", copy.validation.required);
       ok = false;
     }
 
@@ -166,23 +175,23 @@ export default function RequestPage() {
 
   const validateStep3 = () => {
     const requiredFields = [
-      { name: "days", label: "Giorni alla settimana" },
-      { name: "hours", label: "Ore per sessione di assistenza" },
-      { name: "slot", label: "Fascia oraria" },
-      { name: "start-date", label: "Data di inizio richiesta" },
+      { name: "days", label: copy.logistics.days },
+      { name: "hours", label: copy.logistics.hours },
+      { name: "slot", label: copy.logistics.slot },
+      { name: "start-date", label: copy.logistics.startDate },
     ];
 
     let ok = true;
 
     for (const item of requiredFields) {
       if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Compila questo campo.");
+        setFieldError(item.name, copy.validation.required);
         ok = false;
       }
     }
 
     if (fieldValue("slot") === "Night" && !fieldValue("night-type")) {
-      setFieldError("night-type", "Seleziona il tipo di turno notturno.");
+      setFieldError("night-type", copy.validation.nightTypeRequired);
       ok = false;
     }
 
@@ -193,33 +202,33 @@ export default function RequestPage() {
     let ok = true;
 
     if (!selectedSource) {
-      setFieldError("source", "Compila questo campo.");
+      setFieldError("source", copy.validation.required);
       ok = false;
     } else if (selectedSource === "Other" && !sourceOther.trim()) {
-      setFieldError("source", "Specifica come hai trovato questo sito.");
+      setFieldError("source", copy.validation.sourceOtherRequired);
       ok = false;
     }
 
     const requiredFields = [
-      { name: "duration", label: "Durata prevista del supporto" },
-      { name: "previous", label: "Hai già valutato altri professionisti?" },
-      { name: "urgency", label: "Livello di urgenza" },
+      { name: "duration", label: copy.duration.duration },
+      { name: "previous", label: copy.duration.previous },
+      { name: "urgency", label: copy.duration.urgency },
     ];
 
     for (const item of requiredFields) {
       if (!fieldValue(item.name)) {
-        setFieldError(item.name, "Compila questo campo.");
+        setFieldError(item.name, copy.validation.required);
         ok = false;
       }
     }
 
     if (!fieldValue("gdpr-consent")) {
-      setFieldError("gdpr-consent", "Devi accettare il consenso GDPR.");
+      setFieldError("gdpr-consent", copy.validation.gdprRequired);
       ok = false;
     }
 
     if (!fieldValue("terms-consent")) {
-      setFieldError("terms-consent", "Devi accettare i termini di collaborazione.");
+      setFieldError("terms-consent", copy.validation.termsRequired);
       ok = false;
     }
 
@@ -239,7 +248,9 @@ export default function RequestPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const submitForm = () => {
+  const submitForm = async () => {
+    setSubmitError("");
+
     const ok1 = validateStep1();
     const ok2 = validateStep2();
     const ok3 = validateStep3();
@@ -252,9 +263,40 @@ export default function RequestPage() {
       return;
     }
 
-    // Tutti i dati sono validi – puoi inviare i valori effettivi
-    setShowSuccess(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    try {
+      const form = getForm();
+      if (!form) return;
+
+      setIsSubmitting(true);
+
+      const formData = new FormData(form);
+      formData.set("selectedCountryCode", selectedCountryCode);
+      formData.set("selectedCountryName", selectedCountryName);
+      formData.set("selectedRole", getActualValue("role", roleOther, selectedRole));
+      formData.set("selectedType", getActualValue("type", typeOther, selectedType));
+      formData.set("selectedSource", getActualValue("source", sourceOther, selectedSource));
+      formData.set("slotLabel", slot === "Night" ? copy.logistics.slotOptions[1] : copy.logistics.slotOptions[0]);
+
+      const response = await fetch("/api/request", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = (await response.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Failed to send email");
+      }
+
+      setShowSuccess(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+      console.error("Request submit failed:", error);
+      setSubmitError("Errore nell’invio della richiesta. Riprova tra poco.");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const clearAndHandle = (field: string) => () => clearFieldError(field);
@@ -284,7 +326,9 @@ export default function RequestPage() {
     clearFieldError("phoneCountryCode");
   };
 
+  const selectedCountryIndex = countryCodes.findIndex((c) => c.code === selectedCountryCode);
   const selectedCountry = countryCodes.find((c) => c.code === selectedCountryCode);
+  const selectedCountryName = selectedCountryIndex >= 0 ? copy.requester.countryOptions[selectedCountryIndex] : "";
 
   // --- Logica modale termini ---
   const openTermsModal = () => {
@@ -377,19 +421,19 @@ export default function RequestPage() {
   return (
     <main className="request-page">
       <div className="page-wrap">
-        <div className="page-eyebrow">Richiesta di valutazione</div>
-        <h1 className="page-title">Modulo di qualificazione del contatto</h1>
+        <div className="page-eyebrow">{copy.page.eyebrow}</div>
+        <h1 className="page-title">{copy.page.title}</h1>
         <p className="page-subtitle">
-          4 sezioni · Compila con attenzione. Valuto ogni richiesta in modo individuale.
+          {copy.page.subtitle[0]}
           <br />
-          Non tutte le richieste vengono accettate.
+          {copy.page.subtitle[1]}
         </p>
 
         {!showSuccess ? (
           <form ref={formRef} onSubmit={(e) => e.preventDefault()} noValidate>
             <div className="progress-bar-wrap">
               <span className="progress-step-label">
-                Sezione {currentStep} di {totalSteps}
+                {copy.progress.stepLabel} {currentStep} di {totalSteps}
               </span>
               <div className="progress-bar">
                 <div className="progress-fill" style={{ width: `${progress}%` }} />
@@ -399,13 +443,13 @@ export default function RequestPage() {
 
             <section className={`form-section ${currentStep === 1 ? "active" : ""}`} id="section-1">
               <div className="form-section-header">
-                <div className="form-section-num">Sezione 1 di 4</div>
-                <div className="form-section-title">Dati del richiedente</div>
+                <div className="form-section-num">{copy.progress.section[0]}</div>
+                <div className="form-section-title">{copy.sections.requester}</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Chi sei? <span className="req">*</span>
+                  {copy.requester.who} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -413,7 +457,7 @@ export default function RequestPage() {
                       name="who"
                       id="who-it"
                       value="Italian"
-                      label="Italiano"
+                      label={copy.requester.whoOptions[0]}
                       required
                       onChange={clearAndHandle("who")}
                     />
@@ -421,7 +465,7 @@ export default function RequestPage() {
                       name="who"
                       id="who-ex"
                       value="Expat"
-                      label="Expat / Internazionale"
+                      label={copy.requester.whoOptions[1]}
                       onChange={clearAndHandle("who")}
                     />
                   </div>
@@ -431,7 +475,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Ruolo del richiedente <span className="req">*</span>
+                  {copy.requester.role} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -449,7 +493,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-direct" className="radio-label">
-                      Interessato direttamente
+                      {copy.requester.roleOptions[0]}
                     </label>
 
                     <input
@@ -466,7 +510,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-family" className="radio-label">
-                      Famiglia
+                      {copy.requester.roleOptions[1]}
                     </label>
 
                     <input
@@ -483,7 +527,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-son" className="radio-label">
-                      Figlio / Figlia
+                      {copy.requester.roleOptions[2]}
                     </label>
 
                     <input
@@ -500,7 +544,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-relative" className="radio-label">
-                      Parente
+                      {copy.requester.roleOptions[3]}
                     </label>
 
                     <input
@@ -516,7 +560,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="role-other" className="radio-label">
-                      Altro
+                      {copy.requester.roleOptions[4]}
                     </label>
                   </div>
                   <div className="other-input-container">
@@ -524,7 +568,7 @@ export default function RequestPage() {
                       <input
                         type="text"
                         className="other-text-input"
-                        placeholder="Specifica il tuo ruolo"
+                        placeholder={copy.requester.roleOtherPlaceholder}
                         value={roleOther}
                         onChange={(e) => {
                           setRoleOther(e.target.value);
@@ -545,7 +589,7 @@ export default function RequestPage() {
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">
-                    Nome e cognome <span className="req">*</span>
+                    {copy.requester.name} <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <input
@@ -553,7 +597,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.name ? "error" : ""}`}
                       id="name"
                       name="name"
-                      placeholder="Il tuo nome completo"
+                      placeholder={copy.requester.namePlaceholder}
                       required
                       onChange={clearAndHandle("name")}
                     />
@@ -563,7 +607,7 @@ export default function RequestPage() {
 
                 <div className="form-group">
                   <label className="form-label">
-                    Telefono <span className="req">*</span>
+                    {copy.requester.phone} <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <div className="phone-group">
@@ -577,12 +621,12 @@ export default function RequestPage() {
                             <>
                               <img
                                 src={`https://flagcdn.com/${selectedCountry.flagCode}.svg`}
-                                alt={selectedCountry.name}
+                                alt={selectedCountryName}
                                 className="country-flag"
                                 width={20}
                                 height={15}
                               />
-                              <span className="country-name">{selectedCountry.name}</span>
+                              <span className="country-name">{selectedCountryName}</span>
                               <span className="country-code">{selectedCountry.code}</span>
                             </>
                           )}
@@ -590,7 +634,7 @@ export default function RequestPage() {
                         </button>
                         {showCountryDropdown && (
                           <div className="country-dropdown">
-                            {countryCodes.map((country) => (
+                            {countryCodes.map((country, index) => (
                               <button
                                 key={country.code}
                                 type="button"
@@ -599,12 +643,12 @@ export default function RequestPage() {
                               >
                                 <img
                                   src={`https://flagcdn.com/${country.flagCode}.svg`}
-                                  alt={country.name}
+                                  alt={copy.requester.countryOptions[index]}
                                   className="country-flag"
                                   width={20}
                                   height={15}
                                 />
-                                <span className="country-name">{country.name}</span>
+                                <span className="country-name">{copy.requester.countryOptions[index]}</span>
                                 <span className="country-code">{country.code}</span>
                               </button>
                             ))}
@@ -622,7 +666,7 @@ export default function RequestPage() {
                         className={`form-input phone-number ${errors.phoneNumber ? "error" : ""}`}
                         id="phoneNumber"
                         name="phoneNumber"
-                        placeholder="Numero di telefono"
+                        placeholder={copy.requester.phonePlaceholder}
                         inputMode="tel"
                         pattern="^[0-9()+\\-\\s]{6,}$"
                         required
@@ -637,7 +681,7 @@ export default function RequestPage() {
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">
-                    Email <span className="req">*</span>
+                    {copy.requester.email} <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <input
@@ -645,7 +689,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.email ? "error" : ""}`}
                       id="email"
                       name="email"
-                      placeholder="tuo@email.com"
+                      placeholder={copy.requester.emailPlaceholder}
                       required
                       onChange={clearAndHandle("email")}
                     />
@@ -653,34 +697,32 @@ export default function RequestPage() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="form-label">
-                    Lingua preferita <span className="req">*</span>
-                  </label>
-                  <div className="input-error-row">
-                    <select
-                      className={`form-select ${errors.lang ? "error" : ""}`}
-                      id="lang"
-                      name="lang"
-                      defaultValue=""
-                      required
-                      onChange={clearAndHandle("lang")}
-                    >
-                      <option value="">Seleziona la lingua…</option>
-                      <option>Italiano</option>
-                      <option>Inglese</option>
-                      <option>Francese</option>
-                      <option>Arabo</option>
-                      <option>Tedesco</option>
-                    </select>
-                    <FieldError message={errors.lang} />
-                  </div>
-                </div>
+  <label className="form-label">
+    {copy.requester.preferredLanguage} <span className="req">*</span>
+  </label>
+  <div className="input-error-row">
+    <select
+      className={`form-select ${errors.lang ? "error" : ""}`}
+      id="lang"
+      name="lang"
+      defaultValue=""
+      required
+      onChange={clearAndHandle("lang")}
+    >
+      <option value="">{copy.requester.languagePlaceholder}</option>
+      {copy.requester.languageOptions.map((option) => (
+  <option key={option}>{option}</option>
+))}
+    </select>
+    <FieldError message={errors.lang} />
+  </div>
+</div>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">
-                    Comune di residenza <span className="req">*</span>
+                    {copy.requester.municipality} <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <input
@@ -688,7 +730,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.municipality ? "error" : ""}`}
                       id="municipality"
                       name="municipality"
-                      placeholder="es. Lecco, Como, Milano…"
+                      placeholder={copy.requester.municipalityPlaceholder}
                       required
                       onChange={clearAndHandle("municipality")}
                     />
@@ -697,7 +739,7 @@ export default function RequestPage() {
                 </div>
                 <div className="form-group">
                   <label className="form-label">
-                    CAP <span className="req">*</span>
+                    {copy.requester.zip} <span className="req">*</span>
                   </label>
                   <div className="input-error-row">
                     <input
@@ -705,7 +747,7 @@ export default function RequestPage() {
                       className={`form-input ${errors.zip ? "error" : ""}`}
                       id="zip"
                       name="zip"
-                      placeholder="es. 23900"
+                      placeholder={copy.requester.zipPlaceholder}
                       required
                       onChange={clearAndHandle("zip")}
                     />
@@ -717,20 +759,20 @@ export default function RequestPage() {
               <div className="form-nav">
                 <div />
                 <button type="button" className="btn-next" onClick={() => goStep(2)}>
-                  Avanti → Profilo della persona assistita
+                  {copy.buttons.next1}
                 </button>
               </div>
             </section>
 
             <section className={`form-section ${currentStep === 2 ? "active" : ""}`} id="section-2">
               <div className="form-section-header">
-                <div className="form-section-num">Sezione 2 di 4</div>
-                <div className="form-section-title">Profilo della persona assistita</div>
+                <div className="form-section-num">{copy.progress.section[1]}</div>
+                <div className="form-section-title">{copy.sections.assistedProfile}</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Tipo di persona assistita <span className="req">*</span>
+                  {copy.assistedProfile.type} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -748,7 +790,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-elderly" className="radio-label">
-                      Anziano
+                      {copy.assistedProfile.typeOptions[0]}
                     </label>
 
                     <input
@@ -765,7 +807,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-disabled" className="radio-label">
-                      Persona con disabilità
+                      {copy.assistedProfile.typeOptions[1]}
                     </label>
 
                     <input
@@ -782,7 +824,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-minor" className="radio-label">
-                      Minore
+                      {copy.assistedProfile.typeOptions[2]}
                     </label>
 
                     <input
@@ -798,7 +840,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="type-other" className="radio-label">
-                      Altro
+                      {copy.assistedProfile.typeOptions[3]}
                     </label>
                   </div>
                   <div className="other-input-container">
@@ -806,7 +848,7 @@ export default function RequestPage() {
                       <input
                         type="text"
                         className="other-text-input"
-                        placeholder="Specifica il tipo"
+                        placeholder={copy.assistedProfile.typeOtherPlaceholder}
                         value={typeOther}
                         onChange={(e) => {
                           setTypeOther(e.target.value);
@@ -826,7 +868,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Fascia d'età <span className="req">*</span>
+                  {copy.assistedProfile.age} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <select
@@ -837,13 +879,10 @@ export default function RequestPage() {
                     required
                     onChange={clearAndHandle("age")}
                   >
-                    <option value="">Seleziona la fascia d'età…</option>
-                    <option>6–17 anni</option>
-                    <option>18–35 anni</option>
-                    <option>36–55 anni</option>
-                    <option>56–70 anni</option>
-                    <option>71–85 anni</option>
-                    <option>86+ anni</option>
+                    <option value="">{copy.assistedProfile.agePlaceholder}</option>
+                    {copy.assistedProfile.ageOptions.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
                   </select>
                   <FieldError message={errors.age} />
                 </div>
@@ -851,7 +890,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Livello di autonomia <span className="req">*</span>
+                  {copy.assistedProfile.autonomy} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -859,7 +898,7 @@ export default function RequestPage() {
                       name="autonomy"
                       id="aut-auto"
                       value="Autonomous"
-                      label="Autonomo"
+                      label={copy.assistedProfile.autonomyOptions[0]}
                       required
                       onChange={clearAndHandle("autonomy")}
                     />
@@ -867,14 +906,14 @@ export default function RequestPage() {
                       name="autonomy"
                       id="aut-semi"
                       value="Semi-autonomous"
-                      label="Semi-autonomo"
+                      label={copy.assistedProfile.autonomyOptions[1]}
                       onChange={clearAndHandle("autonomy")}
                     />
                     <RadioButton
                       name="autonomy"
                       id="aut-not"
                       value="Not autonomous"
-                      label="Non autonomo"
+                      label={copy.assistedProfile.autonomyOptions[2]}
                       onChange={clearAndHandle("autonomy")}
                     />
                   </div>
@@ -884,56 +923,56 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Attività richieste <span className="req">*</span>
+                  {copy.assistedProfile.activities} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className={`checkbox-group ${errors.activities ? "error" : ""}`}>
                     <CheckBox
-                      label="Igiene personale e cura della persona"
+                      label={copy.assistedProfile.activityOptions[0]}
                       name="activities"
-                      value="Igiene personale e cura della persona"
+                      value={copy.assistedProfile.activityOptions[0]}
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Mobilizzazione e trasferimenti"
+                      label={copy.assistedProfile.activityOptions[1]}
                       name="activities"
-                      value="Mobilizzazione e trasferimenti"
+                      value={copy.assistedProfile.activityOptions[1]}
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Preparazione dei pasti e assistenza all'alimentazione"
+                      label={copy.assistedProfile.activityOptions[2]}
                       name="activities"
-                      value="Preparazione dei pasti e assistenza all'alimentazione"
+                      value={copy.assistedProfile.activityOptions[2]}
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Compagnia e stimolazione cognitiva"
+                      label={copy.assistedProfile.activityOptions[3]}
                       name="activities"
-                      value="Compagnia e stimolazione cognitiva"
+                      value={copy.assistedProfile.activityOptions[3]}
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Supervisione e sicurezza a domicilio"
+                      label={copy.assistedProfile.activityOptions[4]}
                       name="activities"
-                      value="Supervisione e sicurezza a domicilio"
+                      value={copy.assistedProfile.activityOptions[4]}
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Accompagnamento esterno"
+                      label={copy.assistedProfile.activityOptions[5]}
                       name="activities"
-                      value="Accompagnamento esterno"
+                      value={copy.assistedProfile.activityOptions[5]}
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Comunicazione / report alla famiglia"
+                      label={copy.assistedProfile.activityOptions[6]}
                       name="activities"
-                      value="Comunicazione / report alla famiglia"
+                      value={copy.assistedProfile.activityOptions[6]}
                       onChange={clearAndHandle("activities")}
                     />
                     <CheckBox
-                      label="Mediazione culturale / linguistica"
+                      label={copy.assistedProfile.activityOptions[7]}
                       name="activities"
-                      value="Mediazione culturale / linguistica"
+                      value={copy.assistedProfile.activityOptions[7]}
                       onChange={clearAndHandle("activities")}
                     />
                   </div>
@@ -943,14 +982,14 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Descrizione delle attività e delle aspettative <span className="req">*</span>
+                  {copy.assistedProfile.description} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <textarea
                     className={`form-textarea ${errors.description ? "error" : ""}`}
                     id="description"
                     name="description"
-                    placeholder="Descrivi la situazione, eventuali bisogni specifici, routine, aspettative…"
+                    placeholder={copy.assistedProfile.descriptionPlaceholder}
                     rows={4}
                     required
                     onChange={clearAndHandle("description")}
@@ -961,23 +1000,23 @@ export default function RequestPage() {
 
               <div className="form-nav">
                 <button type="button" className="btn-back" onClick={() => goStep(1)}>
-                  ← Indietro
+                  {copy.buttons.back}
                 </button>
                 <button type="button" className="btn-next" onClick={() => goStep(3)}>
-                  Avanti → Logistica e pianificazione
+                  {copy.buttons.next2}
                 </button>
               </div>
             </section>
 
             <section className={`form-section ${currentStep === 3 ? "active" : ""}`} id="section-3">
               <div className="form-section-header">
-                <div className="form-section-num">Sezione 3 di 4</div>
-                <div className="form-section-title">Logistica e pianificazione</div>
+                <div className="form-section-num">{copy.progress.section[2]}</div>
+                <div className="form-section-title">{copy.sections.logistics}</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Giorni alla settimana <span className="req">*</span>
+                  {copy.logistics.days} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <select
@@ -988,14 +1027,10 @@ export default function RequestPage() {
                     required
                     onChange={clearAndHandle("days")}
                   >
-                    <option value="">Seleziona il numero di giorni…</option>
-                    <option>1 giorno</option>
-                    <option>2 giorni</option>
-                    <option>3 giorni</option>
-                    <option>4 giorni</option>
-                    <option>5 giorni (lun–ven)</option>
-                    <option>6 giorni</option>
-                    <option>7 giorni</option>
+                    <option value="">{copy.logistics.daysOptions[0]}</option>
+                    {copy.logistics.daysOptions.slice(1).map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
                   </select>
                   <FieldError message={errors.days} />
                 </div>
@@ -1003,7 +1038,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Ore per sessione di assistenza <span className="req">*</span>
+                  {copy.logistics.hours} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <select
@@ -1014,10 +1049,10 @@ export default function RequestPage() {
                     required
                     onChange={clearAndHandle("hours")}
                   >
-                    <option value="">Seleziona la durata…</option>
-                    <option>5 ore (minimo)</option>
-                    <option>6–10 ore</option>
-                    <option>Oltre 10 ore</option>
+                    <option value="">{copy.logistics.hoursOptions[0]}</option>
+                    {copy.logistics.hoursOptions.slice(1).map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
                   </select>
                   <FieldError message={errors.hours} />
                 </div>
@@ -1025,7 +1060,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Fascia oraria <span className="req">*</span>
+                  {copy.logistics.slot} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div>
@@ -1040,7 +1075,7 @@ export default function RequestPage() {
                         onChange={() => handleSlotChange("Daytime")}
                       />
                       <label htmlFor="slot-day" className="radio-label">
-                        Diurna (07:00–22:00)
+                        {copy.logistics.slotOptions[0]}
                       </label>
 
                       <input
@@ -1052,19 +1087,19 @@ export default function RequestPage() {
                         onChange={() => handleSlotChange("Night")}
                       />
                       <label htmlFor="slot-night" className="radio-label">
-                        Notturna (22:00–07:00)
+                        {copy.logistics.slotOptions[1]}
                       </label>
                     </div>
                     <div className={`night-sub ${slot === "Night" ? "visible" : ""}`} id="night-sub">
                       <div className="night-sub-label">
-                        Tipo di turno notturno <span className="req">*</span>
+                        {copy.logistics.nightType} <span className="req">*</span>
                       </div>
                       <div className="radio-group">
                         <RadioButton
                           name="night-type"
                           id="nt-passive"
                           value="Passive night"
-                          label="Passivo — la persona dorme autonomamente, presenza per necessità improvvise"
+                          label={copy.logistics.nightTypeOptions[0]}
                           required={slot === "Night"}
                           onChange={clearAndHandle("night-type")}
                         />
@@ -1072,7 +1107,7 @@ export default function RequestPage() {
                           name="night-type"
                           id="nt-active"
                           value="Active night"
-                          label="Attivo — interventi richiesti durante la notte"
+                          label={copy.logistics.nightTypeOptions[1]}
                           onChange={clearAndHandle("night-type")}
                         />
                       </div>
@@ -1084,7 +1119,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Data di inizio richiesta <span className="req">*</span>
+                  {copy.logistics.startDate} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <input
@@ -1100,29 +1135,28 @@ export default function RequestPage() {
               </div>
 
               <div className="info-box">
-                Le sessioni notturne hanno condizioni tariffarie specifiche (passivo: €35/h · attivo: €40/h).
-                Verranno confermate durante il colloquio di valutazione.
+                {copy.logistics.infoBox}
               </div>
 
               <div className="form-nav">
                 <button type="button" className="btn-back" onClick={() => goStep(2)}>
-                  ← Indietro
+                  {copy.buttons.back}
                 </button>
                 <button type="button" className="btn-next" onClick={() => goStep(4)}>
-                  Avanti → Durata e qualificazione
+                  {copy.buttons.next3}
                 </button>
               </div>
             </section>
 
             <section className={`form-section ${currentStep === 4 ? "active" : ""}`} id="section-4">
               <div className="form-section-header">
-                <div className="form-section-num">Sezione 4 di 4</div>
-                <div className="form-section-title">Durata e qualificazione</div>
+                <div className="form-section-num">{copy.progress.section[3]}</div>
+                <div className="form-section-title">{copy.sections.duration}</div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">
-                  Durata prevista del supporto <span className="req">*</span>
+                  {copy.duration.duration} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1130,7 +1164,7 @@ export default function RequestPage() {
                       name="duration"
                       id="dur-short"
                       value="Short"
-                      label="Breve (meno di 1 mese)"
+                      label={copy.duration.durationOptions[0]}
                       required
                       onChange={clearAndHandle("duration")}
                     />
@@ -1138,21 +1172,21 @@ export default function RequestPage() {
                       name="duration"
                       id="dur-mid"
                       value="Medium"
-                      label="Medio termine (1–3 mesi)"
+                      label={copy.duration.durationOptions[1]}
                       onChange={clearAndHandle("duration")}
                     />
                     <RadioButton
                       name="duration"
                       id="dur-long"
                       value="Long"
-                      label="Lungo termine (oltre 3 mesi)"
+                      label={copy.duration.durationOptions[2]}
                       onChange={clearAndHandle("duration")}
                     />
                     <RadioButton
                       name="duration"
                       id="dur-undef"
                       value="Not defined"
-                      label="Non definita"
+                      label={copy.duration.durationOptions[3]}
                       onChange={clearAndHandle("duration")}
                     />
                   </div>
@@ -1162,7 +1196,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Hai già valutato altri professionisti? <span className="req">*</span>
+                  {copy.duration.previous} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1170,7 +1204,7 @@ export default function RequestPage() {
                       name="previous"
                       id="prev-yes"
                       value="Yes"
-                      label="Sì"
+                      label={copy.duration.previousOptions[0]}
                       required
                       onChange={clearAndHandle("previous")}
                     />
@@ -1178,7 +1212,7 @@ export default function RequestPage() {
                       name="previous"
                       id="prev-no"
                       value="No, first assessment"
-                      label="No, prima valutazione"
+                      label={copy.duration.previousOptions[1]}
                       onChange={clearAndHandle("previous")}
                     />
                   </div>
@@ -1188,7 +1222,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Come hai trovato questo sito? <span className="req">*</span>
+                  {copy.duration.source} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1206,7 +1240,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="source-google" className="radio-label">
-                      Ricerca Google
+                      {copy.duration.sourceOptions[0]}
                     </label>
                     <input
   type="radio"
@@ -1222,7 +1256,7 @@ export default function RequestPage() {
   }}
 />
 <label htmlFor="source-sm" className="radio-label">
-  Social media
+  {copy.duration.sourceOptions[1]}
 </label>
 
                     <input
@@ -1239,7 +1273,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="source-wa" className="radio-label">
-                      WhatsApp
+                      {copy.duration.sourceOptions[2]}
                     </label>
 
                     <input
@@ -1256,7 +1290,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="source-referral" className="radio-label">
-                      Segnalazione
+                      {copy.duration.sourceOptions[3]}
                     </label>
 
                     <input
@@ -1272,7 +1306,7 @@ export default function RequestPage() {
                       }}
                     />
                     <label htmlFor="source-other" className="radio-label">
-                      Altro
+                      {copy.duration.sourceOptions[4]}
                     </label>
                   </div>
                   <div className="other-input-container">
@@ -1280,7 +1314,7 @@ export default function RequestPage() {
                       <input
                         type="text"
                         className="other-text-input"
-                        placeholder="Specifica la fonte"
+                        placeholder={copy.duration.sourceOtherPlaceholder}
                         value={sourceOther}
                         onChange={(e) => {
                           setSourceOther(e.target.value);
@@ -1300,7 +1334,7 @@ export default function RequestPage() {
 
               <div className="form-group">
                 <label className="form-label">
-                  Livello di urgenza <span className="req">*</span>
+                  {copy.duration.urgency} <span className="req">*</span>
                 </label>
                 <div className="input-error-row">
                   <div className="radio-group">
@@ -1308,7 +1342,7 @@ export default function RequestPage() {
                       name="urgency"
                       id="urg-normal"
                       value="Normal"
-                      label="Normale"
+                      label={copy.duration.urgencyOptions[0]}
                       required
                       onChange={clearAndHandle("urgency")}
                     />
@@ -1316,14 +1350,14 @@ export default function RequestPage() {
                       name="urgency"
                       id="urg-priority"
                       value="Priority"
-                      label="Prioritaria"
+                      label={copy.duration.urgencyOptions[1]}
                       onChange={clearAndHandle("urgency")}
                     />
                     <RadioButton
                       name="urgency"
                       id="urg-urgent"
                       value="Urgent"
-                      label="Urgente"
+                      label={copy.duration.urgencyOptions[2]}
                       onChange={clearAndHandle("urgency")}
                     />
                   </div>
@@ -1332,7 +1366,7 @@ export default function RequestPage() {
               </div>
 
               <div className="privacy-block">
-                <div className="privacy-title">Privacy e condizioni</div>
+                <div className="privacy-title">{copy.privacy.title}</div>
 
                 <div className="form-group">
                   <div className="input-error-row">
@@ -1345,8 +1379,7 @@ export default function RequestPage() {
                         onChange={clearAndHandle("gdpr-consent")}
                       />
                       <span>
-                        Acconsento al trattamento dei dati personali ai sensi del GDPR
-                        (Regolamento UE 2016/679).
+                        {copy.privacy.gdpr}
                       </span>
                     </label>
                     <FieldError message={errors["gdpr-consent"]} />
@@ -1364,7 +1397,7 @@ export default function RequestPage() {
                         onChange={clearAndHandle("terms-consent")}
                       />
                       <span>
-                        Dichiaro di aver letto e compreso i{" "}
+                        {copy.privacy.terms}{" "}
                         <span
                           className="terms-trigger-link"
                           onClick={openTermsModal}
@@ -1374,7 +1407,7 @@ export default function RequestPage() {
                             if (e.key === "Enter") openTermsModal();
                           }}
                         >
-                          termini di collaborazione
+                          {copy.privacy.termsTrigger}
                         </span>
                         .
                       </span>
@@ -1386,41 +1419,40 @@ export default function RequestPage() {
 
               <div className="form-nav submit-nav">
                 <button type="button" className="btn-back" onClick={() => goStep(3)}>
-                  ← Indietro
+                  {copy.buttons.back}
                 </button>
-                <button type="button" className="btn-submit" onClick={submitForm}>
-                  Invia la mia richiesta →
+                <button type="button" className="btn-submit" onClick={() => void submitForm()} disabled={isSubmitting}>
+                  {isSubmitting ? "Invio..." : copy.buttons.submit}
                 </button>
               </div>
 
+              <FieldError message={submitError} />
+
               <p className="submit-note">
-                Riceverai una risposta entro 48 ore lavorative.
+                {copy.notes.submitNote[0]}
                 <br />
-                Non tutte le richieste vengono accettate.
+                {copy.notes.submitNote[1]}
               </p>
             </section>
           </form>
         ) : (
           <div className="success-box visible">
             <div className="success-icon">✓</div>
-            <div className="success-title">Richiesta ricevuta.</div>
+            <div className="success-title">{copy.notes.successTitle}</div>
             <p className="success-sub">
-              Grazie per aver inviato la tua richiesta.
+              {copy.notes.successSub[0]}
               <br />
-              La esaminerò personalmente e ti contatterò entro 48 ore lavorative — nella tua lingua
-              preferita.
+              {copy.notes.successSub[1]}
               <br />
               <br />
-              Non tutte le richieste portano a una collaborazione. Se c'è compatibilità, ti contatterò
-              direttamente.
+              {copy.notes.successSub[2]}
             </p>
           </div>
         )}
 
         <div className="wa-alt">
           <div className="wa-alt-text">
-            <strong>Hai un'esigenza urgente? </strong> Scrivimi direttamente e ti risponderò
-            personalmente.
+            <strong>{copy.notes.urgentTitle} </strong> {copy.notes.urgentBody}
           </div>
           <a
             href="https://wa.me/393792306809"
@@ -1428,7 +1460,7 @@ export default function RequestPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            WhatsApp →
+            {copy.notes.urgentButton}
           </a>
         </div>
       </div>
@@ -1443,15 +1475,15 @@ export default function RequestPage() {
         <div className="terms-modal">
           <div className="terms-header">
             <div className="terms-header-left">
-              <div className="terms-header-eyebrow">Accanto · accanto.care</div>
+              <div className="terms-header-eyebrow">{copy.terms.eyebrow}</div>
               <h2 className="terms-header-title" id="terms-title">
-                Termini di collaborazione
+                {copy.terms.title}
               </h2>
               <div className="terms-header-sub">
-                Leggi prima di spuntare la casella — è ciò che stai accettando.
+                {copy.terms.subtitle}
               </div>
             </div>
-            <button className="terms-close" onClick={closeTermsModal} aria-label="Chiudi i termini">
+            <button className="terms-close" onClick={closeTermsModal} aria-label={copy.terms.closeLabel}>
               ✕
             </button>
           </div>
@@ -1463,7 +1495,7 @@ export default function RequestPage() {
           <div className="terms-body" ref={modalBodyRef} onScroll={handleModalScroll}>
             <div className="terms-intro">
               <strong>
-                Questi sono i termini di collaborazione tra te (il cliente) e Ghassen Mansouri,
+                Questi sono i {copy.privacy.termsTrigger} tra te (il cliente) e Ghassen Mansouri,
                 professionista OSS indipendente (P.IVA 01103920144).
               </strong>
               <br />
@@ -1753,7 +1785,7 @@ export default function RequestPage() {
                   Il contratto completo firmato — contenente tutti i 17 articoli, l'approvazione
                   specifica delle clausole onerose e il Programma delle attività (Allegato A) — viene
                   trasmesso separatamente dopo l'approvazione della tua richiesta di valutazione. Il
-                  documento che stai leggendo qui è un riepilogo dei principali termini di collaborazione
+                  documento che stai leggendo qui è un riepilogo dei principali {copy.privacy.termsTrigger}
                   ai fini del consenso informato.
                 </div>
               </div>
@@ -1771,7 +1803,7 @@ export default function RequestPage() {
               ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care
             </div>
             <button className="terms-btn-close" onClick={closeTermsModal}>
-              Ho letto tutto ✓
+              {copy.terms.readAll}
             </button>
           </div>
         </div>
