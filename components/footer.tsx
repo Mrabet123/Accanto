@@ -73,10 +73,10 @@ export default function Footer() {
 
             <div className="mb-2 text-[13px] text-[var(--text-muted)]">
               <a
-                href="mailto:hello@accanto.care"
+                href="mailto:ghassenmansouri@mail.com"
                 className="transition-colors hover:text-[var(--green)]"
               >
-                hello@accanto.care
+                ghassenmansouri@mail.com
               </a>
             </div>
 

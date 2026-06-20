@@ -56,7 +56,7 @@ const structuredData = {
         "OSS professionista indipendente che offre assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali.",
       url: "https://accanto.care/",
       telephone: "+393792306809",
-      email: "hello@accanto.care",
+      email: "ghassenmansouri@mail.com",
       vatID: "01103920144",
       foundingDate: "2024",
       currenciesAccepted: "EUR",
@@ -150,7 +150,7 @@ const structuredData = {
         "OSS certificato con 8 anni di esperienza in ambito socio-sanitario e oltre 10 anni in hospitality internazionale.",
       url: "https://accanto.care/profile",
       telephone: "+393792306809",
-      email: "hello@accanto.care",
+      email: "ghassenmansouri@mail.com",
       image: "https://accanto.care/Images/ghassen.jpg",
       worksFor: {
         "@id": "https://accanto.care/#business",

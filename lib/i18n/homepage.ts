@@ -100,20 +100,20 @@ export const homepageCopy: Record<Locale, HomepageCopy> = {
       language: "Lingua",
     },
     hero: {
-      eyebrow: "OSS · Lago di Como / Lecco / Valtellina / Milano",
+      eyebrow: "OSS - OPERATORE SOCIO SANITARIO · Lago di Como / Lecco / Valtellina / Milano",
       title:
         "Cerchi un supporto sanitario affidabile di cui poterti fidare?\nNon solo disponibile, ma davvero professionale.",
       description:
         "Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali. Approccio umano, metodo professionale e presenza locale in Lombardia.",
       badges: [
-        "Professionista OSS",
+        "Professionista OSS - OPERATORE SOCIO SANITARIO",
         "Assistenza domiciliare in Lombardia",
         "Oltre 18 anni di esperienza",
         "Assistenza individuale",
       ],
       cta: "Richiedi informazioni",
       imageAlt:
-        "Ghassen Mansouri, professionista OSS per assistenza domiciliare a Lecco, Como e Milano",
+        "Ghassen Mansouri, professionista OSS - OPERATORE SOCIO SANITARIO per assistenza domiciliare a Lecco, Como e Milano",
     },
     credentials: {
       eyebrow: "Competenze e qualifiche",
@@ -136,11 +136,11 @@ export const homepageCopy: Record<Locale, HomepageCopy> = {
         {
           title: "3",
           subtitle: "Certificazioni sanitarie",
-          details: "OSS · BLSD · HACCP",
+          details: "OSS - OPERATORE SOCIO SANITARIO · BLSD · HACCP",
         },
       ],
       tags: [
-        "OSS — Operatore Socio-Sanitario",
+        "OSS - OPERATORE SOCIO SANITARIO — Operatore Socio-Sanitario",
         "BLSD — Rianimazione cardiopolmonare",
         "HACCP — Sicurezza alimentare",
       ],
@@ -181,7 +181,7 @@ export const homepageCopy: Record<Locale, HomepageCopy> = {
       images: {
         leftAlt: "Assistenza domiciliare per anziani sul Lago di Como",
         rightAlt:
-          "Professionista OSS per supporto familiare e assistenza domiciliare",
+          "Professionista OSS - OPERATORE SOCIO SANITARIO per supporto familiare e assistenza domiciliare",
       },
     },
     competitive: {
@@ -190,7 +190,7 @@ export const homepageCopy: Record<Locale, HomepageCopy> = {
       cards: [
         {
           title: "Assistenza socio-sanitaria",
-          subtitle: "Professionista OSS certificato",
+          subtitle: "Professionista OSS - OPERATORE SOCIO SANITARIO certificato",
           description: [
             "Supporto nelle attività di cura personalizzata a domicilio.",
           ],
@@ -235,17 +235,17 @@ export const homepageCopy: Record<Locale, HomepageCopy> = {
     },
     footer: {
       description:
-        "Professionista OSS indipendente · Lago di Como – Lecco / Valtellina / Milano",
+        "Professionista OSS - OPERATORE SOCIO SANITARIO indipendente · Lago di Como – Lecco / Valtellina / Milano",
       navigationTitle: "Navigazione",
       contactTitle: "Contatti",
       copyright: "© {year} Accanto. Tutti i diritti riservati.",
       vat: "P.IVA 01103920144",
     },
     seo: {
-      title: "Accanto — Assistenza domiciliare OSS a Lecco, Como e Milano",
+      title: "Accanto — Assistenza domiciliare OSS - OPERATORE SOCIO SANITARIO a Lecco, Como e Milano",
       description:
-        "Sono Ghassen Mansouri, OSS professionista indipendente. Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali nel Lago di Como, a Lecco, Sondrio e Milano.",
-      ogAlt: "Accanto — Assistenza domiciliare OSS",
+        "Sono Ghassen Mansouri, OSS - OPERATORE SOCIO SANITARIO professionista indipendente. Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali nel Lago di Como, a Lecco, Sondrio e Milano.",
+      ogAlt: "Accanto — Assistenza domiciliare OSS - OPERATORE SOCIO SANITARIO",
     },
   },
 

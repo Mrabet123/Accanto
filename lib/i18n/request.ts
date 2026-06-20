@@ -55,7 +55,7 @@ type RequestCopy = {
   whoOptions: [string, string];
   roleOptions: [string, string, string, string, string];
   languageOptions: [string, string, string, string, string];
-  countryOptions: [string, string, string, string, string, string, string, string, string, string, string];
+  countryOptions: string[];
 };
   assistedProfile: {
     type: string;
@@ -253,7 +253,17 @@ const requestCopy: Record<Locale, RequestCopy> = {
     "Altro",
   ],
   languageOptions: ["Italiano", "Inglese", "Francese", "Arabo", "Tedesco"],
-  countryOptions: ["Tunisia", "Italia", "Francia", "Regno Unito", "Stati Uniti", "Germania", "Spagna", "Svizzera", "Emirati Arabi Uniti", "Algeria", "Marocco"],
+  countryOptions: [
+    "Italia", "Tunisia", "Francia", "Regno Unito", "Stati Uniti", "Germania", "Spagna",
+    "Svizzera", "Emirati Arabi Uniti", "Algeria", "Marocco", "Canada", "Australia", "Belgio",
+    "Paesi Bassi", "Portogallo", "Austria", "Svezia", "Norvegia", "Danimarca", "Finlandia",
+    "Irlanda", "Grecia", "Turchia", "Egitto", "Arabia Saudita", "Qatar", "Kuwait", "Bahrein",
+    "Oman", "Giordania", "Libano", "Siria", "Palestina", "Iraq", "Iran", "Pakistan", "India",
+    "Bangladesh", "Sri Lanka", "Nepal", "Cina", "Giappone", "Corea del Sud", "Filippine",
+    "Indonesia", "Malaysia", "Singapore", "Thailandia", "Vietnam", "Brasile", "Argentina",
+    "Messico", "Colombia", "Cile", "Perù", "Sudafrica", "Nigeria", "Kenya", "Etiopia",
+    "Camerun", "Senegal",
+  ],
 },
     assistedProfile: {
       type: "Tipo di persona assistita",
@@ -520,7 +530,17 @@ const requestCopy: Record<Locale, RequestCopy> = {
   whoOptions: ["Italian", "Expat / International"],
   roleOptions: ["Directly interested", "Family", "Son / Daughter", "Relative", "Other"],
   languageOptions: ["Italian", "English", "French", "Arabic", "German"],
-  countryOptions: ["Tunisia", "Italy", "France", "United Kingdom", "United States", "Germany", "Spain", "Switzerland", "United Arab Emirates", "Algeria", "Morocco"],
+  countryOptions: [
+    "Italy", "Tunisia", "France", "United Kingdom", "United States", "Germany", "Spain",
+    "Switzerland", "United Arab Emirates", "Algeria", "Morocco", "Canada", "Australia",
+    "Belgium", "Netherlands", "Portugal", "Austria", "Sweden", "Norway", "Denmark",
+    "Finland", "Ireland", "Greece", "Turkey", "Egypt", "Saudi Arabia", "Qatar", "Kuwait",
+    "Bahrain", "Oman", "Jordan", "Lebanon", "Syria", "Palestine", "Iraq", "Iran",
+    "Pakistan", "India", "Bangladesh", "Sri Lanka", "Nepal", "China", "Japan",
+    "South Korea", "Philippines", "Indonesia", "Malaysia", "Singapore", "Thailand",
+    "Vietnam", "Brazil", "Argentina", "Mexico", "Colombia", "Chile", "Peru",
+    "South Africa", "Nigeria", "Kenya", "Ethiopia", "Cameroon", "Senegal",
+  ],
 },
     assistedProfile: {
       type: "Type of assisted person",
@@ -787,7 +807,17 @@ preferredLanguageOptions: [
   whoOptions: ["Italien", "Expatrié / International"],
   roleOptions: ["Personne concernée", "Famille", "Fils / Fille", "Proche", "Autre"],
   languageOptions: ["Italien", "Anglais", "Français", "Arabe", "Allemand"],
-  countryOptions: ["Tunisie", "Italie", "France", "Royaume-Uni", "États-Unis", "Allemagne", "Espagne", "Suisse", "Émirats arabes unis", "Algérie", "Maroc"],
+  countryOptions: [
+    "Italie", "Tunisie", "France", "Royaume-Uni", "États-Unis", "Allemagne", "Espagne",
+    "Suisse", "Émirats arabes unis", "Algérie", "Maroc", "Canada", "Australie", "Belgique",
+    "Pays-Bas", "Portugal", "Autriche", "Suède", "Norvège", "Danemark", "Finlande", "Irlande",
+    "Grèce", "Turquie", "Égypte", "Arabie saoudite", "Qatar", "Koweït", "Bahreïn", "Oman",
+    "Jordanie", "Liban", "Syrie", "Palestine", "Irak", "Iran", "Pakistan", "Inde", "Bangladesh",
+    "Sri Lanka", "Népal", "Chine", "Japon", "Corée du Sud", "Philippines", "Indonésie",
+    "Malaisie", "Singapour", "Thaïlande", "Vietnam", "Brésil", "Argentine", "Mexique",
+    "Colombie", "Chili", "Pérou", "Afrique du Sud", "Nigeria", "Kenya", "Éthiopie",
+    "Cameroun", "Sénégal",
+  ],
 },
     assistedProfile: {
       type: "Type de personne accompagnée",
@@ -1051,7 +1081,17 @@ preferredLanguageOptions: [
   whoOptions: ["إيطالي", "مغترب / دولي"],
   roleOptions: ["المعني مباشرة", "العائلة", "ابن / ابنة", "قريب", "أخرى"],
   languageOptions: ["الإيطالية", "الإنجليزية", "الفرنسية", "العربية", "الألمانية"],
-  countryOptions: ["تونس", "إيطاليا", "فرنسا", "المملكة المتحدة", "الولايات المتحدة", "ألمانيا", "إسبانيا", "سويسرا", "الإمارات العربية المتحدة", "الجزائر", "المغرب"],
+  countryOptions: [
+    "إيطاليا", "تونس", "فرنسا", "المملكة المتحدة", "الولايات المتحدة", "ألمانيا", "إسبانيا",
+    "سويسرا", "الإمارات العربية المتحدة", "الجزائر", "المغرب", "كندا", "أستراليا", "بلجيكا",
+    "هولندا", "البرتغال", "النمسا", "السويد", "النرويج", "الدنمارك", "فنلندا", "أيرلندا",
+    "اليونان", "تركيا", "مصر", "المملكة العربية السعودية", "قطر", "الكويت", "البحرين",
+    "عُمان", "الأردن", "لبنان", "سوريا", "فلسطين", "العراق", "إيران", "باكستان", "الهند",
+    "بنغلاديش", "سريلانكا", "نيبال", "الصين", "اليابان", "كوريا الجنوبية", "الفلبين",
+    "إندونيسيا", "ماليزيا", "سنغافورة", "تايلاند", "فيتنام", "البرازيل", "الأرجنتين",
+    "المكسيك", "كولومبيا", "تشيلي", "بيرو", "جنوب أفريقيا", "نيجيريا", "كينيا", "إثيوبيا",
+    "الكاميرون", "السنغال",
+  ],
 },
     assistedProfile: {
       type: "نوع الشخص المستفيد",

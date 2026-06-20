@@ -91,14 +91,14 @@ const profileCopy: Record<Locale, ProfileCopy> = {
     seo: {
       title: "Ghassen Mansouri — Professionista OSS certificato · Accanto",
       description:
-        "Sono Ghassen Mansouri — OSS certificato, 8 anni in ambito socio-sanitario e 10 in hospitality internazionale. Parlo italiano, inglese, francese, arabo e tedesco. Basato a Dervio, Lecco.",
+        "Sono Ghassen Mansouri — OSS - OPERATORE SOCIO SANITARIO certificato, 8 anni in ambito socio-sanitario e 10 in hospitality internazionale. Parlo italiano, inglese, francese, arabo e tedesco. Basato a Dervio, Lecco.",
       keywords: [
-        "Ghassen Mansouri OSS",
+        "Ghassen Mansouri OSS - OPERATORE SOCIO SANITARIO",
         "operatore socio sanitario Lecco",
-        "OSS certificato Como",
+        "OSS - OPERATORE SOCIO SANITARIO certificato Como",
         "caregiver bilingue Lago di Como",
-        "professionista OSS partita IVA",
-        "OSS multilingue italiano inglese francese arabo tedesco",
+        "professionista OSS - OPERATORE SOCIO SANITARIO partita IVA",
+        "OSS - OPERATORE SOCIO SANITARIO multilingue italiano inglese francese arabo tedesco",
         "assistenza domiciliare professionale Lecco",
       ],
       ogAlt: "Ghassen Mansouri",
@@ -107,16 +107,16 @@ const profileCopy: Record<Locale, ProfileCopy> = {
       eyebrow: "Identità professionale",
       name: "Ghassen Mansouri",
       role:
-        "OSS certificato · Professionista di assistenza sanitaria indipendente · Lago di Como – Lecco / Valtellina / Milano",
+        "OSS - OPERATORE SOCIO SANITARIO certificato · Professionista di assistenza sanitaria indipendente · Lago di Como – Lecco / Valtellina / Milano",
       chips: [
-        "OSS · Professionista indipendente",
+        "OSS - OPERATORE SOCIO SANITARIO · Professionista indipendente",
         "5 lingue",
         "Oltre 8 anni in ambito sanitario",
         "Oltre 10 anni in hospitality",
         "BLSD · HACCP",
       ],
       bio:
-        "OSS certificato con oltre 8 anni nel settore socio-sanitario e più di un decennio in customer experience e hospitality internazionale. Comunicazione professionale in italiano, inglese, francese, arabo e tedesco. Approccio umano, struttura provata sul campo, nessun compromesso.",
+        "OSS - OPERATORE SOCIO SANITARIO certificato con oltre 8 anni nel settore socio-sanitario e più di un decennio in customer experience e hospitality internazionale. Comunicazione professionale in italiano, inglese, francese, arabo e tedesco. Approccio umano, struttura provata sul campo, nessun compromesso.",
     },
     path: {
       eyebrow: "Percorso professionale",
@@ -136,7 +136,7 @@ const profileCopy: Record<Locale, ProfileCopy> = {
         tags: ["Crociera", "Duty free", "Luxury brands", "IT SaaS", "Travel & Leisure"],
       },
       certs: [
-        { name: "OSS", desc: "Operatore Socio-Sanitario" },
+        { name: "OSS - OPERATORE SOCIO SANITARIO", desc: "Operatore Socio-Sanitario" },
         { name: "BLSD", desc: "Rianimazione cardiopolmonare" },
         { name: "HACCP", desc: "Sicurezza alimentare" },
       ],
@@ -188,7 +188,7 @@ const profileCopy: Record<Locale, ProfileCopy> = {
           num: "5",
           title: "Chiarezza dei confini professionali",
           desc:
-            "Operatività esclusivamente entro il perimetro OSS / supporto socio-sanitario. Le situazioni cliniche vengono segnalate e indirizzate al professionista appropriato.",
+            "Operatività esclusivamente entro il perimetro OSS - OPERATORE SOCIO SANITARIO / supporto socio-sanitario. Le situazioni cliniche vengono segnalate e indirizzate al professionista appropriato.",
           benefit: "Sai sempre esattamente cosa faccio e cosa non faccio — nulla resta ambiguo.",
         },
       ],

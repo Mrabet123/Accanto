@@ -62,7 +62,7 @@ export const contractCopy: Record<Locale, ContractCopy> = {
     meta: {
       title: "Termini di collaborazione e contratto — Accanto Home Care OSS",
       description:
-        "I miei termini di collaborazione professionale — pagamento anticipato, politica di cancellazione a 7 giorni, confini del perimetro OSS, conformità GDPR. Leggi prima di inviare la tua richiesta.",
+        "I miei termini di collaborazione professionale — pagamento anticipato, politica di cancellazione a 7 giorni, confini del perimetro OSS - OPERATORE SOCIO SANITARIO, conformità GDPR. Leggi prima di inviare la tua richiesta.",
       keywords: [
         "termini collaborazione OSS",
         "contratto assistenza domiciliare",
@@ -87,8 +87,8 @@ export const contractCopy: Record<Locale, ContractCopy> = {
           num: "Sezione 1",
           title: "Chi sono e come lavoro",
           desc:
-            "Opero come professionista indipendente pienamente autonomo — non come dipendente. Sono un OSS certificato con P.IVA, e fornisco assistenza domiciliare strutturata entro un perimetro professionale definito. Le sessioni vengono pianificate in modo flessibile tra noi, ma la durata per sessione è fissata contrattualmente. Il minimo è sempre di 5 ore consecutive.",
-          tags: ["Professionista autonomo", "OSS certificato", "Minimo 5 ore", "Calendario flessibile"],
+            "Opero come professionista indipendente pienamente autonomo — non come dipendente. Sono un OSS - OPERATORE SOCIO SANITARIO certificato con P.IVA, e fornisco assistenza domiciliare strutturata entro un perimetro professionale definito. Le sessioni vengono pianificate in modo flessibile tra noi, ma la durata per sessione è fissata contrattualmente. Il minimo è sempre di 5 ore consecutive.",
+          tags: ["Professionista autonomo", "OSS - OPERATORE SOCIO SANITARIO certificato", "Minimo 5 ore", "Calendario flessibile"],
           green: true,
         },
         {
@@ -109,10 +109,10 @@ export const contractCopy: Record<Locale, ContractCopy> = {
         },
         {
           num: "Sezione 4",
-          title: "Il mio perimetro professionale OSS",
+          title: "Il mio perimetro professionale OSS - OPERATORE SOCIO SANITARIO",
           desc:
-            "Opero esclusivamente entro il perimetro OSS certificato definito dalla legge italiana (Legge 42/1999, D.M. 520/2001). Sono fuori dal mio ambito e verranno sempre rifiutate: somministrazione dei farmaci, procedure mediche, diagnosi cliniche, cura delle ferite, sedute psicologiche e assistenza domiciliare 24 ore su 24. Il rifiuto di richieste fuori perimetro non costituisce mai un inadempimento.",
-          tags: ["No farmaci", "No atti clinici", "No 24h live-in", "Solo ambito OSS"],
+            "Opero esclusivamente entro il perimetro OSS - OPERATORE SOCIO SANITARIO certificato definito dalla legge italiana (Legge 42/1999, D.M. 520/2001). Sono fuori dal mio ambito e verranno sempre rifiutate: somministrazione dei farmaci, procedure mediche, diagnosi cliniche, cura delle ferite, sedute psicologiche e assistenza domiciliare 24 ore su 24. Il rifiuto di richieste fuori perimetro non costituisce mai un inadempimento.",
+          tags: ["No farmaci", "No atti clinici", "No 24h live-in", "Solo ambito OSS - OPERATORE SOCIO SANITARIO"],
           terra: true,
         },
         {
@@ -133,16 +133,16 @@ export const contractCopy: Record<Locale, ContractCopy> = {
       ],
       draftEyebrow: "Bozza di contratto — sola lettura",
       draftMainTitle: "Un esempio di ciò che viene firmato\nprima che io inizi.",
-      draftTitle: "Contratto di prestazione professionale — Assistenza domiciliare OSS",
+      draftTitle: "Contratto di prestazione professionale — Assistenza domiciliare OSS - OPERATORE SOCIO SANITARIO",
       draftSub: "Ai sensi degli artt. 2229–2237 del Codice Civile italiano · Modello standard 2025",
       readonlyBadge: "Sola lettura — esempio",
       readonlyExample: "Sola lettura — esempio",
       professionalLabel: "Il professionista",
       professionalName: "Ghassen Mansouri",
       professionalDetail: [
-        "Professionista OSS indipendente · P.IVA 01103920144",
+        "Professionista OSS - OPERATORE SOCIO SANITARIO indipendente · P.IVA 01103920144",
         "Dervio (LC) · Lago di Como · Lecco · Sondrio · Milano",
-        "hello@accanto.care · +39 379 230 6809",
+        "ghassenmansouri@mail.com · +39 379 230 6809",
       ],
       clientLabel: "Il cliente / rappresentante legale",
       clientField1: "[Nome completo del cliente]",
@@ -153,7 +153,7 @@ export const contractCopy: Record<Locale, ContractCopy> = {
         "Sezione 1 — Chi sono e come lavoro",
         "Sezione 2 — Compenso e pagamento",
         "Sezione 3 — Cancellazioni e rinuncia",
-        "Sezione 4 — Perimetro professionale OSS",
+        "Sezione 4 — Perimetro professionale OSS - OPERATORE SOCIO SANITARIO",
         "Sezione 5 — Riservatezza e dati personali",
         "Sezione 6 — Legge applicabile e controversie",
       ],
@@ -170,7 +170,7 @@ export const contractCopy: Record<Locale, ContractCopy> = {
         label: "Art. 1",
         title: "Ambito del servizio professionale",
         text:
-          "Opero come professionista pienamente autonomo ai sensi degli artt. 2222 e 2230 c.c. — senza alcun vincolo di subordinazione verso il cliente e senza alcun rapporto di lavoro subordinato. Sono un OSS certificato con P.IVA 01103920144, e fornisco assistenza domiciliare entro il perimetro professionale concordato, documentato nel Programma delle attività allegato (Allegato A). La categoria di assistenza applicabile al presente contratto è: [Categoria A — Assistenza anziani / Categoria B — Supporto disabilità / Categoria C — Minori con bisogni speciali]. Il Programma delle attività può essere aggiornato con consenso scritto reciproco senza richiedere la riemissione completa del contratto.",
+          "Opero come professionista pienamente autonomo ai sensi degli artt. 2222 e 2230 c.c. — senza alcun vincolo di subordinazione verso il cliente e senza alcun rapporto di lavoro subordinato. Sono un OSS - OPERATORE SOCIO SANITARIO certificato con P.IVA 01103920144, e fornisco assistenza domiciliare entro il perimetro professionale concordato, documentato nel Programma delle attività allegato (Allegato A). La categoria di assistenza applicabile al presente contratto è: [Categoria A — Assistenza anziani / Categoria B — Supporto disabilità / Categoria C — Minori con bisogni speciali]. Il Programma delle attività può essere aggiornato con consenso scritto reciproco senza richiedere la riemissione completa del contratto.",
       },
       {
         label: "Art. 3",
@@ -216,9 +216,9 @@ export const contractCopy: Record<Locale, ContractCopy> = {
       },
       {
         label: "Art. 10",
-        title: "Perimetro OSS e limitazione di responsabilità",
+        title: "Perimetro OSS - OPERATORE SOCIO SANITARIO e limitazione di responsabilità",
         text:
-          "Opero esclusivamente entro il perimetro OSS certificato (Legge 42/1999, D.M. 520/2001). Le seguenti attività sono permanentemente escluse e verranno sempre rifiutate — indipendentemente dall'urgenza o dalla richiesta del cliente: somministrazione o gestione dei farmaci, procedure mediche di qualsiasi tipo, diagnosi cliniche o valutazioni sanitarie, cura delle ferite o trattamenti post-operatori, sedute psicologiche o terapeutiche e assistenza domiciliare 24 ore su 24 — servizio fuori dal mio ambito professionale e non offerto. Qualsiasi situazione clinica che individui durante una sessione viene immediatamente segnalata alla famiglia e indirizzata al professionista sanitario appropriato. Non sono responsabile per esiti che richiedono intervento clinico oltre il mio ambito certificato. Inoltre non sono responsabile per danni causati da informazioni incomplete o errate fornite dal cliente in fase di valutazione.",
+          "Opero esclusivamente entro il perimetro OSS - OPERATORE SOCIO SANITARIO certificato (Legge 42/1999, D.M. 520/2001). Le seguenti attività sono permanentemente escluse e verranno sempre rifiutate — indipendentemente dall'urgenza o dalla richiesta del cliente: somministrazione o gestione dei farmaci, procedure mediche di qualsiasi tipo, diagnosi cliniche o valutazioni sanitarie, cura delle ferite o trattamenti post-operatori, sedute psicologiche o terapeutiche e assistenza domiciliare 24 ore su 24 — servizio fuori dal mio ambito professionale e non offerto. Qualsiasi situazione clinica che individui durante una sessione viene immediatamente segnalata alla famiglia e indirizzata al professionista sanitario appropriato. Non sono responsabile per esiti che richiedono intervento clinico oltre il mio ambito certificato. Inoltre non sono responsabile per danni causati da informazioni incomplete o errate fornite dal cliente in fase di valutazione.",
       },
       {
         label: "Art. 7",
@@ -254,7 +254,7 @@ export const contractCopy: Record<Locale, ContractCopy> = {
         label: "Art. 17",
         title: "Approvazione specifica delle clausole onerose",
         text:
-          "Il cliente approva espressamente e specificamente le seguenti clausole ai sensi degli artt. 1341–1342 c.c.: pagamento anticipato come condizione di attivazione (Art. 2) · politica di cancellazione — trattenuta integrale sotto i 7 giorni (Art. 4) · preavviso di recesso di 15 giorni (Art. 5) · clausola di risoluzione automatica (Art. 6) · esclusioni del perimetro OSS (Art. 10) · foro esclusivo — Tribunale di Lecco (Art. 14).",
+          "Il cliente approva espressamente e specificamente le seguenti clausole ai sensi degli artt. 1341–1342 c.c.: pagamento anticipato come condizione di attivazione (Art. 2) · politica di cancellazione — trattenuta integrale sotto i 7 giorni (Art. 4) · preavviso di recesso di 15 giorni (Art. 5) · clausola di risoluzione automatica (Art. 6) · esclusioni del perimetro OSS - OPERATORE SOCIO SANITARIO (Art. 10) · foro esclusivo — Tribunale di Lecco (Art. 14).",
       },
     ],
   },
@@ -344,7 +344,7 @@ export const contractCopy: Record<Locale, ContractCopy> = {
       professionalDetail: [
         "Independent OSS professional · VAT 01103920144",
         "Dervio (LC) · Lake Como · Lecco · Sondrio · Milan",
-        "hello@accanto.care · +39 379 230 6809",
+        "ghassenmansouri@mail.com · +39 379 230 6809",
       ],
       clientLabel: "The client / legal representative",
       clientField1: "[Client full name]",
@@ -546,7 +546,7 @@ export const contractCopy: Record<Locale, ContractCopy> = {
       professionalDetail: [
         "Professionnel OSS indépendant · TVA 01103920144",
         "Dervio (LC) · Lac de Côme · Lecco · Sondrio · Milan",
-        "hello@accanto.care · +39 379 230 6809",
+        "ghassenmansouri@mail.com · +39 379 230 6809",
       ],
       clientLabel: "Le client / représentant légal",
       clientField1: "[Nom complet du client]",
@@ -748,7 +748,7 @@ export const contractCopy: Record<Locale, ContractCopy> = {
       professionalDetail: [
         "مختص OSS مستقل · الرقم الضريبي 01103920144",
         "ديرفيو (LC) · بحيرة كومو · ليكو · سوندريو · ميلانو",
-        "hello@accanto.care · +39 379 230 6809",
+        "ghassenmansouri@mail.com · +39 379 230 6809",
       ],
       clientLabel: "العميل / الممثل القانوني",
       clientField1: "[الاسم الكامل للعميل]",

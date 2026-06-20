@@ -8,18 +8,70 @@ import type { Locale } from "@/lib/i18n/config";
 type Step = 1 | 2 | 3 | 4;
 type ErrorState = Record<string, string>;
 
-const countryCodes = [
-  { code: "+216", flagCode: "tn" },
-  { code: "+39", flagCode: "it" },
-  { code: "+33", flagCode: "fr" },
-  { code: "+44", flagCode: "gb" },
-  { code: "+1", flagCode: "us" },
-  { code: "+49", flagCode: "de" },
-  { code: "+34", flagCode: "es" },
-  { code: "+41", flagCode: "ch" },
-  { code: "+971", flagCode: "ae" },
-  { code: "+213", flagCode: "dz" },
-  { code: "+212", flagCode: "ma" },
+// Shared country data
+export const countryCodes = [
+  { code: "+39", flagCode: "it" }, // Italy
+  { code: "+216", flagCode: "tn" }, // Tunisia
+  { code: "+33", flagCode: "fr" }, // France
+  { code: "+44", flagCode: "gb" }, // United Kingdom
+  { code: "+1", flagCode: "us" }, // United States
+  { code: "+49", flagCode: "de" }, // Germany
+  { code: "+34", flagCode: "es" }, // Spain
+  { code: "+41", flagCode: "ch" }, // Switzerland
+  { code: "+971", flagCode: "ae" }, // United Arab Emirates
+  { code: "+213", flagCode: "dz" }, // Algeria
+  { code: "+212", flagCode: "ma" }, // Morocco
+  { code: "+1", flagCode: "ca" }, // Canada
+  { code: "+61", flagCode: "au" }, // Australia
+  { code: "+32", flagCode: "be" }, // Belgium
+  { code: "+31", flagCode: "nl" }, // Netherlands
+  { code: "+351", flagCode: "pt" }, // Portugal
+  { code: "+43", flagCode: "at" }, // Austria
+  { code: "+46", flagCode: "se" }, // Sweden
+  { code: "+47", flagCode: "no" }, // Norway
+  { code: "+45", flagCode: "dk" }, // Denmark
+  { code: "+358", flagCode: "fi" }, // Finland
+  { code: "+353", flagCode: "ie" }, // Ireland
+  { code: "+30", flagCode: "gr" }, // Greece
+  { code: "+90", flagCode: "tr" }, // Turkey
+  { code: "+20", flagCode: "eg" }, // Egypt
+  { code: "+966", flagCode: "sa" }, // Saudi Arabia
+  { code: "+974", flagCode: "qa" }, // Qatar
+  { code: "+965", flagCode: "kw" }, // Kuwait
+  { code: "+973", flagCode: "bh" }, // Bahrain
+  { code: "+968", flagCode: "om" }, // Oman
+  { code: "+962", flagCode: "jo" }, // Jordan
+  { code: "+961", flagCode: "lb" }, // Lebanon
+  { code: "+963", flagCode: "sy" }, // Syria
+  { code: "+970", flagCode: "ps" }, // Palestine
+  { code: "+964", flagCode: "iq" }, // Iraq
+  { code: "+98", flagCode: "ir" }, // Iran
+  { code: "+92", flagCode: "pk" }, // Pakistan
+  { code: "+91", flagCode: "in" }, // India
+  { code: "+880", flagCode: "bd" }, // Bangladesh
+  { code: "+94", flagCode: "lk" }, // Sri Lanka
+  { code: "+977", flagCode: "np" }, // Nepal
+  { code: "+86", flagCode: "cn" }, // China
+  { code: "+81", flagCode: "jp" }, // Japan
+  { code: "+82", flagCode: "kr" }, // South Korea
+  { code: "+63", flagCode: "ph" }, // Philippines
+  { code: "+62", flagCode: "id" }, // Indonesia
+  { code: "+60", flagCode: "my" }, // Malaysia
+  { code: "+65", flagCode: "sg" }, // Singapore
+  { code: "+66", flagCode: "th" }, // Thailand
+  { code: "+84", flagCode: "vn" }, // Vietnam
+  { code: "+55", flagCode: "br" }, // Brazil
+  { code: "+54", flagCode: "ar" }, // Argentina
+  { code: "+52", flagCode: "mx" }, // Mexico
+  { code: "+57", flagCode: "co" }, // Colombia
+  { code: "+56", flagCode: "cl" }, // Chile
+  { code: "+51", flagCode: "pe" }, // Peru
+  { code: "+27", flagCode: "za" }, // South Africa
+  { code: "+234", flagCode: "ng" }, // Nigeria
+  { code: "+254", flagCode: "ke" }, // Kenya
+  { code: "+251", flagCode: "et" }, // Ethiopia
+  { code: "+237", flagCode: "cm" }, // Cameroon
+  { code: "+221", flagCode: "sn" }, // Senegal
 ];
 
 type Props = {
@@ -38,7 +90,7 @@ export default function RequestPage({ lang }: Props) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [slot, setSlot] = useState<"Daytime" | "Night" | "">("");
   const [errors, setErrors] = useState<ErrorState>({});
-  const [selectedCountryCode, setSelectedCountryCode] = useState("+216");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("+39");
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
