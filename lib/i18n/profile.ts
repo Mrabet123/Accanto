@@ -109,7 +109,7 @@ const profileCopy: Record<Locale, ProfileCopy> = {
       role:
         "OSS - OPERATORE SOCIO SANITARIO certificato · Professionista di assistenza sanitaria indipendente · Lago di Como – Lecco / Valtellina / Milano",
       chips: [
-        "OSS - OPERATORE SOCIO SANITARIO · Professionista indipendente",
+        "OSS · Professionista indipendente",
         "5 lingue",
         "Oltre 8 anni in ambito sanitario",
         "Oltre 10 anni in hospitality",
