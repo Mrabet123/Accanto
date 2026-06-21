@@ -107,7 +107,7 @@ const profileCopy: Record<Locale, ProfileCopy> = {
       eyebrow: "Identità professionale",
       name: "Ghassen Mansouri",
       role:
-        "OSS - OPERATORE SOCIO SANITARIO certificato · Professionista di assistenza sanitaria indipendente · Lago di Como – Lecco / Valtellina / Milano",
+        "OSS · Professionista di assistenza sanitaria indipendente · Lago di Como – Lecco / Valtellina / Milano",
       chips: [
         "OSS · Professionista indipendente",
         "5 lingue",
