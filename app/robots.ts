@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://accanto-care.com/sitemap.xml",
+    sitemap: "https://www.accanto-care.com/sitemap.xml",
   };
 }
