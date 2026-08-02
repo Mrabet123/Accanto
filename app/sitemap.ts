@@ -2,19 +2,15 @@ import { MetadataRoute } from "next";
 
 const BASE_URL = "https://www.accanto-care.com";
 
+// Italian has no prefix
+const languages = ["", "/en", "/fr", "/ar"];
+
 const pages = [
   "",
-  "/profile",
-  "/services",
   "/contract",
+  "/profile",
   "/request",
-];
-
-const languages = [
-  "",      // Italian (default)
-  "/en",
-  "/fr",
-  "/ar",
+  "/services",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}${lang}${page}`,
       lastModified: new Date(),
       changeFrequency: page === "" ? "weekly" : "monthly",
-      priority: page === "" ? 1 : 0.8,
+      priority: page === "" ? 1.0 : 0.8,
     }))
   );
 }
