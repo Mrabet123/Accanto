@@ -51,13 +51,36 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  mainEntity: {
-    "@id": "https://www.accanto-care.com/#person",
-  },
   url: "https://www.accanto-care.com/profile",
   name: "Ghassen Mansouri — Professionista OSS indipendente",
   description:
     "Pagina profilo professionale di Ghassen Mansouri, professionista OSS indipendente certificato con base a Dervio, Lecco.",
+
+  mainEntity: {
+    "@type": "Person",
+    "@id": "https://www.accanto-care.com/#person",
+
+    name: "Ghassen Mansouri",
+
+    jobTitle: "Operatore Socio Sanitario (OSS)",
+
+    url: "https://www.accanto-care.com/profile",
+
+    image: "https://www.accanto-care.com/Images/ghassen.jpg",
+
+    worksFor: {
+      "@type": "Organization",
+      name: "Accanto",
+    },
+
+    knowsLanguage: [
+      "Italian",
+      "English",
+      "French",
+      "Arabic",
+      "German",
+    ],
+  },
 };
 
 export default function ProfilePage() {
