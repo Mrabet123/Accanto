@@ -17,9 +17,9 @@ export default function Page() {
               name: "Servizi — Accanto Home Care OSS",
               description:
                 "Servizi di assistenza domiciliare strutturati per anziani, persone con disabilità e minori con bisogni speciali.",
-              url: "https://accanto.care/services",
+              url: "https://www.accanto-care.com/services",
               mainEntity: {
-                "@id": "https://accanto.care/#business",
+                "@id": "https://www.accanto-care.com/#business",
               },
             },
             null,

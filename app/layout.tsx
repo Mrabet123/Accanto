@@ -20,7 +20,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://accanto.care"),
+  metadataBase: new URL("https://www.accanto-care.com"),
   title: {
     default: "Accanto — OSS Home Care · Como Lake · Lecco · Milan",
     template: "%s | Accanto",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://accanto.care/",
+    url: "https://www.accanto-care.com/",
     title: "Accanto — OSS Home Care · Como Lake · Lecco · Milan",
     description:
       "Certified OSS independent professional. Structured home care for elderly, disabled and children. 5 languages. Lake Como · Lecco · Milan.",

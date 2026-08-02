@@ -874,7 +874,7 @@ export function buildContractMetadata(locale: Locale): Metadata {
   const t = contractCopy[locale];
 
   return {
-    metadataBase: new URL("https://accanto.care"),
+    metadataBase: new URL("https://www.accanto-care.com"),
     title: t.meta.title,
     description: t.meta.description,
     keywords: t.meta.keywords,
@@ -889,7 +889,7 @@ export function buildContractMetadata(locale: Locale): Metadata {
     },
     openGraph: {
       type: "website",
-      url: `https://accanto.care${localizedPath(locale, "/contract")}`,
+      url: `https://www.accanto-care.com${localizedPath(locale, "/contract")}`,
       title: t.meta.ogTitle,
       description: t.meta.ogDescription,
       siteName: "Accanto",

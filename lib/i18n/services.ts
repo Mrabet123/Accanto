@@ -819,7 +819,7 @@ export function buildServicesMetadata(
   const canonicalPath = localizedPath(locale, pathname);
 
   return {
-    metadataBase: new URL("https://accanto.care"),
+    metadataBase: new URL("https://www.accanto-care.com"),
     title: copy.title,
     description: copy.description,
     keywords: copy.keywords,
@@ -835,12 +835,12 @@ export function buildServicesMetadata(
       type: "website",
       locale: ogLocaleByLocale[locale],
       siteName: "Accanto",
-      url: `https://accanto.care${canonicalPath}`,
+      url: `https://www.accanto-care.com${canonicalPath}`,
       title: copy.title,
       description: copy.description,
       images: [
         {
-          url: "https://accanto.care/Images/og-image.jpg",
+          url: "https://www.accanto-care.com/Images/og-image.jpg",
           width: 1200,
           height: 630,
           alt: copy.ogAlt,
@@ -851,7 +851,7 @@ export function buildServicesMetadata(
       card: "summary_large_image",
       title: copy.title,
       description: copy.description,
-      images: ["https://accanto.care/Images/og-image.jpg"],
+      images: ["https://www.accanto-care.com/Images/og-image.jpg"],
     },
     icons: {
       icon: "/Images/logo.png",

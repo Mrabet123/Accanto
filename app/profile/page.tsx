@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "profile",
-    url: "https://accanto.care/profile",
+    url: "https://www.accanto-care.com/profile",
     title: "Ghassen Mansouri — Professionista OSS certificato · Accanto",
     description:
       "8 anni in ambito socio-sanitario, 10 in hospitality. OSS certificato, BLSD, HACCP. Italiano, inglese, francese, arabo e tedesco. Basato a Lecco, Lago di Como.",
@@ -52,9 +52,9 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   mainEntity: {
-    "@id": "https://accanto.care/#person",
+    "@id": "https://www.accanto-care.com/#person",
   },
-  url: "https://accanto.care/profile",
+  url: "https://www.accanto-care.com/profile",
   name: "Ghassen Mansouri — Professionista OSS indipendente",
   description:
     "Pagina profilo professionale di Ghassen Mansouri, professionista OSS indipendente certificato con base a Dervio, Lecco.",

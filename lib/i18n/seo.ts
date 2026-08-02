@@ -42,7 +42,7 @@ export function buildHomepageMetadata(locale: Locale, pathname = "/"): Metadata 
   const copy = getHomepageCopy(locale).seo;
 
   return {
-    metadataBase: new URL("https://accanto.care"),
+    metadataBase: new URL("https://www.accanto-care.com"),
     title: copy.title,
     description: copy.description,
     alternates: {
@@ -55,7 +55,7 @@ export function buildHomepageMetadata(locale: Locale, pathname = "/"): Metadata 
       type: "website",
       locale: ogLocaleByLocale[locale],
       siteName: "Accanto",
-      url: `https://accanto.care${localizedPath(locale, pathname)}`,
+      url: `https://www.accanto-care.com${localizedPath(locale, pathname)}`,
       title: copy.title,
       description: copy.description,
       images: [
@@ -84,7 +84,7 @@ export function buildContractMetadata(
   const canonicalPath = localizedPath(locale, pathname);
 
   return {
-    metadataBase: new URL("https://accanto.care"),
+    metadataBase: new URL("https://www.accanto-care.com"),
     title: copy.title,
     description: copy.description,
     robots: "index, follow",
@@ -98,7 +98,7 @@ export function buildContractMetadata(
       type: "website",
       locale: ogLocaleByLocale[locale],
       siteName: "Accanto",
-      url: `https://accanto.care${canonicalPath}`,
+      url: `https://www.accanto-care.com${canonicalPath}`,
       title: copy.title,
       description: copy.description,
       images: [

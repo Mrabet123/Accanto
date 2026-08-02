@@ -720,7 +720,7 @@ export function buildProfileMetadata(locale: Locale, pathname = "/profile"): Met
   const canonicalPath = localizedPath(locale, pathname);
 
   return {
-    metadataBase: new URL("https://accanto.care"),
+    metadataBase: new URL("https://www.accanto-care.com"),
     title: copy.title,
     description: copy.description,
     keywords: copy.keywords,
@@ -737,7 +737,7 @@ export function buildProfileMetadata(locale: Locale, pathname = "/profile"): Met
     },
     openGraph: {
       type: "profile",
-      url: `https://accanto.care${canonicalPath}`,
+      url: `https://www.accanto-care.com${canonicalPath}`,
       title: copy.title,
       description: copy.description,
       siteName: "Accanto",

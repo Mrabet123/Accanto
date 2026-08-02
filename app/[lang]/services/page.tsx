@@ -43,7 +43,7 @@ export async function generateMetadata({
   const pathname = "/services";
 
   return {
-    metadataBase: new URL("https://accanto.care"),
+    metadataBase: new URL("https://www.accanto-care.com"),
     title: titles[locale],
     description: descriptions[locale],
     keywords: [
@@ -57,7 +57,7 @@ export async function generateMetadata({
     authors: [{ name: "Ghassen Mansouri" }],
     robots: "index, follow",
     alternates: {
-      canonical: `https://accanto.care${localizedPath(locale, pathname)}`,
+      canonical: `https://www.accanto-care.com${localizedPath(locale, pathname)}`,
       languages: Object.fromEntries(
         locales.map((l) => [hreflangByLocale[l], localizedPath(l, pathname)]),
       ),
@@ -66,12 +66,12 @@ export async function generateMetadata({
       type: "website",
       locale: ogLocaleByLocale[locale as Locale],
       siteName: "Accanto",
-      url: `https://accanto.care${localizedPath(locale, pathname)}`,
+      url: `https://www.accanto-care.com${localizedPath(locale, pathname)}`,
       title: titles[locale],
       description: descriptions[locale],
       images: [
         {
-          url: "https://accanto.care/Images/og-image.jpg",
+          url: "https://www.accanto-care.com/Images/og-image.jpg",
           width: 1200,
           height: 630,
           alt: "Accanto services preview",
@@ -82,7 +82,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: titles[locale],
       description: descriptions[locale],
-      images: ["https://accanto.care/Images/og-image.jpg"],
+      images: ["https://www.accanto-care.com/Images/og-image.jpg"],
     },
     icons: {
       icon: "/Images/logo.png",
@@ -115,9 +115,9 @@ export default async function Page({
               "@type": "WebPage",
               name: titles[lang as SupportedLang],
               description: descriptions[lang as SupportedLang],
-              url: `https://accanto.care${localizedPath(locale, "/services")}`,
+              url: `https://www.accanto-care.com${localizedPath(locale, "/services")}`,
               mainEntity: {
-                "@id": "https://accanto.care/#business",
+                "@id": "https://www.accanto-care.com/#business",
               },
             },
             null,

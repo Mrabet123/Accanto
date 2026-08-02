@@ -334,7 +334,7 @@ const requestCopy: Record<Locale, RequestCopy> = {
       urgentButton: "WhatsApp →",
     },
     terms: {
-      eyebrow: "Accanto · accanto.care",
+      eyebrow: "Accanto · www.accanto-care.com",
       title: "Termini di collaborazione",
       subtitle: "Leggi prima di spuntare la casella — è ciò che stai accettando.",
       intro: [
@@ -344,7 +344,7 @@ const requestCopy: Record<Locale, RequestCopy> = {
       ],
       footer: [
         "Ghassen Mansouri · Professionista OSS indipendente · P.IVA 01103920144",
-        "ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care",
+        "ghassenmansouri@mail.com · +39 379 230 6809 · www.accanto-care.com",
       ],
       closeLabel: "Chiudi i termini",
       readAll: "Ho letto tutto ✓",
@@ -611,7 +611,7 @@ const requestCopy: Record<Locale, RequestCopy> = {
       urgentButton: "WhatsApp →",
     },
     terms: {
-      eyebrow: "Accanto · accanto.care",
+      eyebrow: "Accanto · www.accanto-care.com",
       title: "Collaboration terms",
       subtitle: "Read before ticking the box — this is what you are agreeing to.",
       intro: [
@@ -621,7 +621,7 @@ const requestCopy: Record<Locale, RequestCopy> = {
       ],
       footer: [
         "Ghassen Mansouri · Independent OSS professional · VAT 01103920144",
-        "ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care",
+        "ghassenmansouri@mail.com · +39 379 230 6809 · www.accanto-care.com",
       ],
       closeLabel: "Close terms",
       readAll: "I have read everything ✓",
@@ -888,7 +888,7 @@ preferredLanguageOptions: [
       urgentButton: "WhatsApp →",
     },
     terms: {
-      eyebrow: "Accanto · accanto.care",
+      eyebrow: "Accanto · www.accanto-care.com",
       title: "Conditions de collaboration",
       subtitle: "Lisez avant de cocher la case — c’est ce que vous acceptez.",
       intro: [
@@ -898,7 +898,7 @@ preferredLanguageOptions: [
       ],
       footer: [
         "Ghassen Mansouri · Professionnel OSS indépendant · TVA 01103920144",
-        "ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care",
+        "ghassenmansouri@mail.com · +39 379 230 6809 · www.accanto-care.com",
       ],
       closeLabel: "Fermer les conditions",
       readAll: "J’ai tout lu ✓",
@@ -1162,7 +1162,7 @@ preferredLanguageOptions: [
       urgentButton: "واتساب →",
     },
     terms: {
-      eyebrow: "Accanto · accanto.care",
+      eyebrow: "Accanto · www.accanto-care.com",
       title: "شروط التعاون",
       subtitle: "اقرأ قبل تحديد المربع — هذا ما توافق عليه.",
       intro: [
@@ -1172,7 +1172,7 @@ preferredLanguageOptions: [
       ],
       footer: [
         "Ghassen Mansouri · محترف OSS مستقل · رقم ضريبي 01103920144",
-        "ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care",
+        "ghassenmansouri@mail.com · +39 379 230 6809 · www.accanto-care.com",
       ],
       closeLabel: "إغلاق الشروط",
       readAll: "لقد قرأت كل شيء ✓",
@@ -1309,7 +1309,7 @@ export function buildRequestMetadata(locale: Locale, pathname = "/request"): Met
   const canonicalPath = localizedPath(locale, pathname);
 
   return {
-    metadataBase: new URL("https://accanto.care"),
+    metadataBase: new URL("https://www.accanto-care.com"),
     title: copy.title,
     description: copy.description,
     keywords: copy.keywords,
@@ -1324,7 +1324,7 @@ export function buildRequestMetadata(locale: Locale, pathname = "/request"): Met
     },
     openGraph: {
       type: "website",
-      url: `https://accanto.care${canonicalPath}`,
+      url: `https://www.accanto-care.com${canonicalPath}`,
       title: copy.title,
       description: copy.description,
       siteName: "Accanto",

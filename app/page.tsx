@@ -11,7 +11,7 @@ const lang: Locale = "it";
 const copy = getHomepageCopy(lang);
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://accanto.care"),
+  metadataBase: new URL("https://www.accanto-care.com"),
   title: "Accanto — Assistenza domiciliare OSS a Lecco, Como e Milano",
   description:
     "Sono Ghassen Mansouri, OSS professionista indipendente. Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali nel Lago di Como, a Lecco, Sondrio e Milano.",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "it_IT",
     siteName: "Accanto",
-    url: "https://accanto.care/",
+    url: "https://www.accanto-care.com/",
     title: "Accanto — Assistenza domiciliare OSS a Lecco, Como e Milano",
     description:
       "OSS professionista indipendente. Assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali nel Lago di Como, a Lecco, Sondrio e Milano.",
@@ -49,12 +49,12 @@ const structuredData = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://accanto.care/#business",
+      "@id": "https://www.accanto-care.com/#business",
       name: "Accanto — Assistenza Domiciliare OSS",
       alternateName: "Accanto Home Care",
       description:
         "OSS professionista indipendente che offre assistenza domiciliare strutturata per anziani, persone con disabilità e minori con bisogni speciali.",
-      url: "https://accanto.care/",
+      url: "https://www.accanto-care.com/",
       telephone: "+393792306809",
       email: "ghassenmansouri@mail.com",
       vatID: "01103920144",
@@ -143,17 +143,17 @@ const structuredData = {
     },
     {
       "@type": "Person",
-      "@id": "https://accanto.care/#person",
+      "@id": "https://www.accanto-care.com/#person",
       name: "Ghassen Mansouri",
       jobTitle: "Operatore Socio-Sanitario — OSS professionista indipendente",
       description:
         "OSS certificato con 8 anni di esperienza in ambito socio-sanitario e oltre 10 anni in hospitality internazionale.",
-      url: "https://accanto.care/profile",
+      url: "https://www.accanto-care.com/profile",
       telephone: "+393792306809",
       email: "ghassenmansouri@mail.com",
-      image: "https://accanto.care/Images/ghassen.jpg",
+      image: "https://www.accanto-care.com/Images/ghassen.jpg",
       worksFor: {
-        "@id": "https://accanto.care/#business",
+        "@id": "https://www.accanto-care.com/#business",
       },
       knowsLanguage: ["it"],
       hasCredential: [

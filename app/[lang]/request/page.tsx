@@ -40,24 +40,24 @@ export async function generateMetadata({
     authors: [{ name: "Ghassen Mansouri" }],
     robots: "index, follow",
     alternates: {
-      canonical: `https://accanto.care/${locale}/request`,
+      canonical: `https://www.accanto-care.com/${locale}/request`,
       languages: {
-        it: "https://accanto.care/request",
-        fr: "https://accanto.care/fr/request",
-        en: "https://accanto.care/en/request",
-        ar: "https://accanto.care/ar/request",
+        it: "https://www.accanto-care.com/request",
+        fr: "https://www.accanto-care.com/fr/request",
+        en: "https://www.accanto-care.com/en/request",
+        ar: "https://www.accanto-care.com/ar/request",
       },
     },
     openGraph: {
       type: "website",
-      url: `https://accanto.care/${locale}/request`,
+      url: `https://www.accanto-care.com/${locale}/request`,
       title: titles[locale],
       description: descriptions[locale],
       siteName: "Accanto",
       locale: locale === "fr" ? "fr_FR" : locale === "ar" ? "ar_AR" : "en_US",
       images: [
         {
-          url: "https://accanto.care/Images/og-image.jpg",
+          url: "https://www.accanto-care.com/Images/og-image.jpg",
           width: 1200,
           height: 630,
         },
@@ -67,7 +67,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: titles[locale],
       description: descriptions[locale],
-      images: ["https://accanto.care/Images/og-image.jpg"],
+      images: ["https://www.accanto-care.com/Images/og-image.jpg"],
     },
     icons: {
       icon: "/Images/logo.png",

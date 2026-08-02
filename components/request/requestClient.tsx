@@ -1852,7 +1852,7 @@ export default function RequestPage({ lang }: Props) {
             <div className="terms-footer-note">
               <strong>Ghassen Mansouri</strong> · Professionista OSS indipendente · P.IVA 01103920144
               <br />
-              ghassenmansouri@mail.com · +39 379 230 6809 · accanto.care
+              ghassenmansouri@mail.com · +39 379 230 6809 · www.accanto-care.com
             </div>
             <button className="terms-btn-close" onClick={closeTermsModal}>
               {copy.terms.readAll}

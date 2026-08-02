@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://accanto.care/request",
+    url: "https://www.accanto-care.com/request",
     title: "Invia una richiesta — Accanto Home Care",
     description:
       "Invia la tua richiesta di assistenza domiciliare. Valuto personalmente ogni richiesta entro 48 ore. Non tutte le richieste vengono accettate.",
@@ -52,9 +52,9 @@ const structuredData = {
   name: "Richiesta — Accanto Home Care",
   description:
     "Invia una richiesta di assistenza domiciliare a Ghassen Mansouri, professionista OSS indipendente certificato.",
-  url: "https://accanto.care/request",
+  url: "https://www.accanto-care.com/request",
   mainEntity: {
-    "@id": "https://accanto.care/#business",
+    "@id": "https://www.accanto-care.com/#business",
   },
 };
 

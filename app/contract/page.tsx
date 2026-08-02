@@ -16,17 +16,17 @@ export const metadata: Metadata = {
   authors: [{ name: "Ghassen Mansouri" }],
   robots: "index, follow",
   alternates: {
-    canonical: "https://accanto.care/contract",
+    canonical: "https://www.accanto-care.com/contract",
     languages: {
-      it: "https://accanto.care/contract",
-      fr: "https://accanto.care/fr/contract",
-      en: "https://accanto.care/en/contract",
-      ar: "https://accanto.care/ar/contract",
+      it: "https://www.accanto-care.com/contract",
+      fr: "https://www.accanto-care.com/fr/contract",
+      en: "https://www.accanto-care.com/en/contract",
+      ar: "https://www.accanto-care.com/ar/contract",
     },
   },
   openGraph: {
     type: "website",
-    url: "https://accanto.care/contract",
+    url: "https://www.accanto-care.com/contract",
     title: "Termini di collaborazione e contratto — Accanto Home Care OSS",
     description:
       "Termini di collaborazione professionale — tariffe, politica di cancellazione, perimetro OSS, GDPR. Tutto è chiaro prima di iniziare.",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     locale: "it_IT",
     images: [
       {
-        url: "https://accanto.care/Images/og-image.jpg",
+        url: "https://www.accanto-care.com/Images/og-image.jpg",
         width: 1200,
         height: 630,
       },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Termini di collaborazione e contratto — Accanto Home Care OSS",
     description:
       "Termini di collaborazione professionale — tariffe, politica di cancellazione, perimetro OSS, GDPR.",
-    images: ["https://accanto.care/Images/og-image.jpg"],
+    images: ["https://www.accanto-care.com/Images/og-image.jpg"],
   },
   icons: {
     icon: "/Images/logo.png",
@@ -66,9 +66,9 @@ export default function Page() {
               name: "Termini di collaborazione e contratto — Accanto Home Care",
               description:
                 "Termini di collaborazione professionale per i servizi di assistenza domiciliare Accanto — pagamento, politica di cancellazione, perimetro OSS, GDPR.",
-              url: "https://accanto.care/contract",
+              url: "https://www.accanto-care.com/contract",
               mainEntity: {
-                "@id": "https://accanto.care/#business",
+                "@id": "https://www.accanto-care.com/#business",
               },
             },
             null,
