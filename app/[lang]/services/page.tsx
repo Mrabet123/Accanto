@@ -58,9 +58,15 @@ export async function generateMetadata({
     robots: "index, follow",
     alternates: {
       canonical: `https://www.accanto-care.com${localizedPath(locale, pathname)}`,
-      languages: Object.fromEntries(
-        locales.map((l) => [hreflangByLocale[l], localizedPath(l, pathname)]),
-      ),
+      languages: {
+  "x-default": "https://www.accanto-care.com/services",
+  ...Object.fromEntries(
+    locales.map((l) => [
+      hreflangByLocale[l],
+      `https://www.accanto-care.com${localizedPath(l, pathname)}`,
+    ]),
+  ),
+},
     },
     openGraph: {
       type: "website",

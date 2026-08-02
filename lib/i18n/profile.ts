@@ -715,48 +715,78 @@ export function getProfileCopy(locale: Locale) {
   return profileCopy[locale];
 }
 
-export function buildProfileMetadata(locale: Locale, pathname = "/profile"): Metadata {
+export function buildProfileMetadata(
+  locale: Locale,
+  pathname = "/profile",
+): Metadata {
   const copy = profileCopy[locale].seo;
   const canonicalPath = localizedPath(locale, pathname);
 
   return {
     metadataBase: new URL("https://www.accanto-care.com"),
+
     title: copy.title,
+
     description: copy.description,
+
     keywords: copy.keywords,
+
     authors: [{ name: "Ghassen Mansouri" }],
+
     robots: {
       index: true,
       follow: true,
     },
+
     alternates: {
-      canonical: canonicalPath,
-      languages: Object.fromEntries(
-        locales.map((l) => [hreflangByLocale[l], localizedPath(l, pathname)]),
-      ),
+      canonical: `https://www.accanto-care.com${canonicalPath}`,
+      languages: {
+        "x-default": "https://www.accanto-care.com/profile",
+
+        ...Object.fromEntries(
+          locales.map((l) => [
+            hreflangByLocale[l],
+            `https://www.accanto-care.com${localizedPath(l, pathname)}`,
+          ]),
+        ),
+      },
     },
+
     openGraph: {
       type: "profile",
+
       url: `https://www.accanto-care.com${canonicalPath}`,
+
       title: copy.title,
+
       description: copy.description,
+
       siteName: "Accanto",
+
       locale: ogLocaleByLocale[locale],
+
       images: [
         {
-          url: "/Images/ghassen.jpg",
+          url: "https://www.accanto-care.com/Images/ghassen.jpg",
           width: 800,
           height: 800,
           alt: copy.ogAlt,
         },
       ],
     },
+
     twitter: {
       card: "summary_large_image",
+
       title: copy.title,
+
       description: copy.description,
-      images: ["/Images/ghassen.jpg"],
+
+      images: [
+        "https://www.accanto-care.com/Images/ghassen.jpg",
+      ],
     },
+
     icons: {
       icon: "/Images/logo.png",
       apple: "/Images/apple-touch-icon.png",

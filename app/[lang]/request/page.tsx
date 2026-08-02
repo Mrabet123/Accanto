@@ -42,6 +42,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `https://www.accanto-care.com/${locale}/request`,
       languages: {
+        "x-default": "https://www.accanto-care.com/request",
         it: "https://www.accanto-care.com/request",
         fr: "https://www.accanto-care.com/fr/request",
         en: "https://www.accanto-care.com/en/request",
